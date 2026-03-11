@@ -1,0 +1,21 @@
+{
+  "content_mix": [
+    "educational",
+    "how-to",
+    "news analysis",
+    "top 10",
+    "explainer",
+    "documentary"
+  ],
+  "recent_topics": [],
+  "avoid_topics": [],
+  "best_posting_hours": [9, 12, 15, 17, 20, 22],
+  "target_niches": [
+    "technology",
+    "science",
+    "history",
+    "business",
+    "health & wellness"
+  ],
+  "last_optimized": null
+}

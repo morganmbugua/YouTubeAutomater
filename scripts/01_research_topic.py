@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""
+Step 1: Research Trending Topics
+Finds a great topic for this video slot using YouTube trending data + Gemini.
+Uses Google Gemini 1.5 Flash — FREE tier (1,500 requests/day, no billing needed).
+Outputs: topic_data JSON written to GITHUB_OUTPUT and saved to disk.
+"""
+
+import os, json, urllib.request, urllib.parse
+from pathlib import Path
+
+SLOT            = os.environ.get("VIDEO_SLOT", "1")
+OUTPUT_DIR      = Path(f"output/slot_{SLOT}")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+GEMINI_API_KEY  = os.environ["GEMINI_API_KEY"]
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
+FORCE_TOPIC     = os.environ.get("FORCE_TOPIC", "").strip()
+STRATEGY_FILE   = Path("scripts/strategy.json")
+
+GEMINI_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/"
+    "gemini-1.5-flash:generateContent?key=" + GEMINI_API_KEY
+)
+
+# ── Gemini helper ─────────────────────────────────────────────────────────────
+
+def gemini(prompt: str, max_tokens: int = 1024) -> str:
+    payload = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.7}
+    }).encode()
+    req = urllib.request.Request(
+        GEMINI_URL,
+        data=payload,
+        headers={"Content-Type": "application/json"}
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        data = json.loads(r.read())
+    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+
+# ── Load strategy ─────────────────────────────────────────────────────────────
+
+def load_strategy() -> dict:
+    if STRATEGY_FILE.exists():
+        try:
+            return json.loads(STRATEGY_FILE.read_text())
+        except Exception:
+            pass
+    return {
+        "content_mix": ["educational", "how-to", "news analysis", "top 10", "explainer", "documentary"],
+        "recent_topics": [],
+        "avoid_topics": [],
+        "best_posting_hours": [9, 12, 15, 17, 20, 22],
+        "target_niches": ["technology", "science", "history", "business", "health & wellness"]
+    }
+
+# ── Fetch YouTube trending ────────────────────────────────────────────────────
+
+def fetch_youtube_trending() -> list[str]:
+    if not YOUTUBE_API_KEY:
+        return []
+    try:
+        params = urllib.parse.urlencode({
+            "part": "snippet", "chart": "mostPopular",
+            "regionCode": "US", "maxResults": "20", "key": YOUTUBE_API_KEY
+        })
+        with urllib.request.urlopen(
+            f"https://www.googleapis.com/youtube/v3/videos?{params}", timeout=15
+        ) as r:
+            data = json.loads(r.read())
+        titles = [item["snippet"]["title"] for item in data.get("items", [])]
+        print(f"   Fetched {len(titles)} trending titles")
+        return titles
+    except Exception as e:
+        print(f"   ⚠️ Trending fetch failed: {e}")
+        return []
+
+# ── Pick topic with Gemini ────────────────────────────────────────────────────
+
+def pick_topic(strategy: dict, trending: list[str]) -> dict:
+    slot_int     = int(SLOT)
+    content_types = strategy.get("content_mix", ["educational", "how-to", "top 10"])
+    content_type  = content_types[(slot_int - 1) % len(content_types)]
+    avoid         = strategy.get("avoid_topics", [])
+    recent        = strategy.get("recent_topics", [])[-10:]
+
+    if FORCE_TOPIC:
+        topic_instruction = f"The topic is: {FORCE_TOPIC}"
+    else:
+        topic_instruction = (
+            f"Choose the single best topic for a '{content_type}' YouTube video. "
+            f"Recent topics to avoid repeating: {recent}. "
+            f"Topics to avoid entirely: {avoid}. "
+            f"YouTube trending titles for context: {trending[:10]}. "
+            "Pick a topic with strong search volume, clear audience appeal, and visual storytelling potential."
+        )
+
+    prompt = f"""{topic_instruction}
+
+Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
+{{
+  "topic": "exact video topic title",
+  "search_query": "3-5 word search query for finding images about this topic",
+  "image_queries": ["query1", "query2", "query3", "query4", "query5"],
+  "content_type": "{content_type}",
+  "target_audience": "description of who would watch this",
+  "why_trending": "one sentence on why this topic works right now",
+  "seo_keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
+}}
+
+image_queries must be specific, visual, safe-for-work search terms that would return
+high-quality stock photos on Pexels. Each query should cover a different visual aspect of the topic.
+"""
+    raw = gemini(prompt, max_tokens=600)
+    # Strip markdown fences if Gemini adds them despite instructions
+    if "```" in raw:
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
+    return json.loads(raw.strip())
+
+# ── Update strategy ───────────────────────────────────────────────────────────
+
+def update_strategy(strategy: dict, topic_data: dict):
+    recent = strategy.get("recent_topics", [])
+    recent.append(topic_data["topic"])
+    strategy["recent_topics"] = recent[-30:]
+    STRATEGY_FILE.write_text(json.dumps(strategy, indent=2))
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main():
+    print(f"🔍 Researching topic for slot {SLOT}…")
+    strategy   = load_strategy()
+    trending   = fetch_youtube_trending()
+    topic_data = pick_topic(strategy, trending)
+
+    print(f"   Topic: {topic_data['topic']}")
+    print(f"   Type:  {topic_data['content_type']}")
+
+    topic_path = OUTPUT_DIR / "topic.json"
+    topic_path.write_text(json.dumps(topic_data, indent=2))
+    update_strategy(strategy, topic_data)
+
+    topic_json = json.dumps(topic_data)
+    gho = os.environ.get("GITHUB_OUTPUT", "/dev/null")
+    with open(gho, "a") as f:
+        f.write(f"topic_data={topic_json}\n")
+        f.write(f"topic_path={topic_path}\n")
+
+    print(f"✅ Topic saved: {topic_path}")
+
+if __name__ == "__main__":
+    main()

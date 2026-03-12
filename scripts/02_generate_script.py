@@ -61,9 +61,12 @@ Content type: {content_type}
 Target audience: {audience}
 SEO keywords to include naturally: {", ".join(keywords)}
 
-The script should be 700-900 words of spoken narration — about 5-6 minutes of video.
+CRITICAL REQUIREMENT: The "narration" field MUST be at least 700 words. Count carefully.
+Write a FULL, DETAILED script — 700 to 900 words of spoken narration (about 5-6 minutes of video).
+Do NOT write a summary or outline. Write every single word the presenter will say.
 Write in a conversational, engaging style. No bullet points — flowing spoken sentences only.
-Structure: Hook (20s) → Introduction → 4-5 main sections → Conclusion + CTA.
+Structure: Hook (20s) → Introduction (60s) → 4 main sections (60-90s each) → Conclusion + CTA (30s).
+Each section must be several full paragraphs. Be thorough and detailed.
 
 Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
 {{
@@ -79,18 +82,30 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
   "cta": "Last sentence — call to action"
 }}"""
 
-    raw = groq_call(prompt, max_tokens=2048)
+    raw = groq_call(prompt, max_tokens=4096)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):
             raw = raw[4:]
-    return json.loads(raw.strip())
+    result = json.loads(raw.strip())
+    word_count = len(result.get("narration", "").split())
+    if word_count < 300:
+        raise ValueError(f"Narration too short: {word_count} words. AI did not follow instructions.")
+    return result
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
     print(f"✍️ Generating script for slot {SLOT}: {topic_data['topic']}")
-    script_data = generate_script(topic_data)
+    for attempt in range(3):
+        try:
+            script_data = generate_script(topic_data)
+            break
+        except (ValueError, Exception) as e:
+            print(f"   ⚠️ Attempt {attempt+1} failed: {e}")
+            if attempt == 2:
+                raise
+            time.sleep(5)
 
     script_path = OUTPUT_DIR / "script.json"
     script_path.write_text(json.dumps(script_data, indent=2))

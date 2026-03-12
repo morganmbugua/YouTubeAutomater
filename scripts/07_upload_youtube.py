@@ -108,7 +108,7 @@ def get_publish_time() -> str:
 
 # ── Upload video (resumable) ──────────────────────────────────────────────────
 
-def upload_video(access_token: str, publish_time: str) -> str:
+def upload_video(access_token: str, publish_time=None) -> str:
     import urllib.request
     video_path = Path(final_video)
     if not video_path.exists():
@@ -125,18 +125,17 @@ def upload_video(access_token: str, publish_time: str) -> str:
     desc  = desc[:4900]
 
     print(f"   Title: {title}")
-    print(f"   Tags: {len(tags)} tags, publish: {publish_time}")
+    print(f"   Tags: {len(tags)} tags")
 
     metadata = {
         "snippet": {
             "title":       title,
             "description": desc,
             "tags":        tags,
-            "categoryId":  "27"  # Education — better for dark history/documentary content
+            "categoryId":  "27"
         },
         "status": {
-            "privacyStatus":           "scheduled",
-            "publishAt":               publish_time,
+            "privacyStatus":           "public",
             "selfDeclaredMadeForKids": False
         }
     }
@@ -238,7 +237,7 @@ def upload_thumbnail(access_token: str, video_id: str):
 
 # ── Upload Shorts ─────────────────────────────────────────────────────────────
 
-def upload_shorts(access_token: str, publish_time: str) -> str | None:
+def upload_shorts(access_token: str, publish_time=None) -> str | None:
     import urllib.request
     shorts_path = OUTPUT_DIR / "shorts.mp4"
     if not shorts_path.exists():
@@ -261,8 +260,7 @@ def upload_shorts(access_token: str, publish_time: str) -> str | None:
             "categoryId":  "27"
         },
         "status": {
-            "privacyStatus":           "scheduled",
-            "publishAt":               shorts_publish,
+            "privacyStatus":           "public",
             "selfDeclaredMadeForKids": False
         }
     }
@@ -333,27 +331,22 @@ def main():
     print(f"📤 Uploading to YouTube (slot {SLOT})…")
 
     access_token = get_access_token()
-    publish_time = get_publish_time()
-    print(f"   Scheduled publish: {publish_time}")
 
-    video_id = upload_video(access_token, publish_time)
+    video_id = upload_video(access_token, None)
     upload_thumbnail(access_token, video_id)
 
-    # Upload Shorts version
     print(f"   Uploading Shorts version…")
     shorts_id = None
     try:
-        shorts_id = upload_shorts(access_token, publish_time)
+        shorts_id = upload_shorts(access_token, None)
     except Exception as e:
         print(f"   ⚠️ Shorts upload failed: {e}")
 
-    # Save result
     result = {
-        "video_id":    video_id,
-        "shorts_id":   shorts_id,
-        "publish_time": publish_time,
-        "url":         f"https://youtu.be/{video_id}",
-        "shorts_url":  f"https://youtu.be/{shorts_id}" if shorts_id else None
+        "video_id":   video_id,
+        "shorts_id":  shorts_id,
+        "url":        f"https://youtu.be/{video_id}",
+        "shorts_url": f"https://youtu.be/{shorts_id}" if shorts_id else None
     }
     (OUTPUT_DIR / "upload_result.json").write_text(json.dumps(result, indent=2))
 

@@ -6,7 +6,7 @@ Uses Google Gemini 1.5 Flash — FREE tier (1,500 requests/day, no billing neede
 Outputs: topic_data JSON written to GITHUB_OUTPUT and saved to disk.
 """
 
-import os, json, urllib.request, urllib.parse
+import os, json, time, urllib.request, urllib.parse, urllib.error
 from pathlib import Path
 
 SLOT            = os.environ.get("VIDEO_SLOT", "1")
@@ -35,9 +35,24 @@ def gemini(prompt: str, max_tokens: int = 1024) -> str:
         data=payload,
         headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        data = json.loads(r.read())
-    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = json.loads(r.read())
+            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                wait = 15 * (attempt + 1)
+                print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
+                time.sleep(wait)
+            else:
+                raise
+        except Exception as e:
+            if attempt < 4:
+                time.sleep(10)
+            else:
+                raise
+    raise RuntimeError("Gemini API failed after 5 attempts")
 
 # ── Load strategy ─────────────────────────────────────────────────────────────
 
@@ -132,6 +147,11 @@ def update_strategy(strategy: dict, topic_data: dict):
 
 def main():
     print(f"🔍 Researching topic for slot {SLOT}…")
+    # Stagger slots to avoid simultaneous Gemini requests
+    stagger = (int(SLOT) - 1) * 8
+    if stagger > 0:
+        print(f"   Staggering {stagger}s to avoid rate limits…")
+        time.sleep(stagger)
     strategy   = load_strategy()
     trending   = fetch_youtube_trending()
     topic_data = pick_topic(strategy, trending)

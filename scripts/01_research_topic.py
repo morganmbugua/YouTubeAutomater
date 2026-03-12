@@ -27,7 +27,7 @@ def groq_call(prompt: str, max_tokens: int = 1024) -> str:
     for attempt in range(5):
         try:
             response = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="llama-3.3-70b-versatile",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=0.7
@@ -83,37 +83,98 @@ def fetch_youtube_trending() -> list:
 
 # ── Pick topic ────────────────────────────────────────────────────────────────
 
+# ── Niche definition ──────────────────────────────────────────────────────────
+# These are the highest-performing faceless YouTube niches.
+# Focused niche = algorithm recommends to the right audience = faster growth.
+
+NICHES = [
+    {
+        "name": "dark history",
+        "description": "Shocking, disturbing or little-known historical events. Wars, atrocities, conspiracies, fallen empires.",
+        "content_types": ["untold story", "the dark truth about", "what they don't teach you", "the real story of"],
+        "image_style": "historical war battle ruins soldiers"
+    },
+    {
+        "name": "true crime & conspiracies",
+        "description": "Famous crimes, unsolved mysteries, government cover-ups, conspiracy theories with evidence.",
+        "content_types": ["the mystery of", "what really happened to", "the cover-up of", "conspiracy exposed"],
+        "image_style": "crime investigation mystery dark"
+    },
+    {
+        "name": "dark psychology",
+        "description": "Manipulation tactics, cult psychology, how propaganda works, psychological warfare, narcissism.",
+        "content_types": ["how manipulators think", "psychological tricks", "the psychology of", "how cults work"],
+        "image_style": "psychology mind brain manipulation"
+    },
+    {
+        "name": "shocking science & nature",
+        "description": "Extreme natural phenomena, bizarre animal behavior, space horrors, extinction events.",
+        "content_types": ["the most extreme", "scientists discovered", "what lives in", "this shouldn't exist"],
+        "image_style": "nature science space extreme"
+    },
+    {
+        "name": "rise and fall stories",
+        "description": "How empires, companies, celebrities or movements rose to power then collapsed spectacularly.",
+        "content_types": ["the rise and fall of", "how they destroyed", "the collapse of", "why they failed"],
+        "image_style": "empire collapse ruins powerful"
+    },
+    {
+        "name": "survival & disaster",
+        "description": "Real survival stories, natural disasters, plane crashes, war survival, extreme human endurance.",
+        "content_types": ["how they survived", "the disaster that", "stuck for", "against all odds"],
+        "image_style": "disaster survival extreme conditions"
+    },
+]
+
+
 def pick_topic(strategy: dict, trending: list) -> dict:
-    slot_int      = int(SLOT)
-    content_types = strategy.get("content_mix", ["educational", "how-to", "top 10"])
-    content_type  = content_types[(slot_int - 1) % len(content_types)]
-    avoid         = strategy.get("avoid_topics", [])
-    recent        = strategy.get("recent_topics", [])[-10:]
+    import random
+    slot_int = int(SLOT)
+    avoid    = strategy.get("avoid_topics", [])
+    recent   = strategy.get("recent_topics", [])[-15:]
+
+    # Rotate through niches by slot so we don't repeat the same niche daily
+    niche = NICHES[(slot_int - 1) % len(NICHES)]
 
     if FORCE_TOPIC:
-        topic_instruction = f"The topic is: {FORCE_TOPIC}"
+        topic_instruction = f"The specific topic is: {FORCE_TOPIC}"
+        niche_context = ""
     else:
-        topic_instruction = (
-            f"Choose the single best topic for a '{content_type}' YouTube video. "
-            f"Recent topics to avoid repeating: {recent}. "
-            f"Topics to avoid entirely: {avoid}. "
-            f"YouTube trending titles for context: {trending[:10]}."
-        )
+        topic_instruction = f"Choose ONE specific, compelling topic in the '{niche['name']}' niche."
+        niche_context = f"""
+Niche description: {niche['description']}
+Good content angles for this niche: {', '.join(niche['content_types'])}
+Topics to avoid (already covered): {recent}
+Topics to avoid entirely: {avoid}
+Trending YouTube titles for inspiration (don't copy, use as pulse check): {trending[:8]}
+
+REQUIREMENTS for a good topic:
+- Specific, not vague. "The Jonestown Massacre" not "a cult story"
+- Creates curiosity or shock. The viewer must NEED to know what happens.
+- Has a clear narrative arc — beginning, escalation, shocking conclusion
+- Real events preferred over hypotheticals
+- Avoid overly political or divisive current events"""
 
     prompt = f"""{topic_instruction}
+{niche_context}
 
-Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
+You are picking topics for a faceless YouTube channel that gets millions of views.
+Think: what would make someone stop scrolling and click?
+
+Respond ONLY with a JSON object. No explanation, no markdown, no code fences:
 {{
-  "topic": "exact video topic title",
-  "search_query": "3-5 word search query for finding images",
-  "image_queries": ["query1", "query2", "query3", "query4", "query5"],
-  "content_type": "{content_type}",
-  "target_audience": "who would watch this",
-  "why_trending": "one sentence on why this topic works now",
+  "topic": "specific compelling topic title",
+  "hook": "one sentence that would make someone STOP scrolling — the most shocking or intriguing fact about this topic",
+  "search_query": "3-4 word image search query",
+  "image_queries": ["{niche['image_style']} 1", "{niche['image_style']} 2", "topic specific image 1", "topic specific image 2", "topic specific image 3"],
+  "content_type": "{niche['name']}",
+  "niche": "{niche['name']}",
+  "target_audience": "who watches this type of content",
+  "why_viral": "one sentence on why this topic will get clicks",
   "seo_keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
 }}"""
 
-    raw = groq_call(prompt, max_tokens=600)
+    raw = groq_call(prompt, max_tokens=700)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):
@@ -121,6 +182,7 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
     raw = raw.strip()
     raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
     return json.loads(raw)
+
 
 # ── Update strategy ───────────────────────────────────────────────────────────
 

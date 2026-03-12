@@ -2,7 +2,7 @@ name: 🎬 YT Autopilot — Generate & Upload Videos
 
 on:
   schedule:
-    - cron: '0 */4 * * *'   # Every 4 hours — 6 times per day
+    - cron: '0 */4 * * *'   # Every 4 hours
   workflow_dispatch:
     inputs:
       force_topic:
@@ -12,48 +12,21 @@ on:
       num_videos:
         description: 'Number of videos to generate (1-6)'
         required: false
-        default: '6'
+        default: '1'
 
-# Required for the consolidate job to push commits back to the repo
 permissions:
   contents: write
 
 jobs:
-
-  # ── Job 1: Build the slot matrix dynamically ─────────────────────────────────
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      slots: ${{ steps.set-slots.outputs.slots }}
-    steps:
-      - id: set-slots
-        run: |
-          N="${{ github.event.inputs.num_videos }}"
-          N="${N:-6}"
-          case "$N" in
-            1) echo 'slots=[1]'           >> $GITHUB_OUTPUT ;;
-            2) echo 'slots=[1,2]'         >> $GITHUB_OUTPUT ;;
-            3) echo 'slots=[1,2,3]'       >> $GITHUB_OUTPUT ;;
-            4) echo 'slots=[1,2,3,4]'     >> $GITHUB_OUTPUT ;;
-            5) echo 'slots=[1,2,3,4,5]'   >> $GITHUB_OUTPUT ;;
-            *) echo 'slots=[1,2,3,4,5,6]' >> $GITHUB_OUTPUT ;;
-          esac
-
-  # ── Job 2: Generate + upload one video per slot ───────────────────────────────
   generate-and-upload:
-    needs: setup
     runs-on: ubuntu-latest
-    timeout-minutes: 60   # Each slot: ~45 min max (no HeyGen delays)
-
-    strategy:
-      matrix:
-        video_slot: ${{ fromJson(needs.setup.outputs.slots) }}
-      max-parallel: 3      # 3 slots at a time is safe within GitHub's limits
-      fail-fast: false     # A failing slot must NOT cancel the others
+    timeout-minutes: 120
 
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 🐍 Set up Python 3.11
         uses: actions/setup-python@v5
@@ -69,142 +42,33 @@ jobs:
       - name: 📦 Install Python dependencies
         run: pip install -r scripts/requirements.txt
 
-      - name: 🔍 Research trending topic
-        id: research
+      - name: 🎬 Run all video slots sequentially
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          YOUTUBE_API_KEY:   ${{ secrets.YOUTUBE_API_KEY }}
-          FORCE_TOPIC:       ${{ github.event.inputs.force_topic }}
-          VIDEO_SLOT:        ${{ matrix.video_slot }}
-        run: python scripts/01_research_topic.py
-
-      - name: ✍️ Generate script
-        id: script
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          TOPIC_DATA:        ${{ steps.research.outputs.topic_data }}
-          VIDEO_SLOT:        ${{ matrix.video_slot }}
-        run: python scripts/02_generate_script.py
-
-      - name: 🎙️ Generate voiceover
-        id: voice
-        env:
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          SCRIPT_PATH:        ${{ steps.script.outputs.script_path }}
-          VIDEO_SLOT:         ${{ matrix.video_slot }}
-        run: python scripts/03_generate_voice.py
-
-      - name: 🖼️ Fetch topic images
-        id: images
-        env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          TOPIC_DATA:     ${{ steps.research.outputs.topic_data }}
-          VIDEO_SLOT:     ${{ matrix.video_slot }}
-        run: python scripts/04_fetch_images.py
-
-      - name: 🎬 Assemble video
-        id: assemble
-        env:
-          SCRIPT_PATH: ${{ steps.script.outputs.script_path }}
-          VOICE_PATH:  ${{ steps.voice.outputs.voice_path }}
-          SRT_PATH:    ${{ steps.voice.outputs.srt_path }}
-          VIDEO_SLOT:  ${{ matrix.video_slot }}
-        run: python scripts/05_assemble_video.py
-
-      - name: 🖼️ Generate thumbnail
-        id: thumbnail
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          TOPIC_DATA:     ${{ steps.research.outputs.topic_data }}
-          SCRIPT_PATH:    ${{ steps.script.outputs.script_path }}
-          VIDEO_SLOT:     ${{ matrix.video_slot }}
-        run: python scripts/06_generate_thumbnail.py
-
-      - name: 📤 Upload to YouTube
-        id: upload
-        env:
+          GEMINI_API_KEY:        ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
           YOUTUBE_CLIENT_ID:     ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          FINAL_VIDEO:   ${{ steps.assemble.outputs.final_video }}
-          THUMBNAIL:     ${{ steps.thumbnail.outputs.thumbnail_path }}
-          TOPIC_DATA:    ${{ steps.research.outputs.topic_data }}
-          SCRIPT_PATH:   ${{ steps.script.outputs.script_path }}
-          VIDEO_SLOT:    ${{ matrix.video_slot }}
-        run: python scripts/07_upload_youtube.py
-
-      - name: 📱 Cross-post to Instagram + TikTok
-        id: crosspost
-        env:
+          PEXELS_API_KEY:        ${{ secrets.PEXELS_API_KEY }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
-          INSTAGRAM_ACCOUNT_ID:   ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
-          TIKTOK_ACCESS_TOKEN:    ${{ secrets.TIKTOK_ACCESS_TOKEN }}
-          GITHUB_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
-          SHORTS_VIDEO:     ${{ steps.assemble.outputs.shorts_path }}
-          TOPIC_DATA:       ${{ steps.research.outputs.topic_data }}
-          YOUTUBE_VIDEO_ID: ${{ steps.upload.outputs.youtube_video_id }}
-          VIDEO_SLOT:       ${{ matrix.video_slot }}
-        run: python scripts/08_crosspost.py
+          INSTAGRAM_ACCOUNT_ID:  ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+          TIKTOK_ACCESS_TOKEN:   ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+          FORCE_TOPIC:           ${{ github.event.inputs.force_topic }}
+          NUM_VIDEOS:            ${{ github.event.inputs.num_videos }}
+        run: python scripts/run_all_slots.py
 
-      - name: 📊 Write run log entry
-        if: always()
-        env:
-          VIDEO_SLOT:       ${{ matrix.video_slot }}
-          YOUTUBE_VIDEO_ID: ${{ steps.upload.outputs.youtube_video_id }}
-          TOPIC_DATA:       ${{ steps.research.outputs.topic_data }}
-          STATUS:           ${{ job.status }}
-        run: python scripts/09_log_results.py
-
-      # Upload slot output as artifact — the consolidate job will commit it
-      - name: 📦 Upload slot data as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: slot-data-${{ matrix.video_slot }}
-          path: |
-            output/slot_${{ matrix.video_slot }}/
-            dashboard/data/
-            scripts/strategy.json
-          retention-days: 7
-          if-no-files-found: warn
-
-  # ── Job 3: Single atomic git commit after ALL slots finish ────────────────────
-  # Runs even if some slots failed. Downloads all artifacts and does ONE push.
-  # This eliminates the concurrent git push race condition entirely.
-  consolidate:
-    needs: generate-and-upload
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
-      - name: ⬇️ Checkout repo (full history for reliable rebase)
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: 📥 Download all slot artifacts
-        uses: actions/download-artifact@v4
-        with:
-          pattern: slot-data-*
-          merge-multiple: true
-
-      - name: 💾 Commit dashboard data + strategy (single push)
+      - name: 💾 Commit dashboard data + strategy
         run: |
           git config user.name  "YT Autopilot Bot"
           git config user.email "bot@yt-autopilot.local"
-
-          # Stash any unstaged changes before pulling to avoid rebase conflict
           git stash || true
           git pull --rebase origin main
           git stash pop || true
-
           git add dashboard/data/ scripts/strategy.json || true
-
           if git diff --staged --quiet; then
-            echo "Nothing to commit — dashboard data unchanged."
+            echo "Nothing to commit."
           else
             git commit -m "🤖 Autopilot run $(date +'%Y-%m-%d %H:%M UTC')"
-            # Retry up to 3 times in case of transient conflict
             for attempt in 1 2 3; do
               git push && break || {
                 echo "Push attempt $attempt failed — rebasing…"

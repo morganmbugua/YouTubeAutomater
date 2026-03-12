@@ -14,7 +14,7 @@ VIDEO_ID = os.environ.get("YOUTUBE_VIDEO_ID", "")
 
 OUTPUT_DIR = Path(f"output/slot_{SLOT}")
 
-DASH_DATA  = Path("dashboard/data")
+DASH_DATA  = Path("docs/data")
 DASH_DATA.mkdir(parents=True, exist_ok=True)
 
 LOG_FILE   = DASH_DATA / "run_log.json"
@@ -100,6 +100,13 @@ def main():
 
     LOG_FILE.write_text(json.dumps(log, indent=2))
     update_stats(log)
+
+    # Copy strategy.json into docs/data/ so GitHub Pages can serve it
+    import shutil
+    strategy_src = Path("scripts/strategy.json")
+    strategy_dst = DASH_DATA / "strategy.json"
+    if strategy_src.exists():
+        shutil.copy(str(strategy_src), str(strategy_dst))
 
     print(f"✅ Dashboard data updated ({len(log)} entries total)")
 

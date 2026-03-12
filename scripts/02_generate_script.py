@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Step 2: Generate Video Script
-Uses Google Gemini 1.5 Flash (FREE) to write a full video script with SEO metadata.
-Outputs: script.json with narration text, title, description, tags.
+Uses Groq API (FREE — no billing required).
+Writes a full 700-900 word narration script + SEO metadata.
 """
 
 import os, json, time, urllib.request, urllib.error
@@ -12,12 +12,9 @@ SLOT       = os.environ.get("VIDEO_SLOT", "1")
 OUTPUT_DIR = Path(f"output/slot_{SLOT}")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
-)
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 # Load topic
 topic_json = os.environ.get("TOPIC_DATA", "")
@@ -26,21 +23,43 @@ if topic_json:
 else:
     topic_data = json.loads((OUTPUT_DIR / "topic.json").read_text())
 
-# ── Gemini helper ─────────────────────────────────────────────────────────────
+# ── Groq helper ───────────────────────────────────────────────────────────────
 
-def gemini(prompt: str, max_tokens: int = 3000) -> str:
+def groq(prompt: str, max_tokens: int = 2048) -> str:
     payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.8}
+        "model": "llama-3.1-8b-instant",
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens,
+        "temperature": 0.8
     }).encode()
     req = urllib.request.Request(
-        GEMINI_URL,
+        GROQ_URL,
         data=payload,
-        headers={"Content-Type": "application/json"}
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {GROQ_API_KEY}"
+        }
     )
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = json.loads(r.read())
-    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = json.loads(r.read())
+            return data["choices"][0]["message"]["content"].strip()
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"   HTTP {e.code}: {body[:300]}")
+            if e.code in (429, 503):
+                wait = 20 * (attempt + 1)
+                print(f"   ⏳ Waiting {wait}s (attempt {attempt+1}/5)…")
+                time.sleep(wait)
+            else:
+                raise
+        except Exception as e:
+            if attempt < 4:
+                time.sleep(10)
+            else:
+                raise
+    raise RuntimeError("Groq API failed after 5 attempts")
 
 # ── Generate script ───────────────────────────────────────────────────────────
 
@@ -59,23 +78,21 @@ The script should be 700-900 words of spoken narration — about 5-6 minutes of 
 Write in a conversational, engaging style. No bullet points — flowing spoken sentences only.
 Structure: Hook (20s) → Introduction → 4-5 main sections → Conclusion + CTA.
 
-Also write the YouTube metadata.
-
 Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
 {{
   "topic": "{topic}",
-  "title": "YouTube video title (60 chars max, include main keyword)",
-  "description": "YouTube description (250 words, keyword-rich, include timestamps placeholder)",
+  "title": "YouTube video title (60 chars max)",
+  "description": "YouTube description (200 words, keyword-rich)",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "tag8"],
-  "narration": "Full script text here. Just the words to be spoken, no stage directions.",
+  "narration": "Full script text. Just the words to be spoken, no stage directions.",
   "sections": [
-    {{"title": "Section name", "duration_seconds": 60, "summary": "what this section covers"}}
+    {{"title": "Section name", "duration_seconds": 60, "summary": "what this covers"}}
   ],
-  "hook": "First 2 sentences of the script — the attention grabber",
-  "cta": "Last sentence — call to action for likes and subscribe"
-}}
-"""
-    raw = gemini(prompt, max_tokens=3000)
+  "hook": "First 2 sentences of the script",
+  "cta": "Last sentence — call to action"
+}}"""
+
+    raw = groq(prompt, max_tokens=2048)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):
@@ -86,10 +103,6 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
 
 def main():
     print(f"✍️ Generating script for slot {SLOT}: {topic_data['topic']}")
-    stagger = (int(SLOT) - 1) * 15
-    if stagger > 0:
-        print(f"   Staggering {stagger}s to avoid rate limits…")
-        time.sleep(stagger)
     script_data = generate_script(topic_data)
 
     script_path = OUTPUT_DIR / "script.json"

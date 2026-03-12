@@ -37,7 +37,7 @@ jobs:
 
       - name: 🧠 Run strategy optimizer
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python scripts/11_optimize_strategy.py
 
       - name: 💾 Commit updated strategy + analytics

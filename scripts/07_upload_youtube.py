@@ -56,11 +56,26 @@ def get_access_token() -> str:
 
 # ── Calculate scheduled publish time ─────────────────────────────────────────
 
+def get_run_index_today() -> int:
+    """
+    Work out which run of the day this is (0-5) based on current UTC hour.
+    Workflow fires at 0, 4, 8, 12, 16, 20 UTC → run index 0-5.
+    """
+    now = datetime.datetime.utcnow()
+    # Each 4-hour block = one run
+    run_index = now.hour // 4
+    return run_index  # 0=midnight, 1=4am, 2=8am, 3=noon, 4=4pm, 5=8pm UTC
+
+
 def get_publish_time() -> str:
     """
-    Return an ISO 8601 UTC time string for when to publish.
-    Uses best_posting_hours from strategy.json.
-    Staggers by slot number to avoid all 6 publishing at once.
+    Spread the 6 daily videos evenly across the best posting hours.
+    Run index (0-5) maps directly to a posting hour slot so each
+    video publishes at a different time rather than all at 9am.
+
+    Schedule: publish ~1 hour after the current run fires, rounded
+    to the nearest best_posting_hour — so the video is live quickly
+    but at an optimal time.
     """
     strategy = {}
     if STRATEGY_FILE.exists():
@@ -69,18 +84,26 @@ def get_publish_time() -> str:
         except Exception:
             pass
 
-    best_hours = strategy.get("best_posting_hours", [9, 12, 15, 17, 20, 22])
+    # 6 best hours spread through the day (UTC)
+    best_hours = strategy.get("best_posting_hours", [6, 9, 12, 15, 18, 21])
+    # Ensure exactly 6 slots
+    while len(best_hours) < 6:
+        best_hours.append(best_hours[-1] + 3)
+    best_hours = sorted(best_hours[:6])
 
-    # Each slot gets a different hour
-    slot_int = int(SLOT) - 1  # 0-indexed
-    hour = best_hours[slot_int % len(best_hours)]
+    run_index = get_run_index_today()
+    hour = best_hours[run_index % len(best_hours)]
 
-    # Schedule for tomorrow at this hour
     now = datetime.datetime.utcnow()
     publish_dt = now.replace(hour=hour, minute=0, second=0, microsecond=0)
-    if publish_dt <= now:
-        publish_dt += datetime.timedelta(days=1)
 
+    # If that hour has already passed today, publish in 30 minutes
+    # (catches edge cases where the run fires late)
+    if publish_dt <= now:
+        publish_dt = now + datetime.timedelta(minutes=30)
+        publish_dt = publish_dt.replace(second=0, microsecond=0)
+
+    print(f"   Run index today: {run_index} → publish slot: {hour}:00 UTC")
     return publish_dt.strftime("%Y-%m-%dT%H:%M:%S") + "Z"
 
 # ── Upload video (resumable) ──────────────────────────────────────────────────

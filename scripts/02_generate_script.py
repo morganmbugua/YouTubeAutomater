@@ -5,7 +5,7 @@ Uses Groq API (FREE — no billing required).
 Writes a full 700-900 word narration script + SEO metadata.
 """
 
-import os, json, time, urllib.request, urllib.error
+import os, json, time
 from pathlib import Path
 
 SLOT       = os.environ.get("VIDEO_SLOT", "1")
@@ -25,41 +25,28 @@ else:
 
 # ── Groq helper ───────────────────────────────────────────────────────────────
 
-def groq(prompt: str, max_tokens: int = 2048) -> str:
-    payload = json.dumps({
-        "model": "llama-3.1-8b-instant",
-        "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": max_tokens,
-        "temperature": 0.8
-    }).encode()
-    req = urllib.request.Request(
-        GROQ_URL,
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {GROQ_API_KEY}"
-        }
-    )
+def groq_call(prompt: str, max_tokens: int = 1024) -> str:
+    from groq import Groq
+    client = Groq(api_key=GROQ_API_KEY)
     for attempt in range(5):
         try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                data = json.loads(r.read())
-            return data["choices"][0]["message"]["content"].strip()
-        except urllib.error.HTTPError as e:
-            body = e.read().decode("utf-8", errors="replace")
-            print(f"   HTTP {e.code}: {body[:300]}")
-            if e.code in (429, 503):
-                wait = 20 * (attempt + 1)
-                print(f"   ⏳ Waiting {wait}s (attempt {attempt+1}/5)…")
-                time.sleep(wait)
-            else:
-                raise
+            response = client.chat.completions.create(
+                model="llama-3.1-8b-instant",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.7
+            )
+            return response.choices[0].message.content.strip()
         except Exception as e:
-            if attempt < 4:
-                time.sleep(10)
+            err = str(e)
+            if "429" in err or "rate" in err.lower():
+                wait = 20 * (attempt + 1)
+                print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
+                import time; time.sleep(wait)
             else:
                 raise
     raise RuntimeError("Groq API failed after 5 attempts")
+
 
 # ── Generate script ───────────────────────────────────────────────────────────
 
@@ -92,7 +79,7 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
   "cta": "Last sentence — call to action"
 }}"""
 
-    raw = groq(prompt, max_tokens=2048)
+    raw = groq_call(prompt, max_tokens=2048)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):

@@ -7,9 +7,18 @@
     "explainer",
     "documentary"
   ],
-  "recent_topics": [],
+  "recent_topics": [
+    "How to Grow a Sustainable Home Garden"
+  ],
   "avoid_topics": [],
-  "best_posting_hours": [9, 12, 15, 17, 20, 22],
+  "best_posting_hours": [
+    9,
+    12,
+    15,
+    17,
+    20,
+    22
+  ],
   "target_niches": [
     "technology",
     "science",

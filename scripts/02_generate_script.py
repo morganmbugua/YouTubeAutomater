@@ -51,104 +51,95 @@ def groq_call(prompt: str, max_tokens: int = 1024) -> str:
 # ── Generate script ───────────────────────────────────────────────────────────
 
 def generate_script(topic_data: dict) -> dict:
-    topic        = topic_data["topic"]
-    content_type = topic_data.get("content_type", "educational")
-    audience     = topic_data.get("target_audience", "general audience")
-    keywords     = topic_data.get("seo_keywords", [])
+    topic      = topic_data["topic"]
+    audience   = topic_data.get("target_audience", "general audience")
+    keywords   = topic_data.get("seo_keywords", [])
+    hook       = topic_data.get("hook", "")
+    niche      = topic_data.get("niche", topic_data.get("content_type", "dark history"))
+    why_viral  = topic_data.get("why_viral", "")
 
-    hook        = topic_data.get("hook", "")
-    niche       = topic_data.get("niche", content_type)
-    why_viral   = topic_data.get("why_viral", "")
-
-    prompt = f"""You are writing a script for a faceless YouTube channel in the "{niche}" niche.
-The channel gets millions of views because it tells stories that make people feel something — shock, dread, fascination, disbelief.
-
+    # ── Call 1: Narration only (plain text, no JSON overhead) ─────────────────
+    narration_prompt = f"""You are writing for a faceless YouTube channel in the "{niche}" niche.
 Topic: "{topic}"
 Hook angle: {hook}
 Why this works: {why_viral}
-Target audience: {audience}
-SEO keywords to weave in naturally: {", ".join(keywords)}
+Audience: {audience}
+Weave in these keywords naturally: {", ".join(keywords)}
 
-WRITING STYLE — study this and copy it exactly:
-- Open with the most shocking or intriguing fact. Drop the viewer straight into it. No "welcome back" intros.
-- Write like you're telling a story to a friend at 2am — conversational, direct, slightly conspiratorial
-- Use short punchy sentences when building tension. Longer sentences to explain context.
-- Every paragraph should end making the listener want to hear the next one
-- Use phrases like "But here's where it gets dark.", "Nobody talks about this part.", "What happened next shocked everyone.", "And this is where it gets complicated."
-- Include specific real details — dates, numbers, names, places. Specificity = credibility = trust
-- Build to a climax. The last third should feel like a payoff for listening
-- No bullet points. No headers. No stage directions. Just the words spoken, as one flowing story.
+WRITING RULES:
+- Open with the single most shocking or disturbing fact. No intro. No "welcome back."
+- Write like you're telling a story to a friend at 2am — direct, gripping, slightly conspiratorial
+- Short punchy sentences for tension. Longer ones for context.
+- End every paragraph making the listener need to hear the next one
+- Use phrases like: "But here's where it gets dark." / "Nobody talks about this part." / "And this is where everything fell apart."
+- Specific real details only — exact dates, real names, actual numbers. No vague generalities.
+- Build to a climax. The ending must feel like a payoff.
+- No bullet points. No headers. No stage directions. Pure flowing spoken story.
 
-STRUCTURE (do not label these in the text — just follow the flow):
-1. COLD OPEN (first 30 seconds): Drop the most shocking fact or moment. Make them need to keep watching.
-2. SETUP (60s): Brief context — who, what, where, when. Keep it tight.
-3. ESCALATION x3 (90s each): Three acts that build tension. Each one darker or more shocking than the last.
-4. CLIMAX (60s): The most dramatic moment. What actually happened.
-5. AFTERMATH (45s): Consequences, legacy, what it means today.
-6. CLOSE (15s): One punchy final thought + "subscribe if you want more stories like this"
+STRUCTURE (follow the flow, don't label sections):
+1. Cold open: most shocking moment (30s)
+2. Setup: who, what, where, when — keep tight (60s)
+3. Three escalating acts — each darker than the last (90s each)
+4. Climax: the most dramatic moment (60s)
+5. Aftermath: consequences and legacy (45s)
+6. Close: one punchy final line + "subscribe for more stories like this" (15s)
 
-WORD COUNT: 750-900 words minimum. Count carefully — this is non-negotiable.
+Write the full narration now. Plain text only. No JSON. No formatting. Minimum 800 words."""
 
-Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
+    narration = groq_call(narration_prompt, max_tokens=4096).strip()
+
+    # Strip any accidental formatting
+    import re
+    narration = re.sub(r'\*+([^*]+)\*+', r'\1', narration)
+    narration = re.sub(r'#{1,6}\s+', '', narration)
+    narration = re.sub(r'^\s*[\-\•]\s+', '', narration, flags=re.MULTILINE)
+
+    word_count = len(narration.split())
+    print(f"   Narration: {word_count} words")
+    if word_count < 600:
+        raise ValueError(f"Narration too short: {word_count} words.")
+
+    # ── Call 2: Metadata only (small JSON, no narration inside) ──────────────
+    meta_prompt = f"""For a YouTube video about "{topic}" in the "{niche}" niche, give me the metadata.
+
+Respond ONLY with raw JSON, no markdown, no explanation:
 {{
-  "topic": "{topic}",
-  "title": "YouTube title — curiosity-gap style, 60 chars max (e.g. 'The Experiment That Went Terribly Wrong')",
-  "description": "YouTube description — 150 words, starts with a hook, keyword-rich, ends with subscribe CTA",
-  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "tag8", "tag9", "tag10"],
-  "narration": "Full spoken script, 750+ words, no stage directions, no headers, pure flowing story",
-  "sections": [
-    {{"title": "Section name", "duration_seconds": 60, "summary": "what this covers"}}
-  ],
-  "hook": "The first 2 sentences of the script",
-  "cta": "The final sentence"
+  "title": "curiosity-gap title, max 60 chars, e.g. The Experiment That Destroyed Everything",
+  "description": "150 word YouTube description — hook first sentence, keyword-rich, ends with subscribe CTA",
+  "tags": ["tag1","tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9","tag10"],
+  "hook": "first 2 sentences of the story",
+  "cta": "final sentence of the story"
 }}"""
 
-    raw = groq_call(prompt, max_tokens=4096)
+    meta_raw = groq_call(meta_prompt, max_tokens=600)
+    if "```" in meta_raw:
+        meta_raw = meta_raw.split("```")[1]
+        if meta_raw.startswith("json"):
+            meta_raw = meta_raw[4:]
+    meta_raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', meta_raw.strip())
 
-    # Strip markdown fences
-    if "```" in raw:
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-    raw = raw.strip()
-
-    # Fix invalid control characters (newlines/tabs inside JSON string values)
-    # Replace literal newlines inside strings with \n escape
-    import re
-    # Remove control characters except standard whitespace between tokens
-    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
-
-    # Try parsing; if it fails, extract fields individually
     try:
-        result = json.loads(raw)
+        meta = json.loads(meta_raw)
     except json.JSONDecodeError:
-        # Fallback: extract narration with a more lenient approach
-        # Ask the model to just return the narration as plain text
-        print("   ⚠️ JSON parse failed — extracting narration directly…")
-        narration_prompt = f"""Write ONLY the spoken narration for a YouTube video about: "{topic}"
-Niche: dark storytelling — shocking, gripping, hook-first.
-No JSON, no formatting, no stage directions, no headers. Just the words spoken out loud.
-MINIMUM 800 WORDS. Start with the most shocking fact immediately."""
-        narration_text = groq_call(narration_prompt, max_tokens=4096)
-
-        title_prompt = f'Curiosity-gap YouTube title for: "{topic}". Max 60 chars. Reply with ONLY the title, no quotes.'
-        title = groq_call(title_prompt, max_tokens=50).strip().strip('"')
-
-        result = {
-            "topic": topic,
-            "title": title[:100],
-            "description": f"The dark, untold story of {topic}. Subscribe for more.",
+        # Metadata failure is non-fatal — build defaults
+        meta = {
+            "title": topic[:60],
+            "description": f"The untold story of {topic}. Subscribe for more.",
             "tags": keywords[:10],
-            "narration": narration_text,
-            "sections": [],
-            "hook": narration_text[:200],
+            "hook": narration[:150],
             "cta": "Subscribe for more stories like this."
         }
 
-    word_count = len(result.get("narration", "").split())
-    if word_count < 600:
-        raise ValueError(f"Narration too short: {word_count} words. Retrying…")
-    return result
+    return {
+        "topic":       topic,
+        "title":       meta.get("title", topic)[:100],
+        "description": meta.get("description", f"The story of {topic}."),
+        "tags":        meta.get("tags", keywords[:10]),
+        "narration":   narration,
+        "sections":    [],
+        "hook":        meta.get("hook", narration[:150]),
+        "cta":         meta.get("cta", "Subscribe for more stories like this.")
+    }
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 

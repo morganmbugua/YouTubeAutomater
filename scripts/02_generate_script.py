@@ -83,11 +83,47 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
 }}"""
 
     raw = groq_call(prompt, max_tokens=4096)
+
+    # Strip markdown fences
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):
             raw = raw[4:]
-    result = json.loads(raw.strip())
+    raw = raw.strip()
+
+    # Fix invalid control characters (newlines/tabs inside JSON string values)
+    # Replace literal newlines inside strings with \n escape
+    import re
+    # Remove control characters except standard whitespace between tokens
+    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
+
+    # Try parsing; if it fails, extract fields individually
+    try:
+        result = json.loads(raw)
+    except json.JSONDecodeError:
+        # Fallback: extract narration with a more lenient approach
+        # Ask the model to just return the narration as plain text
+        print("   ⚠️ JSON parse failed — extracting narration directly…")
+        narration_prompt = f"""Write ONLY the spoken narration text for a YouTube video about: "{topic}"
+No JSON, no formatting, no stage directions. Just the words spoken. At least 700 words.
+Start speaking immediately."""
+        narration_text = groq_call(narration_prompt, max_tokens=4096)
+
+        # Build a clean result manually
+        title_prompt = f'Give me a YouTube video title for: "{topic}". Max 60 chars. Reply with ONLY the title.'
+        title = groq_call(title_prompt, max_tokens=50).strip().strip('"')
+
+        result = {
+            "topic": topic,
+            "title": title[:100],
+            "description": f"Explore {topic} in this detailed video.",
+            "tags": keywords[:8],
+            "narration": narration_text,
+            "sections": [],
+            "hook": narration_text[:200],
+            "cta": "Like and subscribe for more content!"
+        }
+
     word_count = len(result.get("narration", "").split())
     if word_count < 300:
         raise ValueError(f"Narration too short: {word_count} words. AI did not follow instructions.")

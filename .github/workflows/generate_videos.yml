@@ -193,7 +193,10 @@ jobs:
           git config user.name  "YT Autopilot Bot"
           git config user.email "bot@yt-autopilot.local"
 
+          # Stash any unstaged changes before pulling to avoid rebase conflict
+          git stash || true
           git pull --rebase origin main
+          git stash pop || true
 
           git add dashboard/data/ scripts/strategy.json || true
 

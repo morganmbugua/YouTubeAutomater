@@ -127,7 +127,7 @@ def upload_video(access_token: str, publish_time: str) -> str:
             "categoryId":  "22"  # People & Blogs — works for most content
         },
         "status": {
-            "privacyStatus":           "private",
+            "privacyStatus":           "scheduled",
             "publishAt":               publish_time,
             "selfDeclaredMadeForKids": False
         }
@@ -255,7 +255,7 @@ def upload_shorts(access_token: str, publish_time: str) -> str | None:
             "categoryId":  "22"
         },
         "status": {
-            "privacyStatus":           "private",
+            "privacyStatus":           "scheduled",
             "publishAt":               shorts_publish,
             "selfDeclaredMadeForKids": False
         }

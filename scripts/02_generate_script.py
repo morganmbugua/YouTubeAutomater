@@ -125,29 +125,29 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
         # Fallback: extract narration with a more lenient approach
         # Ask the model to just return the narration as plain text
         print("   ⚠️ JSON parse failed — extracting narration directly…")
-        narration_prompt = f"""Write ONLY the spoken narration text for a YouTube video about: "{topic}"
-No JSON, no formatting, no stage directions. Just the words spoken. At least 700 words.
-Start speaking immediately."""
+        narration_prompt = f"""Write ONLY the spoken narration for a YouTube video about: "{topic}"
+Niche: dark storytelling — shocking, gripping, hook-first.
+No JSON, no formatting, no stage directions, no headers. Just the words spoken out loud.
+MINIMUM 800 WORDS. Start with the most shocking fact immediately."""
         narration_text = groq_call(narration_prompt, max_tokens=4096)
 
-        # Build a clean result manually
-        title_prompt = f'Give me a YouTube video title for: "{topic}". Max 60 chars. Reply with ONLY the title.'
+        title_prompt = f'Curiosity-gap YouTube title for: "{topic}". Max 60 chars. Reply with ONLY the title, no quotes.'
         title = groq_call(title_prompt, max_tokens=50).strip().strip('"')
 
         result = {
             "topic": topic,
             "title": title[:100],
-            "description": f"Explore {topic} in this detailed video.",
-            "tags": keywords[:8],
+            "description": f"The dark, untold story of {topic}. Subscribe for more.",
+            "tags": keywords[:10],
             "narration": narration_text,
             "sections": [],
             "hook": narration_text[:200],
-            "cta": "Like and subscribe for more content!"
+            "cta": "Subscribe for more stories like this."
         }
 
     word_count = len(result.get("narration", "").split())
-    if word_count < 300:
-        raise ValueError(f"Narration too short: {word_count} words. AI did not follow instructions.")
+    if word_count < 600:
+        raise ValueError(f"Narration too short: {word_count} words. Retrying…")
     return result
 
 # ── Main ──────────────────────────────────────────────────────────────────────

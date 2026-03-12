@@ -43,7 +43,7 @@ def fetch_pexels_images(query: str, per_page: int = 5) -> list[dict]:
             "size": "large"
         })
         url = f"https://api.pexels.com/v1/search?{params}"
-        req = urllib.request.Request(url, headers={"Authorization": PEXELS_API_KEY})
+        req = urllib.request.Request(url, headers={"Authorization": PEXELS_API_KEY, "User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=15) as r:
             data = json.loads(r.read())
         photos = data.get("photos", [])
@@ -61,7 +61,9 @@ def download_image(photo: dict, index: int) -> str | None:
         if ext not in ["jpg", "jpeg", "png"]:
             ext = "jpg"
         path = IMAGES_DIR / f"img_{index:03d}.{ext}"
-        urllib.request.urlretrieve(url, str(path))
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            path.write_bytes(r.read())
         return str(path)
     except Exception as e:
         print(f"   ⚠️ Download failed for photo {photo.get('id')}: {e}")

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
 Step 1: Research Trending Topics
-Finds a great topic for this video slot using YouTube trending data + Gemini.
-Uses Google Gemini 1.5 Flash — FREE tier (1,500 requests/day, no billing needed).
-Outputs: topic_data JSON written to GITHUB_OUTPUT and saved to disk.
+Uses Groq API (FREE — no billing required, 14,400 requests/day).
+Sign up at console.groq.com → API Keys → Create API Key.
 """
 
 import os, json, time, urllib.request, urllib.parse, urllib.error
@@ -13,38 +12,40 @@ SLOT            = os.environ.get("VIDEO_SLOT", "1")
 OUTPUT_DIR      = Path(f"output/slot_{SLOT}")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-GEMINI_API_KEY  = os.environ["GEMINI_API_KEY"]
+GROQ_API_KEY    = os.environ["GROQ_API_KEY"]
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 FORCE_TOPIC     = os.environ.get("FORCE_TOPIC", "").strip()
 STRATEGY_FILE   = Path("scripts/strategy.json")
 
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
-)
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-# ── Gemini helper ─────────────────────────────────────────────────────────────
+# ── Groq helper ───────────────────────────────────────────────────────────────
 
-def gemini(prompt: str, max_tokens: int = 1024) -> str:
+def groq(prompt: str, max_tokens: int = 1024) -> str:
     payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.7}
+        "model": "llama-3.1-8b-instant",
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens,
+        "temperature": 0.7
     }).encode()
     req = urllib.request.Request(
-        GEMINI_URL,
+        GROQ_URL,
         data=payload,
-        headers={"Content-Type": "application/json"}
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {GROQ_API_KEY}"
+        }
     )
     for attempt in range(5):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = json.loads(r.read())
-            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            return data["choices"][0]["message"]["content"].strip()
         except urllib.error.HTTPError as e:
-            body = e.read().decode('utf-8', errors='replace')
-            print(f"   HTTP {e.code} error: {body[:500]}")
-            if e.code == 429 or e.code == 503:
-                wait = 30 * (attempt + 1)
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"   HTTP {e.code}: {body[:300]}")
+            if e.code in (429, 503):
+                wait = 20 * (attempt + 1)
                 print(f"   ⏳ Waiting {wait}s (attempt {attempt+1}/5)…")
                 time.sleep(wait)
             else:
@@ -54,24 +55,7 @@ def gemini(prompt: str, max_tokens: int = 1024) -> str:
                 time.sleep(10)
             else:
                 raise
-    raise RuntimeError("Gemini API failed after 5 attempts")
-
-# ── Quick API key test ───────────────────────────────────────────────────────
-
-def test_api_key():
-    """Quick sanity check before running the full pipeline."""
-    try:
-        result = gemini("Say OK", max_tokens=5)
-        print(f"   ✅ Gemini API key works: {result}")
-        return True
-    except urllib.error.HTTPError as e:
-        body = e.read().decode('utf-8', errors='replace')
-        print(f"   ❌ Gemini API key test FAILED: HTTP {e.code}")
-        print(f"   Response: {body[:800]}")
-        return False
-    except Exception as e:
-        print(f"   ❌ Gemini API key test FAILED: {e}")
-        return False
+    raise RuntimeError("Groq API failed after 5 attempts")
 
 # ── Load strategy ─────────────────────────────────────────────────────────────
 
@@ -91,7 +75,7 @@ def load_strategy() -> dict:
 
 # ── Fetch YouTube trending ────────────────────────────────────────────────────
 
-def fetch_youtube_trending() -> list[str]:
+def fetch_youtube_trending() -> list:
     if not YOUTUBE_API_KEY:
         return []
     try:
@@ -110,10 +94,10 @@ def fetch_youtube_trending() -> list[str]:
         print(f"   ⚠️ Trending fetch failed: {e}")
         return []
 
-# ── Pick topic with Gemini ────────────────────────────────────────────────────
+# ── Pick topic ────────────────────────────────────────────────────────────────
 
-def pick_topic(strategy: dict, trending: list[str]) -> dict:
-    slot_int     = int(SLOT)
+def pick_topic(strategy: dict, trending: list) -> dict:
+    slot_int      = int(SLOT)
     content_types = strategy.get("content_mix", ["educational", "how-to", "top 10"])
     content_type  = content_types[(slot_int - 1) % len(content_types)]
     avoid         = strategy.get("avoid_topics", [])
@@ -126,8 +110,7 @@ def pick_topic(strategy: dict, trending: list[str]) -> dict:
             f"Choose the single best topic for a '{content_type}' YouTube video. "
             f"Recent topics to avoid repeating: {recent}. "
             f"Topics to avoid entirely: {avoid}. "
-            f"YouTube trending titles for context: {trending[:10]}. "
-            "Pick a topic with strong search volume, clear audience appeal, and visual storytelling potential."
+            f"YouTube trending titles for context: {trending[:10]}."
         )
 
     prompt = f"""{topic_instruction}
@@ -135,19 +118,15 @@ def pick_topic(strategy: dict, trending: list[str]) -> dict:
 Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
 {{
   "topic": "exact video topic title",
-  "search_query": "3-5 word search query for finding images about this topic",
+  "search_query": "3-5 word search query for finding images",
   "image_queries": ["query1", "query2", "query3", "query4", "query5"],
   "content_type": "{content_type}",
-  "target_audience": "description of who would watch this",
-  "why_trending": "one sentence on why this topic works right now",
+  "target_audience": "who would watch this",
+  "why_trending": "one sentence on why this topic works now",
   "seo_keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
-}}
+}}"""
 
-image_queries must be specific, visual, safe-for-work search terms that would return
-high-quality stock photos on Pexels. Each query should cover a different visual aspect of the topic.
-"""
-    raw = gemini(prompt, max_tokens=600)
-    # Strip markdown fences if Gemini adds them despite instructions
+    raw = groq(prompt, max_tokens=600)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):
@@ -166,8 +145,6 @@ def update_strategy(strategy: dict, topic_data: dict):
 
 def main():
     print(f"🔍 Researching topic for slot {SLOT}…")
-    if not test_api_key():
-        raise SystemExit("Gemini API key failed — check the key and quota at aistudio.google.com")
     strategy   = load_strategy()
     trending   = fetch_youtube_trending()
     topic_data = pick_topic(strategy, trending)

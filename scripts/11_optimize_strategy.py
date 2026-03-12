@@ -38,9 +38,24 @@ def gemini(prompt: str, max_tokens: int = 800) -> str:
         data=payload,
         headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        data = json.loads(r.read())
-    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = json.loads(r.read())
+            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                wait = 15 * (attempt + 1)
+                print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
+                time.sleep(wait)
+            else:
+                raise
+        except Exception as e:
+            if attempt < 4:
+                time.sleep(10)
+            else:
+                raise
+    raise RuntimeError("Gemini API failed after 5 attempts")
 
 def main():
     print("🧠 Running AI strategy optimizer…")

@@ -11,8 +11,8 @@ GROQ_API_KEY   = os.environ["GROQ_API_KEY"]
 GROQ_URL       = "https://api.groq.com/openai/v1/chat/completions"
 
 STRATEGY_FILE  = Path("scripts/strategy.json")
-LOG_FILE       = Path("dashboard/data/run_log.json")
-ANALYTICS_FILE = Path("dashboard/data/analytics.json")
+LOG_FILE       = Path("docs/data/run_log.json")
+ANALYTICS_FILE = Path("docs/data/analytics.json")
 
 def load_json(path: Path, default):
     if path.exists():

@@ -5,7 +5,7 @@ Uses Google Gemini 1.5 Flash (FREE) to write a full video script with SEO metada
 Outputs: script.json with narration text, title, description, tags.
 """
 
-import os, json, urllib.request
+import os, json, time, urllib.request, urllib.error
 from pathlib import Path
 
 SLOT       = os.environ.get("VIDEO_SLOT", "1")
@@ -86,6 +86,10 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
 
 def main():
     print(f"✍️ Generating script for slot {SLOT}: {topic_data['topic']}")
+    stagger = (int(SLOT) - 1) * 8
+    if stagger > 0:
+        print(f"   Staggering {stagger}s to avoid rate limits…")
+        time.sleep(stagger)
     script_data = generate_script(topic_data)
 
     script_path = OUTPUT_DIR / "script.json"

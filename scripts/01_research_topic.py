@@ -41,9 +41,11 @@ def gemini(prompt: str, max_tokens: int = 1024) -> str:
                 data = json.loads(r.read())
             return data["candidates"][0]["content"]["parts"][0]["text"].strip()
         except urllib.error.HTTPError as e:
-            if e.code == 429:
+            body = e.read().decode('utf-8', errors='replace')
+            print(f"   HTTP {e.code} error: {body[:500]}")
+            if e.code == 429 or e.code == 503:
                 wait = 30 * (attempt + 1)
-                print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
+                print(f"   ⏳ Waiting {wait}s (attempt {attempt+1}/5)…")
                 time.sleep(wait)
             else:
                 raise
@@ -53,6 +55,23 @@ def gemini(prompt: str, max_tokens: int = 1024) -> str:
             else:
                 raise
     raise RuntimeError("Gemini API failed after 5 attempts")
+
+# ── Quick API key test ───────────────────────────────────────────────────────
+
+def test_api_key():
+    """Quick sanity check before running the full pipeline."""
+    try:
+        result = gemini("Say OK", max_tokens=5)
+        print(f"   ✅ Gemini API key works: {result}")
+        return True
+    except urllib.error.HTTPError as e:
+        body = e.read().decode('utf-8', errors='replace')
+        print(f"   ❌ Gemini API key test FAILED: HTTP {e.code}")
+        print(f"   Response: {body[:800]}")
+        return False
+    except Exception as e:
+        print(f"   ❌ Gemini API key test FAILED: {e}")
+        return False
 
 # ── Load strategy ─────────────────────────────────────────────────────────────
 
@@ -147,6 +166,8 @@ def update_strategy(strategy: dict, topic_data: dict):
 
 def main():
     print(f"🔍 Researching topic for slot {SLOT}…")
+    if not test_api_key():
+        raise SystemExit("Gemini API key failed — check the key and quota at aistudio.google.com")
     strategy   = load_strategy()
     trending   = fetch_youtube_trending()
     topic_data = pick_topic(strategy, trending)

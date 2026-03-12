@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
 """
 Step 11: AI Strategy Optimizer
-Reads recent performance data and asks Gemini to rewrite strategy.json
-to improve content decisions. Runs daily via optimize_strategy.yml.
-Uses Google Gemini 1.5 Flash — FREE tier.
+Uses Groq API (FREE) to review performance and rewrite strategy.json daily.
 """
 
-import os, json, datetime, urllib.request
+import os, json, datetime, time, urllib.request, urllib.error
 from pathlib import Path
 
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
-
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
-)
+GROQ_API_KEY   = os.environ["GROQ_API_KEY"]
+GROQ_URL       = "https://api.groq.com/openai/v1/chat/completions"
 
 STRATEGY_FILE  = Path("scripts/strategy.json")
 LOG_FILE       = Path("dashboard/data/run_log.json")
@@ -28,25 +22,32 @@ def load_json(path: Path, default):
             pass
     return default
 
-def gemini(prompt: str, max_tokens: int = 800) -> str:
+def groq(prompt: str, max_tokens: int = 800) -> str:
     payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.5}
+        "model": "llama-3.1-8b-instant",
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens,
+        "temperature": 0.5
     }).encode()
     req = urllib.request.Request(
-        GEMINI_URL,
+        GROQ_URL,
         data=payload,
-        headers={"Content-Type": "application/json"}
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {GROQ_API_KEY}"
+        }
     )
     for attempt in range(5):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = json.loads(r.read())
-            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            return data["choices"][0]["message"]["content"].strip()
         except urllib.error.HTTPError as e:
-            if e.code == 429:
-                wait = 30 * (attempt + 1)
-                print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"   HTTP {e.code}: {body[:300]}")
+            if e.code in (429, 503):
+                wait = 20 * (attempt + 1)
+                print(f"   ⏳ Waiting {wait}s (attempt {attempt+1}/5)…")
                 time.sleep(wait)
             else:
                 raise
@@ -55,7 +56,7 @@ def gemini(prompt: str, max_tokens: int = 800) -> str:
                 time.sleep(10)
             else:
                 raise
-    raise RuntimeError("Gemini API failed after 5 attempts")
+    raise RuntimeError("Groq API failed after 5 attempts")
 
 def main():
     print("🧠 Running AI strategy optimizer…")
@@ -76,9 +77,6 @@ Current strategy:
 Recent video topics (last 7 days):
 {json.dumps(topic_list, indent=2)}
 
-Analytics summary:
-{json.dumps(analytics.get("data", {}).get("totals", analytics.get("data", {})), indent=2)}
-
 Success rate: {len(successes)}/{len(recent_log)} videos uploaded successfully
 
 Update the strategy to improve performance. Diversify content types if repetitive,
@@ -92,10 +90,9 @@ Respond ONLY with the updated strategy as a JSON object. No explanation, no mark
   "best_posting_hours": [9, 12, 15, 17, 20, 22],
   "target_niches": ["niche1", "niche2", "niche3", "niche4", "niche5"],
   "last_optimized": "{datetime.datetime.utcnow().isoformat()}Z"
-}}
-"""
+}}"""
 
-    raw = gemini(prompt, max_tokens=800)
+    raw = groq(prompt, max_tokens=800)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):

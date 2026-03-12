@@ -31,7 +31,7 @@ def groq_call(prompt: str, max_tokens: int = 1024) -> str:
     for attempt in range(5):
         try:
             response = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="llama-3.3-70b-versatile",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
                 temperature=0.7
@@ -56,30 +56,51 @@ def generate_script(topic_data: dict) -> dict:
     audience     = topic_data.get("target_audience", "general audience")
     keywords     = topic_data.get("seo_keywords", [])
 
-    prompt = f"""Write a complete YouTube video script for: "{topic}"
-Content type: {content_type}
-Target audience: {audience}
-SEO keywords to include naturally: {", ".join(keywords)}
+    hook        = topic_data.get("hook", "")
+    niche       = topic_data.get("niche", content_type)
+    why_viral   = topic_data.get("why_viral", "")
 
-CRITICAL REQUIREMENT: The "narration" field MUST be at least 700 words. Count carefully.
-Write a FULL, DETAILED script — 700 to 900 words of spoken narration (about 5-6 minutes of video).
-Do NOT write a summary or outline. Write every single word the presenter will say.
-Write in a conversational, engaging style. No bullet points — flowing spoken sentences only.
-Structure: Hook (20s) → Introduction (60s) → 4 main sections (60-90s each) → Conclusion + CTA (30s).
-Each section must be several full paragraphs. Be thorough and detailed.
+    prompt = f"""You are writing a script for a faceless YouTube channel in the "{niche}" niche.
+The channel gets millions of views because it tells stories that make people feel something — shock, dread, fascination, disbelief.
+
+Topic: "{topic}"
+Hook angle: {hook}
+Why this works: {why_viral}
+Target audience: {audience}
+SEO keywords to weave in naturally: {", ".join(keywords)}
+
+WRITING STYLE — study this and copy it exactly:
+- Open with the most shocking or intriguing fact. Drop the viewer straight into it. No "welcome back" intros.
+- Write like you're telling a story to a friend at 2am — conversational, direct, slightly conspiratorial
+- Use short punchy sentences when building tension. Longer sentences to explain context.
+- Every paragraph should end making the listener want to hear the next one
+- Use phrases like "But here's where it gets dark.", "Nobody talks about this part.", "What happened next shocked everyone.", "And this is where it gets complicated."
+- Include specific real details — dates, numbers, names, places. Specificity = credibility = trust
+- Build to a climax. The last third should feel like a payoff for listening
+- No bullet points. No headers. No stage directions. Just the words spoken, as one flowing story.
+
+STRUCTURE (do not label these in the text — just follow the flow):
+1. COLD OPEN (first 30 seconds): Drop the most shocking fact or moment. Make them need to keep watching.
+2. SETUP (60s): Brief context — who, what, where, when. Keep it tight.
+3. ESCALATION x3 (90s each): Three acts that build tension. Each one darker or more shocking than the last.
+4. CLIMAX (60s): The most dramatic moment. What actually happened.
+5. AFTERMATH (45s): Consequences, legacy, what it means today.
+6. CLOSE (15s): One punchy final thought + "subscribe if you want more stories like this"
+
+WORD COUNT: 750-900 words minimum. Count carefully — this is non-negotiable.
 
 Respond ONLY with a JSON object. No explanation, no markdown, no code fences — raw JSON only:
 {{
   "topic": "{topic}",
-  "title": "YouTube video title (60 chars max)",
-  "description": "YouTube description (200 words, keyword-rich)",
-  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "tag8"],
-  "narration": "Full script text. Just the words to be spoken, no stage directions.",
+  "title": "YouTube title — curiosity-gap style, 60 chars max (e.g. 'The Experiment That Went Terribly Wrong')",
+  "description": "YouTube description — 150 words, starts with a hook, keyword-rich, ends with subscribe CTA",
+  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6", "tag7", "tag8", "tag9", "tag10"],
+  "narration": "Full spoken script, 750+ words, no stage directions, no headers, pure flowing story",
   "sections": [
     {{"title": "Section name", "duration_seconds": 60, "summary": "what this covers"}}
   ],
-  "hook": "First 2 sentences of the script",
-  "cta": "Last sentence — call to action"
+  "hook": "The first 2 sentences of the script",
+  "cta": "The final sentence"
 }}"""
 
     raw = groq_call(prompt, max_tokens=4096)

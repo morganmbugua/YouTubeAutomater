@@ -52,10 +52,16 @@ def build_slideshow(image_paths: list[str], duration: float) -> Path:
     Each image gets equal time. Uses ffmpeg's zoompan filter.
     Returns path to the raw slideshow MP4 (no audio, no subtitles).
     """
-    n          = len(image_paths)
-    # Each image displays for this many seconds (minus 0.5s crossfade overlap)
-    img_dur    = duration / n
     fps        = 30
+    # Enforce minimum 3.5s per image so images don't flash by
+    # Reduce image count if needed to fit natural pacing
+    max_images = max(5, int(duration / 3.5))
+    if len(image_paths) > max_images:
+        # Evenly sample down to max_images
+        step = len(image_paths) / max_images
+        image_paths = [image_paths[int(i * step)] for i in range(max_images)]
+    n          = len(image_paths)
+    img_dur    = duration / n
     frames_per = int(img_dur * fps)
 
     print(f"   Building slideshow: {n} images × {img_dur:.1f}s = {duration:.0f}s")

@@ -92,7 +92,7 @@ Respond ONLY with the updated strategy as a JSON object. No explanation, no mark
   "last_optimized": "{datetime.datetime.utcnow().isoformat()}Z"
 }}"""
 
-    raw = groq(prompt, max_tokens=800)
+    raw = groq_call(prompt, max_tokens=800)
     if "```" in raw:
         raw = raw.split("```")[1]
         if raw.startswith("json"):

@@ -1,329 +1,342 @@
 #!/usr/bin/env python3
 """
-Step 5: Assemble Final Video
-Builds a documentary/explainer style video:
-  - Ken Burns (pan+zoom) effect on each image
-  - Crossfade transitions between images
-  - Burned-in subtitles
-  - Voiceover audio
-  - Branded intro (3s) and outro (5s)
-  - Auto-clips a 60s YouTube Shorts version
-
-All video is 1920x1080 @ 30fps, H.264, AAC audio.
+Step 7: Upload Video to YouTube
+Uploads the final video with metadata using the YouTube Data API v3.
+Uses OAuth2 refresh token (set up once with auth_youtube.py).
+Schedules the video for the optimal posting time from strategy.json.
 """
 
-import os, json, math, subprocess, shutil, tempfile
+import os, json, time, datetime
 from pathlib import Path
 
 SLOT       = os.environ.get("VIDEO_SLOT", "1")
 OUTPUT_DIR = Path(f"output/slot_{SLOT}")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# Load inputs
+YOUTUBE_CLIENT_ID     = os.environ["YOUTUBE_CLIENT_ID"]
+YOUTUBE_CLIENT_SECRET = os.environ["YOUTUBE_CLIENT_SECRET"]
+YOUTUBE_REFRESH_TOKEN = os.environ["YOUTUBE_REFRESH_TOKEN"]
+
 script_path = os.environ.get("SCRIPT_PATH", str(OUTPUT_DIR / "script.json"))
 script_data = json.loads(Path(script_path).read_text())
 
-voice_path   = os.environ.get("VOICE_PATH", str(OUTPUT_DIR / "voiceover.mp3"))
-srt_path     = os.environ.get("SRT_PATH", str(OUTPUT_DIR / "subtitles.srt"))
-images_meta  = json.loads((OUTPUT_DIR / "images_meta.json").read_text())
-image_paths  = images_meta["paths"]
+topic_json = os.environ.get("TOPIC_DATA", "")
+topic_data = json.loads(topic_json) if topic_json else json.loads((OUTPUT_DIR / "topic.json").read_text())
 
-audio_meta_path = OUTPUT_DIR / "audio_meta.json"
-if audio_meta_path.exists():
-    audio_meta = json.loads(audio_meta_path.read_text())
-    total_duration = audio_meta["duration_seconds"]
-else:
-    # Measure with ffprobe
-    r = subprocess.run(
-        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-         "-of", "default=noprint_wrappers=1:nokey=1", voice_path],
-        capture_output=True, text=True
+final_video   = os.environ.get("FINAL_VIDEO",   str(OUTPUT_DIR / "final_video.mp4"))
+thumbnail_path = os.environ.get("THUMBNAIL",     str(OUTPUT_DIR / "thumbnail.jpg"))
+
+STRATEGY_FILE = Path("scripts/strategy.json")
+
+# ── OAuth2 token refresh ──────────────────────────────────────────────────────
+
+def get_access_token() -> str:
+    import urllib.request, urllib.parse
+    data = urllib.parse.urlencode({
+        "client_id":     YOUTUBE_CLIENT_ID,
+        "client_secret": YOUTUBE_CLIENT_SECRET,
+        "refresh_token": YOUTUBE_REFRESH_TOKEN,
+        "grant_type":    "refresh_token"
+    }).encode()
+    req = urllib.request.Request(
+        "https://oauth2.googleapis.com/token",
+        data=data,
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
-    total_duration = float(r.stdout.strip())
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = json.loads(r.read())
+            if "access_token" not in data:
+                raise RuntimeError(f"No access_token in response: {data}")
+            return data["access_token"]
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"   ❌ Token refresh failed HTTP {e.code}: {body}")
+        print(f"   Check that YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, and YOUTUBE_REFRESH_TOKEN are correct in GitHub Secrets.")
+        raise
 
-WORK_DIR = OUTPUT_DIR / "work"
-WORK_DIR.mkdir(exist_ok=True)
+# ── Calculate scheduled publish time ─────────────────────────────────────────
 
-# ── Build Ken Burns slideshow ─────────────────────────────────────────────────
-
-def build_slideshow(image_paths: list[str], duration: float) -> Path:
+def get_publish_time() -> str:
     """
-    Create a video from images with Ken Burns effect.
-    Each image gets equal time. Uses ffmpeg's zoompan filter.
-    Returns path to the raw slideshow MP4 (no audio, no subtitles).
+    Return an ISO 8601 UTC time string for when to publish.
+    Uses best_posting_hours from strategy.json.
+    Staggers by slot number to avoid all 6 publishing at once.
     """
-    fps        = 30
-    # Enforce minimum 3.5s per image so images don't flash by
-    # Reduce image count if needed to fit natural pacing
-    max_images = max(5, int(duration / 3.5))
-    if len(image_paths) > max_images:
-        # Evenly sample down to max_images
-        step = len(image_paths) / max_images
-        image_paths = [image_paths[int(i * step)] for i in range(max_images)]
-    n          = len(image_paths)
-    img_dur    = duration / n
-    frames_per = int(img_dur * fps)
+    strategy = {}
+    if STRATEGY_FILE.exists():
+        try:
+            strategy = json.loads(STRATEGY_FILE.read_text())
+        except Exception:
+            pass
 
-    print(f"   Building slideshow: {n} images × {img_dur:.1f}s = {duration:.0f}s")
+    best_hours = strategy.get("best_posting_hours", [9, 12, 15, 17, 20, 22])
 
-    # Build a concat file. Each image is processed with zoompan then concat'd.
-    # Strategy: process each image into a short clip, then concatenate.
+    # Each slot gets a different hour
+    slot_int = int(SLOT) - 1  # 0-indexed
+    hour = best_hours[slot_int % len(best_hours)]
 
-    clip_paths = []
-    directions = ["zoom_in", "zoom_out", "pan_right", "pan_left", "pan_up"]
+    # Schedule for tomorrow at this hour
+    now = datetime.datetime.utcnow()
+    publish_dt = now.replace(hour=hour, minute=0, second=0, microsecond=0)
+    if publish_dt <= now:
+        publish_dt += datetime.timedelta(days=1)
 
-    for i, img_path in enumerate(image_paths):
-        clip_path = WORK_DIR / f"clip_{i:03d}.mp4"
-        direction = directions[i % len(directions)]
+    return publish_dt.strftime("%Y-%m-%dT%H:%M:%S") + "Z"
 
-        # zoompan: z=zoom, x/y=pan position
-        # All start/end at slightly different positions for variety
-        if direction == "zoom_in":
-            zp = f"zoompan=z='min(zoom+0.0015,1.5)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames_per}:s=1920x1080:fps={fps}"
-        elif direction == "zoom_out":
-            zp = f"zoompan=z='if(lte(zoom,1.0),1.5,max(1.0,zoom-0.0015))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames_per}:s=1920x1080:fps={fps}"
-        elif direction == "pan_right":
-            zp = f"zoompan=z=1.3:x='min(x+1,iw/4)':y='ih/2-(ih/zoom/2)':d={frames_per}:s=1920x1080:fps={fps}"
-        elif direction == "pan_left":
-            zp = f"zoompan=z=1.3:x='max(x-1,0)':y='ih/2-(ih/zoom/2)':d={frames_per}:s=1920x1080:fps={fps}"
-        else:  # pan_up
-            zp = f"zoompan=z=1.3:x='iw/2-(iw/zoom/2)':y='min(y+1,ih/4)':d={frames_per}:s=1920x1080:fps={fps}"
+# ── Upload video (resumable) ──────────────────────────────────────────────────
 
-        cmd = [
-            "ffmpeg", "-y",
-            "-loop", "1", "-i", img_path,
-            "-vf", f"scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,{zp}",
-            "-t", str(img_dur),
-            "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-            "-pix_fmt", "yuv420p",
-            str(clip_path)
-        ]
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode != 0 or not clip_path.exists():
-            print(f"   ⚠️ Clip {i} failed — using plain scale fallback")
-            # Simpler fallback without zoompan
-            cmd_simple = [
-                "ffmpeg", "-y",
-                "-loop", "1", "-i", img_path,
-                "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080",
-                "-t", str(img_dur),
-                "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-                "-pix_fmt", "yuv420p",
-                str(clip_path)
-            ]
-            subprocess.run(cmd_simple, capture_output=True)
+def upload_video(access_token: str, publish_time: str) -> str:
+    import urllib.request
+    video_path = Path(final_video)
+    if not video_path.exists():
+        raise FileNotFoundError(f"Video file not found: {final_video}")
 
-        if clip_path.exists():
-            clip_paths.append(clip_path)
+    file_size = video_path.stat().st_size
+    title     = script_data.get("title", topic_data["topic"])[:100]
+    desc      = script_data.get("description", f"Video about {topic_data['topic']}")[:5000]
+    tags      = script_data.get("tags", topic_data.get("seo_keywords", []))[:500]
 
-    # Write concat list
-    concat_list = WORK_DIR / "concat.txt"
-    with open(concat_list, "w") as f:
-        for cp in clip_paths:
-            f.write(f"file '{cp.resolve()}'\n")
+    metadata = {
+        "snippet": {
+            "title":       title,
+            "description": desc,
+            "tags":        tags,
+            "categoryId":  "22"  # People & Blogs — works for most content
+        },
+        "status": {
+            "privacyStatus":           "private",
+            "publishAt":               publish_time,
+            "selfDeclaredMadeForKids": False
+        }
+    }
 
-    slideshow_path = WORK_DIR / "slideshow_raw.mp4"
-    concat_cmd = [
-        "ffmpeg", "-y",
-        "-f", "concat", "-safe", "0", "-i", str(concat_list),
-        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
-        "-pix_fmt", "yuv420p",
-        str(slideshow_path)
-    ]
-    result = subprocess.run(concat_cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"Slideshow concat failed:\n{result.stderr[-500:]}")
+    # Step 1: Initiate resumable upload
+    meta_bytes = json.dumps(metadata).encode()
+    init_req = urllib.request.Request(
+        "https://www.googleapis.com/upload/youtube/v3/videos"
+        "?uploadType=resumable&part=snippet,status",
+        data=meta_bytes,
+        headers={
+            "Authorization":           f"Bearer {access_token}",
+            "Content-Type":            "application/json",
+            "X-Upload-Content-Type":   "video/mp4",
+            "X-Upload-Content-Length": str(file_size)
+        }
+    )
+    with urllib.request.urlopen(init_req, timeout=30) as r:
+        upload_url = r.getheader("Location")
 
-    print(f"   Slideshow assembled: {slideshow_path}")
-    return slideshow_path
+    if not upload_url:
+        raise RuntimeError("YouTube did not return an upload URL")
 
-# ── Build intro card ──────────────────────────────────────────────────────────
+    print(f"   Uploading {file_size // (1024*1024)}MB to YouTube…")
 
-def build_intro(title: str, duration: float = 3.0) -> Path:
-    intro_path = WORK_DIR / "intro.mp4"
-    title_safe = title.replace("'", "\\'").replace(":", "\\:").replace('"', '\\"')[:50]
-    cmd = [
-        "ffmpeg", "-y",
-        "-f", "lavfi", "-i", f"color=c=0x1a1a2e:size=1920x1080:rate=30:duration={duration}",
-        "-vf", (
-            f"drawtext=text='{title_safe}':"
-            f"fontcolor=white:fontsize=64:x=(w-text_w)/2:y=(h-text_h)/2:"
-            f"font=DejaVu-Sans-Bold:box=1:boxcolor=black@0.4:boxborderw=20,"
-            f"fade=t=in:st=0:d=0.5,fade=t=out:st={duration-0.5}:d=0.5"
-        ),
-        "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-pix_fmt", "yuv420p",
-        str(intro_path)
-    ]
-    subprocess.run(cmd, capture_output=True)
-    if not intro_path.exists():
-        # Minimal fallback without text
-        cmd2 = [
-            "ffmpeg", "-y",
-            "-f", "lavfi", "-i", f"color=c=0x1a1a2e:size=1920x1080:rate=30:duration={duration}",
-            "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-pix_fmt", "yuv420p",
-            str(intro_path)
-        ]
-        subprocess.run(cmd2, capture_output=True)
-    return intro_path
+    # Step 2: Upload the file in chunks
+    chunk_size  = 10 * 1024 * 1024  # 10MB chunks
+    uploaded    = 0
+    video_id    = None
 
-# ── Build outro card ──────────────────────────────────────────────────────────
+    with open(final_video, "rb") as f:
+        while uploaded < file_size:
+            chunk = f.read(chunk_size)
+            if not chunk:
+                break
+            end_byte = uploaded + len(chunk) - 1
+            upload_req = urllib.request.Request(
+                upload_url,
+                data=chunk,
+                headers={
+                    "Content-Range":  f"bytes {uploaded}-{end_byte}/{file_size}",
+                    "Content-Length": str(len(chunk))
+                },
+                method="PUT"
+            )
+            try:
+                with urllib.request.urlopen(upload_req, timeout=300) as r:
+                    if r.status in [200, 201]:
+                        resp_data  = json.loads(r.read())
+                        video_id   = resp_data.get("id")
+            except urllib.error.HTTPError as e:
+                if e.code == 308:  # Resume Incomplete — expected during chunked upload
+                    pass
+                else:
+                    raise
+            uploaded += len(chunk)
+            pct = (uploaded / file_size) * 100
+            print(f"   Upload: {pct:.0f}%", end="\r")
 
-def build_outro(duration: float = 5.0) -> Path:
-    outro_path = WORK_DIR / "outro.mp4"
-    cmd = [
-        "ffmpeg", "-y",
-        "-f", "lavfi", "-i", f"color=c=0x1a1a2e:size=1920x1080:rate=30:duration={duration}",
-        "-vf", (
-            "drawtext=text='Like & Subscribe':"
-            "fontcolor=white:fontsize=72:x=(w-text_w)/2:y=(h/2-50):"
-            "font=DejaVu-Sans-Bold,"
-            "drawtext=text='for more videos like this':"
-            "fontcolor=0xcccccc:fontsize=40:x=(w-text_w)/2:y=(h/2+40):"
-            "font=DejaVu-Sans,"
-            f"fade=t=in:st=0:d=0.5,fade=t=out:st={duration-0.5}:d=0.5"
-        ),
-        "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-pix_fmt", "yuv420p",
-        str(outro_path)
-    ]
-    subprocess.run(cmd, capture_output=True)
-    if not outro_path.exists():
-        cmd2 = [
-            "ffmpeg", "-y",
-            "-f", "lavfi", "-i", f"color=c=0x1a1a2e:size=1920x1080:rate=30:duration={duration}",
-            "-c:v", "libx264", "-preset", "fast", "-crf", "23", "-pix_fmt", "yuv420p",
-            str(outro_path)
-        ]
-        subprocess.run(cmd2, capture_output=True)
-    return outro_path
+    print()
+    if not video_id:
+        raise RuntimeError("Upload completed but no video ID returned")
 
-# ── Burn subtitles ────────────────────────────────────────────────────────────
+    print(f"   ✅ Video uploaded: https://youtu.be/{video_id}")
+    return video_id
 
-def burn_subtitles(input_video: Path, srt_path: str, output_path: Path) -> Path:
-    """Burn SRT subtitles into the video."""
-    srt_abs = Path(srt_path).resolve()
-    if not srt_abs.exists() or srt_abs.stat().st_size == 0:
-        print("   No subtitles to burn — copying as-is")
-        shutil.copy(str(input_video), str(output_path))
-        return output_path
+# ── Upload thumbnail ──────────────────────────────────────────────────────────
 
-    # Escape path for ffmpeg subtitles filter
-    srt_escaped = str(srt_abs).replace("\\", "/").replace(":", "\\:")
+def upload_thumbnail(access_token: str, video_id: str):
+    import urllib.request
+    thumb_path = Path(thumbnail_path)
+    if not thumb_path.exists():
+        print("   No thumbnail file — skipping")
+        return
 
-    cmd = [
-        "ffmpeg", "-y", "-i", str(input_video),
-        "-vf", (
-            f"subtitles='{srt_escaped}':"
-            "force_style='FontName=DejaVu Sans,FontSize=22,PrimaryColour=&Hffffff,"
-            "OutlineColour=&H000000,Outline=2,Shadow=1,Alignment=2,MarginV=40'"
-        ),
-        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
-        "-c:a", "copy",
-        str(output_path)
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"   ⚠️ Subtitle burn failed — copying without subtitles")
-        shutil.copy(str(input_video), str(output_path))
-    return output_path
+    with open(thumbnail_path, "rb") as f:
+        thumb_bytes = f.read()
 
-# ── Clip Shorts (portrait 9:16, 60s) ─────────────────────────────────────────
+    req = urllib.request.Request(
+        f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={video_id}&uploadType=media",
+        data=thumb_bytes,
+        headers={
+            "Authorization": f"Bearer {access_token}",
+            "Content-Type":  "image/jpeg"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            print(f"   ✅ Thumbnail uploaded (status {r.status})")
+    except Exception as e:
+        print(f"   ⚠️ Thumbnail upload failed: {e}")
 
-def make_shorts(input_video: Path, output_path: Path):
-    """Crop to 9:16 portrait and trim to 58 seconds for YouTube Shorts."""
-    cmd = [
-        "ffmpeg", "-y", "-i", str(input_video),
-        "-t", "58",
-        "-vf", "crop=608:1080:(iw-608)/2:0,scale=1080:1920",
-        "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-        "-c:a", "aac", "-b:a", "128k",
-        str(output_path)
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"   ⚠️ Shorts clip failed: {result.stderr[-200:]}")
+
+# ── Upload Shorts ─────────────────────────────────────────────────────────────
+
+def upload_shorts(access_token: str, publish_time: str) -> str | None:
+    import urllib.request
+    shorts_path = OUTPUT_DIR / "shorts.mp4"
+    if not shorts_path.exists():
+        print("   No shorts.mp4 found — skipping Shorts upload")
+        return None
+
+    file_size = shorts_path.stat().st_size
+    title     = script_data.get("title", topic_data["topic"])[:90]
+    shorts_title = f"{title} #Shorts"[:100]
+    desc      = script_data.get("description", f"Video about {topic_data['topic']}")[:5000]
+    tags      = script_data.get("tags", topic_data.get("seo_keywords", []))
+    if "#Shorts" not in tags:
+        tags = ["Shorts"] + tags
+
+    # Schedule Shorts 30 min after main video
+    try:
+        from datetime import datetime, timedelta
+        dt = datetime.strptime(publish_time, "%Y-%m-%dT%H:%M:%SZ")
+        shorts_publish = (dt + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:%S") + "Z"
+    except Exception:
+        shorts_publish = publish_time
+
+    metadata = {
+        "snippet": {
+            "title":       shorts_title,
+            "description": "#Shorts\n\n" + desc,
+            "tags":        tags[:500],
+            "categoryId":  "22"
+        },
+        "status": {
+            "privacyStatus":           "private",
+            "publishAt":               shorts_publish,
+            "selfDeclaredMadeForKids": False
+        }
+    }
+
+    meta_bytes = json.dumps(metadata).encode()
+    init_req = urllib.request.Request(
+        "https://www.googleapis.com/upload/youtube/v3/videos"
+        "?uploadType=resumable&part=snippet,status",
+        data=meta_bytes,
+        headers={
+            "Authorization":           f"Bearer {access_token}",
+            "Content-Type":            "application/json",
+            "X-Upload-Content-Type":   "video/mp4",
+            "X-Upload-Content-Length": str(file_size)
+        }
+    )
+    with urllib.request.urlopen(init_req, timeout=30) as r:
+        upload_url = r.getheader("Location")
+
+    if not upload_url:
+        print("   ⚠️ Shorts: no upload URL returned")
+        return None
+
+    print(f"   Uploading Shorts ({file_size // (1024*1024) or '<1'}MB)…")
+
+    chunk_size = 10 * 1024 * 1024
+    uploaded   = 0
+    shorts_id  = None
+
+    with open(str(shorts_path), "rb") as f:
+        while uploaded < file_size:
+            chunk = f.read(chunk_size)
+            if not chunk:
+                break
+            end_byte = uploaded + len(chunk) - 1
+            upload_req = urllib.request.Request(
+                upload_url,
+                data=chunk,
+                headers={
+                    "Content-Range":  f"bytes {uploaded}-{end_byte}/{file_size}",
+                    "Content-Length": str(len(chunk))
+                },
+                method="PUT"
+            )
+            try:
+                with urllib.request.urlopen(upload_req, timeout=300) as r:
+                    if r.status in [200, 201]:
+                        resp_data = json.loads(r.read())
+                        shorts_id = resp_data.get("id")
+            except urllib.error.HTTPError as e:
+                if e.code == 308:
+                    pass
+                else:
+                    raise
+            uploaded += len(chunk)
+
+    if shorts_id:
+        print(f"   ✅ Shorts uploaded: https://youtu.be/{shorts_id}")
+        return shorts_id
+    else:
+        print("   ⚠️ Shorts upload completed but no video ID returned")
+        return None
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    print(f"🎬 Assembling video for slot {SLOT}…")
-    title = script_data.get("title", script_data.get("topic", "Video"))
+    print(f"📤 Uploading to YouTube (slot {SLOT})…")
 
-    # 1. Build Ken Burns slideshow
-    slideshow = build_slideshow(image_paths, total_duration)
+    access_token = get_access_token()
+    publish_time = get_publish_time()
+    print(f"   Scheduled publish: {publish_time}")
 
-    # 2. Build intro and outro
-    print("   Building intro/outro cards…")
-    intro = build_intro(title)
-    outro = build_outro()
+    video_id = upload_video(access_token, publish_time)
+    upload_thumbnail(access_token, video_id)
 
-    # 3. Concatenate: intro + slideshow + outro (video only, no audio yet)
-    concat_list = WORK_DIR / "final_concat.txt"
-    with open(concat_list, "w") as f:
-        for p in [intro, slideshow, outro]:
-            f.write(f"file '{p.resolve()}'\n")
+    # Upload Shorts version
+    print(f"   Uploading Shorts version…")
+    shorts_id = None
+    try:
+        shorts_id = upload_shorts(access_token, publish_time)
+    except Exception as e:
+        print(f"   ⚠️ Shorts upload failed: {e}")
 
-    video_no_audio = WORK_DIR / "video_no_audio.mp4"
-    concat_cmd = [
-        "ffmpeg", "-y",
-        "-f", "concat", "-safe", "0", "-i", str(concat_list),
-        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
-        "-pix_fmt", "yuv420p",
-        str(video_no_audio)
-    ]
-    result = subprocess.run(concat_cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"Final concat failed:\n{result.stderr[-500:]}")
-
-    # 4. Mux in audio (voice starts after 3s intro)
-    video_with_audio = WORK_DIR / "video_with_audio.mp4"
-    audio_delayed = WORK_DIR / "audio_delayed.aac"
-
-    # Delay audio by intro duration (3s)
-    delay_cmd = [
-        "ffmpeg", "-y",
-        "-i", voice_path,
-        "-af", "adelay=3000|3000",  # 3000ms = 3s delay
-        "-c:a", "aac", "-b:a", "128k",
-        str(audio_delayed)
-    ]
-    subprocess.run(delay_cmd, capture_output=True)
-
-    mux_cmd = [
-        "ffmpeg", "-y",
-        "-i", str(video_no_audio),
-        "-i", str(audio_delayed),
-        "-c:v", "copy",
-        "-c:a", "aac", "-b:a", "128k",
-        "-shortest",
-        str(video_with_audio)
-    ]
-    result = subprocess.run(mux_cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        raise RuntimeError(f"Audio mux failed:\n{result.stderr[-500:]}")
-
-    # 5. Burn in subtitles
-    print("   Burning in subtitles…")
-    final_path = OUTPUT_DIR / "final_video.mp4"
-    burn_subtitles(video_with_audio, srt_path, final_path)
-
-    # 6. Create Shorts version
-    print("   Creating Shorts clip…")
-    shorts_path = OUTPUT_DIR / "shorts.mp4"
-    make_shorts(final_path, shorts_path)
-
-    # 7. Clean up work dir
-    shutil.rmtree(WORK_DIR, ignore_errors=True)
-
-    size_mb = final_path.stat().st_size // (1024 * 1024)
-    print(f"✅ Final video: {final_path} ({size_mb}MB)")
-    if shorts_path.exists():
-        shorts_mb = shorts_path.stat().st_size // (1024 * 1024)
-        print(f"✅ Shorts clip: {shorts_path} ({shorts_mb}MB)")
+    # Save result
+    result = {
+        "video_id":    video_id,
+        "shorts_id":   shorts_id,
+        "publish_time": publish_time,
+        "url":         f"https://youtu.be/{video_id}",
+        "shorts_url":  f"https://youtu.be/{shorts_id}" if shorts_id else None
+    }
+    (OUTPUT_DIR / "upload_result.json").write_text(json.dumps(result, indent=2))
 
     gho = os.environ.get("GITHUB_OUTPUT", "/dev/null")
     with open(gho, "a") as f:
-        f.write(f"final_video={final_path}\n")
-        f.write(f"shorts_path={shorts_path}\n")
+        f.write(f"youtube_video_id={video_id}\n")
+        f.write(f"youtube_url=https://youtu.be/{video_id}\n")
+        if shorts_id:
+            f.write(f"youtube_shorts_id={shorts_id}\n")
+
+    print(f"✅ YouTube upload complete: https://youtu.be/{video_id}")
+    if shorts_id:
+        print(f"✅ Shorts upload complete: https://youtu.be/{shorts_id}")
 
 if __name__ == "__main__":
     main()

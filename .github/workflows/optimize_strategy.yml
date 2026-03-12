@@ -1,0 +1,52 @@
+name: 🧠 YT Autopilot — Daily Strategy Optimizer
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 3 AM UTC daily
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: 📊 Fetch YouTube analytics
+        env:
+          YOUTUBE_CLIENT_ID:     ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python scripts/10_fetch_analytics.py
+
+      - name: 🧠 Run strategy optimizer
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/11_optimize_strategy.py
+
+      - name: 💾 Commit updated strategy + analytics
+        run: |
+          git config user.name  "YT Autopilot Bot"
+          git config user.email "bot@yt-autopilot.local"
+          git pull --rebase origin main
+          git add scripts/strategy.json dashboard/data/analytics.json || true
+          git diff --staged --quiet || git commit -m "🧠 Daily strategy update $(date +'%Y-%m-%d')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

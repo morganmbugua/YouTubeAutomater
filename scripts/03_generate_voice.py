@@ -24,6 +24,21 @@ def generate_voice(text: str, output_path: Path) -> bool:
         tts = gTTS(text=text, lang="en", slow=False)
         tts.save(str(output_path))
         print(f"   ✅ gTTS audio saved: {output_path.stat().st_size // 1024}KB")
+
+        # Speed up by 10% — gTTS tends to be slightly slow/robotic
+        # atempo=1.1 makes it sound more natural and energetic
+        sped_path = output_path.with_suffix(".sped.mp3")
+        result = subprocess.run([
+            "ffmpeg", "-y", "-i", str(output_path),
+            "-filter:a", "atempo=1.12",
+            "-q:a", "2",
+            str(sped_path)
+        ], capture_output=True, text=True)
+        if result.returncode == 0 and sped_path.exists():
+            sped_path.replace(output_path)
+            print(f"   ✅ Audio speed adjusted (atempo=1.12)")
+        else:
+            print(f"   ⚠️ Speed adjust failed, using original: {result.stderr[:100]}")
         return True
     except Exception as e:
         raise RuntimeError(f"gTTS failed: {e}. Is gTTS installed? (pip install gTTS)")

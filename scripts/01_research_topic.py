@@ -5,7 +5,7 @@ Uses Groq API (FREE — no billing required, 14,400 requests/day).
 Sign up at console.groq.com → API Keys → Create API Key.
 """
 
-import os, json, time, urllib.request, urllib.parse, urllib.error
+import os, json, time, re, urllib.request, urllib.parse, urllib.error
 from pathlib import Path
 
 SLOT            = os.environ.get("VIDEO_SLOT", "1")
@@ -118,7 +118,9 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
         raw = raw.split("```")[1]
         if raw.startswith("json"):
             raw = raw[4:]
-    return json.loads(raw.strip())
+    raw = raw.strip()
+    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
+    return json.loads(raw)
 
 # ── Update strategy ───────────────────────────────────────────────────────────
 

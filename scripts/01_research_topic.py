@@ -20,7 +20,7 @@ STRATEGY_FILE   = Path("scripts/strategy.json")
 
 GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY
+    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
 )
 
 # ── Gemini helper ─────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ def gemini(prompt: str, max_tokens: int = 1024) -> str:
             return data["candidates"][0]["content"]["parts"][0]["text"].strip()
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                wait = 15 * (attempt + 1)
+                wait = 30 * (attempt + 1)
                 print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
                 time.sleep(wait)
             else:
@@ -148,7 +148,7 @@ def update_strategy(strategy: dict, topic_data: dict):
 def main():
     print(f"🔍 Researching topic for slot {SLOT}…")
     # Stagger slots to avoid simultaneous Gemini requests
-    stagger = (int(SLOT) - 1) * 8
+    stagger = (int(SLOT) - 1) * 15
     if stagger > 0:
         print(f"   Staggering {stagger}s to avoid rate limits…")
         time.sleep(stagger)

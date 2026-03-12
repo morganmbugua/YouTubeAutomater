@@ -13,7 +13,7 @@ GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 
 GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY
+    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
 )
 
 STRATEGY_FILE  = Path("scripts/strategy.json")
@@ -45,7 +45,7 @@ def gemini(prompt: str, max_tokens: int = 800) -> str:
             return data["candidates"][0]["content"]["parts"][0]["text"].strip()
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                wait = 15 * (attempt + 1)
+                wait = 30 * (attempt + 1)
                 print(f"   ⏳ Rate limited — waiting {wait}s (attempt {attempt+1}/5)…")
                 time.sleep(wait)
             else:

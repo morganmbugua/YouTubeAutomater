@@ -118,5 +118,17 @@
     "youtube_url": "https://youtu.be/_CY9QCwEbG4",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-12T09:12:03.589806Z",
+    "status": "unknown",
+    "topic": "Cracking the Code to Effective Learning Strategies",
+    "content_type": "educational",
+    "title": "Unlock Your Brain: Proven Learning Strategies for Success",
+    "video_id": "vS91mR6ksFk",
+    "youtube_url": "https://youtu.be/vS91mR6ksFk",
+    "instagram": false,
+    "tiktok": false
   }
 ]

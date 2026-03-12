@@ -1,12 +1,12 @@
 {
-  "total_runs": 10,
-  "successful_videos": 2,
-  "success_rate": 20.0,
+  "total_runs": 11,
+  "successful_videos": 3,
+  "success_rate": 27.3,
   "instagram_posts": 0,
   "tiktok_posts": 0,
   "content_breakdown": {
     "": 6,
-    "educational": 4
+    "educational": 5
   },
-  "last_updated": "2026-03-12T08:47:34.058119Z"
+  "last_updated": "2026-03-12T09:12:03.590104Z"
 }

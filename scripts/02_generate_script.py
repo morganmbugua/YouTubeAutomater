@@ -16,7 +16,7 @@ GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 
 GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY
+    "gemini-2.0-flash-lite:generateContent?key=" + GEMINI_API_KEY
 )
 
 # Load topic
@@ -86,7 +86,7 @@ Respond ONLY with a JSON object. No explanation, no markdown, no code fences —
 
 def main():
     print(f"✍️ Generating script for slot {SLOT}: {topic_data['topic']}")
-    stagger = (int(SLOT) - 1) * 8
+    stagger = (int(SLOT) - 1) * 15
     if stagger > 0:
         print(f"   Staggering {stagger}s to avoid rate limits…")
         time.sleep(stagger)

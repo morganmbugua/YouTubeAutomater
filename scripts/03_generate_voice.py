@@ -5,7 +5,7 @@ Uses gTTS (Google Text-to-Speech) — completely free, no API key needed.
 Also generates an SRT subtitle file timed to the audio.
 """
 
-import os, json, subprocess
+import os, json, subprocess, re
 from pathlib import Path
 
 SLOT       = os.environ.get("VIDEO_SLOT", "1")
@@ -16,32 +16,114 @@ script_path = os.environ.get("SCRIPT_PATH", str(OUTPUT_DIR / "script.json"))
 script_data = json.loads(Path(script_path).read_text())
 narration   = script_data["narration"]
 
-# ── gTTS ──────────────────────────────────────────────────────────────────────
+# ── Text pre-processing for natural TTS flow ──────────────────────────────────
+
+def clean_for_tts(text: str) -> str:
+    """
+    Pre-process narration so gTTS reads naturally without odd pauses.
+    """
+    # Remove stage directions like (pause) or [music] or *emphasis*
+    text = re.sub(r'\[.*?\]', '', text)
+    text = re.sub(r'\(.*?\)', '', text)
+    text = re.sub(r'\*+([^*]+)\*+', r'\1', text)
+
+    # Remove markdown formatting
+    text = re.sub(r'#{1,6}\s+', '', text)
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'__(.+?)__', r'\1', text)
+
+    # Replace dashes used as pauses with commas (gTTS pauses too long on em-dash)
+    text = re.sub(r'\s*—\s*', ', ', text)
+    text = re.sub(r'\s*--\s*', ', ', text)
+
+    # Remove ellipsis (causes long unnatural pauses)
+    text = re.sub(r'\.{2,}', '.', text)
+
+    # Replace semicolons with commas — gTTS over-pauses on semicolons
+    text = text.replace(';', ',')
+
+    # Replace colons mid-sentence with commas (keep natural flow)
+    # But only when not at end of line (e.g. "Here's what we know: it works")
+    text = re.sub(r':(?!\n)', ',', text)
+
+    # Remove bullet points / numbering that slipped through
+    text = re.sub(r'^\s*[\-\•\*]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*\d+[\.\)]\s+', '', text, flags=re.MULTILINE)
+
+    # Collapse multiple spaces/newlines into single space
+    text = re.sub(r'\n+', ' ', text)
+    text = re.sub(r' {2,}', ' ', text)
+
+    # Remove any leftover special characters that confuse TTS
+    text = re.sub(r'[^\w\s\.,!?\'\"()-]', '', text)
+
+    return text.strip()
+
+
+def split_sentences(text: str) -> list:
+    """Split into natural sentence chunks for smoother TTS — no choppy mid-sentence breaks."""
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    merged, buffer = [], ""
+    for s in sentences:
+        buffer = (buffer + " " + s).strip() if buffer else s
+        if len(buffer.split()) >= 15:
+            merged.append(buffer)
+            buffer = ""
+    if buffer:
+        merged.append(buffer)
+    return [s for s in merged if s.strip()]
+
 
 def generate_voice(text: str, output_path: Path) -> bool:
     try:
         from gtts import gTTS
-        tts = gTTS(text=text, lang="en", slow=False)
-        tts.save(str(output_path))
+        import shutil
+
+        cleaned   = clean_for_tts(text)
+        sentences = split_sentences(cleaned)
+        print(f"   Generating TTS in {len(sentences)} sentence chunks…")
+
+        tmp_dir = output_path.parent / "tts_chunks"
+        tmp_dir.mkdir(exist_ok=True)
+
+        chunk_files = []
+        for i, sentence in enumerate(sentences):
+            if not sentence.strip():
+                continue
+            chunk_path = tmp_dir / f"chunk_{i:03d}.mp3"
+            gTTS(text=sentence.strip(), lang="en", slow=False).save(str(chunk_path))
+            chunk_files.append(chunk_path)
+
+        if not chunk_files:
+            raise RuntimeError("No audio chunks generated")
+
+        # Concatenate chunks
+        concat_list = tmp_dir / "concat.txt"
+        concat_list.write_text("\n".join(f"file '{p.resolve()}'" for p in chunk_files))
+        result = subprocess.run([
+            "ffmpeg", "-y", "-f", "concat", "-safe", "0",
+            "-i", str(concat_list), "-c:a", "copy", str(output_path)
+        ], capture_output=True, text=True)
+
+        if result.returncode != 0:
+            print("   ⚠️ Chunk concat failed — falling back to single-pass TTS")
+            gTTS(text=cleaned, lang="en", slow=False).save(str(output_path))
+
+        shutil.rmtree(str(tmp_dir), ignore_errors=True)
         print(f"   ✅ gTTS audio saved: {output_path.stat().st_size // 1024}KB")
 
-        # Speed up by 10% — gTTS tends to be slightly slow/robotic
-        # atempo=1.1 makes it sound more natural and energetic
+        # Slight speed-up — removes the robotic slowness without sounding rushed
         sped_path = output_path.with_suffix(".sped.mp3")
         result = subprocess.run([
             "ffmpeg", "-y", "-i", str(output_path),
-            "-filter:a", "atempo=1.12",
-            "-q:a", "2",
-            str(sped_path)
+            "-filter:a", "atempo=1.1", "-q:a", "2", str(sped_path)
         ], capture_output=True, text=True)
         if result.returncode == 0 and sped_path.exists():
             sped_path.replace(output_path)
-            print(f"   ✅ Audio speed adjusted (atempo=1.12)")
-        else:
-            print(f"   ⚠️ Speed adjust failed, using original: {result.stderr[:100]}")
+            print(f"   ✅ Speed adjusted (atempo=1.1)")
         return True
     except Exception as e:
-        raise RuntimeError(f"gTTS failed: {e}. Is gTTS installed? (pip install gTTS)")
+        raise RuntimeError(f"gTTS failed: {e}")
 
 # ── Audio duration via ffprobe ────────────────────────────────────────────────
 

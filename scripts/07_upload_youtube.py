@@ -119,12 +119,20 @@ def upload_video(access_token: str, publish_time: str) -> str:
     desc      = script_data.get("description", f"Video about {topic_data['topic']}")[:5000]
     tags      = script_data.get("tags", topic_data.get("seo_keywords", []))[:500]
 
+    # Sanitize — tags must be strings, title must be under 100 chars
+    tags = [str(t)[:30] for t in tags if t][:15]
+    title = title[:100]
+    desc  = desc[:4900]
+
+    print(f"   Title: {title}")
+    print(f"   Tags: {len(tags)} tags, publish: {publish_time}")
+
     metadata = {
         "snippet": {
             "title":       title,
             "description": desc,
             "tags":        tags,
-            "categoryId":  "22"  # People & Blogs — works for most content
+            "categoryId":  "27"  # Education — better for dark history/documentary content
         },
         "status": {
             "privacyStatus":           "scheduled",
@@ -141,13 +149,19 @@ def upload_video(access_token: str, publish_time: str) -> str:
         data=meta_bytes,
         headers={
             "Authorization":           f"Bearer {access_token}",
-            "Content-Type":            "application/json",
+            "Content-Type":            "application/json; charset=UTF-8",
             "X-Upload-Content-Type":   "video/mp4",
             "X-Upload-Content-Length": str(file_size)
         }
     )
-    with urllib.request.urlopen(init_req, timeout=30) as r:
-        upload_url = r.getheader("Location")
+    try:
+        with urllib.request.urlopen(init_req, timeout=30) as r:
+            upload_url = r.getheader("Location")
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        print(f"   ❌ YouTube init failed: HTTP {e.code}")
+        print(f"   Response: {error_body[:800]}")
+        raise
 
     if not upload_url:
         raise RuntimeError("YouTube did not return an upload URL")
@@ -237,22 +251,14 @@ def upload_shorts(access_token: str, publish_time: str) -> str | None:
     desc      = script_data.get("description", f"Video about {topic_data['topic']}")[:5000]
     tags      = script_data.get("tags", topic_data.get("seo_keywords", []))
     if "#Shorts" not in tags:
-        tags = ["Shorts"] + tags
-
-    # Schedule Shorts 30 min after main video
-    try:
-        from datetime import datetime, timedelta
-        dt = datetime.strptime(publish_time, "%Y-%m-%dT%H:%M:%SZ")
-        shorts_publish = (dt + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:%S") + "Z"
-    except Exception:
-        shorts_publish = publish_time
+        tags = [str(t)[:30] for t in tags if t][:15]
 
     metadata = {
         "snippet": {
             "title":       shorts_title,
-            "description": "#Shorts\n\n" + desc,
-            "tags":        tags[:500],
-            "categoryId":  "22"
+            "description": "#Shorts\n\n" + desc[:4880],
+            "tags":        tags,
+            "categoryId":  "27"
         },
         "status": {
             "privacyStatus":           "scheduled",
@@ -268,16 +274,17 @@ def upload_shorts(access_token: str, publish_time: str) -> str | None:
         data=meta_bytes,
         headers={
             "Authorization":           f"Bearer {access_token}",
-            "Content-Type":            "application/json",
+            "Content-Type":            "application/json; charset=UTF-8",
             "X-Upload-Content-Type":   "video/mp4",
             "X-Upload-Content-Length": str(file_size)
         }
     )
-    with urllib.request.urlopen(init_req, timeout=30) as r:
-        upload_url = r.getheader("Location")
-
-    if not upload_url:
-        print("   ⚠️ Shorts: no upload URL returned")
+    try:
+        with urllib.request.urlopen(init_req, timeout=30) as r:
+            upload_url = r.getheader("Location")
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        print(f"   ⚠️ Shorts init failed: HTTP {e.code}: {error_body[:400]}")
         return None
 
     print(f"   Uploading Shorts ({file_size // (1024*1024) or '<1'}MB)…")

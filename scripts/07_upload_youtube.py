@@ -42,8 +42,17 @@ def get_access_token() -> str:
         data=data,
         headers={"Content-Type": "application/x-www-form-urlencoded"}
     )
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read())["access_token"]
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = json.loads(r.read())
+            if "access_token" not in data:
+                raise RuntimeError(f"No access_token in response: {data}")
+            return data["access_token"]
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"   ❌ Token refresh failed HTTP {e.code}: {body}")
+        print(f"   Check that YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, and YOUTUBE_REFRESH_TOKEN are correct in GitHub Secrets.")
+        raise
 
 # ── Calculate scheduled publish time ─────────────────────────────────────────
 

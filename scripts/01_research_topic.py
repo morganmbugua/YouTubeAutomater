@@ -147,11 +147,6 @@ def update_strategy(strategy: dict, topic_data: dict):
 
 def main():
     print(f"🔍 Researching topic for slot {SLOT}…")
-    # Stagger slots to avoid simultaneous Gemini requests
-    stagger = (int(SLOT) - 1) * 15
-    if stagger > 0:
-        print(f"   Staggering {stagger}s to avoid rate limits…")
-        time.sleep(stagger)
     strategy   = load_strategy()
     trending   = fetch_youtube_trending()
     topic_data = pick_topic(strategy, trending)

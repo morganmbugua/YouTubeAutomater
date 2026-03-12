@@ -1,30 +1,9 @@
 {
-  "content_mix": [
-    "educational",
-    "how-to",
-    "news analysis",
-    "top 10",
-    "explainer",
-    "documentary"
-  ],
-  "recent_topics": [
-    "Iran Iraq War 1980-1988"
-  ],
+  "content_mix": ["dark history", "true crime & conspiracies", "dark psychology", "shocking science & nature", "rise and fall stories", "survival & disaster"],
+  "target_niches": ["dark history", "true crime", "dark psychology", "mystery", "survival"],
+  "best_posting_hours": [6, 9, 12, 15, 18, 21],
   "avoid_topics": [],
-  "best_posting_hours": [
-    6,
-    9,
-    12,
-    15,
-    18,
-    21
-  ],
-  "target_niches": [
-    "technology",
-    "science",
-    "history",
-    "business",
-    "health & wellness"
-  ],
-  "last_optimized": null
+  "recent_topics": [],
+  "last_optimized": null,
+  "channel_focus": "Faceless storytelling channel — dark history, true crime, psychology, survival. Hook-first, narrative-driven, 5-7 min videos."
 }

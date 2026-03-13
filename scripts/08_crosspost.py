@@ -180,53 +180,53 @@ def post_instagram(video_url: str) -> bool:
 # ── TikTok ────────────────────────────────────────────────────────────────────
 
 def post_tiktok(video_url: str) -> bool:
-    if not TIKTOK_ACCESS_TOKEN:
-        print("   TikTok: no credentials — skipping")
+    # 1. Setup: We need to use the actual file, not a URL
+    if not os.environ.get("TIKTOK_REFRESH_TOKEN"):
+        print("   TikTok: no refresh token found — skipping")
         return False
-    if not video_url:
-        print("   TikTok: no video URL — skipping")
-        return False
+        
     try:
-        topic   = topic_data.get("topic", "")
-        caption = f"{topic} #shorts #viral #trending"[:150]
+        # 1. Refresh Access Token (Required because your code used a static token)
+        token_url = "https://open.tiktokapis.com/v2/oauth/token/"
+        data = {
+            "client_key": os.environ["TIKTOK_CLIENT_KEY"],
+            "client_secret": os.environ["TIKTOK_CLIENT_SECRET"],
+            "grant_type": "refresh_token",
+            "refresh_token": os.environ["TIKTOK_REFRESH_TOKEN"]
+        }
+        r = urllib.request.urlopen(urllib.request.Request(token_url, data=urllib.parse.urlencode(data).encode()))
+        token = json.loads(r.read())["access_token"]
 
-        payload = json.dumps({
-            "post_info": {
-                "title":         caption,
-                "privacy_level": "PUBLIC_TO_EVERYONE",
-                "disable_duet":  False,
-                "disable_stitch": False
-            },
-            "source_info": {
-                "source":    "PULL_FROM_URL",
-                "video_url": video_url
-            }
+        # 2. Init Upload (FILE_UPLOAD method)
+        file_size = os.path.getsize(shorts_path)
+        init_payload = json.dumps({
+            "post_info": {"title": topic_data.get("topic", "Check this out! #fyp")[:150], "privacy_level": "SELF_ONLY"},
+            "source_info": {"source": "FILE_UPLOAD", "video_size": file_size, "chunk_size": file_size, "total_chunk_count": 1}
         }).encode()
 
         req = urllib.request.Request(
             "https://open.tiktokapis.com/v2/post/publish/video/init/",
-            data=payload,
-            headers={
-                "Authorization": f"Bearer {TIKTOK_ACCESS_TOKEN}",
-                "Content-Type":  "application/json; charset=UTF-8"
-            }
+            data=init_payload,
+            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json; charset=UTF-8"}
         )
-        with urllib.request.urlopen(req, timeout=30) as r:
-            result = json.loads(r.read())
+        with urllib.request.urlopen(req) as res:
+            init_data = json.loads(res.read())["data"]
 
-        if result.get("error", {}).get("code") == "ok":
-            publish_id = result.get("data", {}).get("publish_id")
-            print(f"   ✅ TikTok posted: {publish_id}")
-            return True
-        else:
-            err = result.get("error", {})
-            print(f"   ⚠️ TikTok error: {err}")
-            if "permission" in str(err).lower():
-                print("   ℹ️ TikTok: Developer approval required. See setup guide.")
-            return False
+        # 3. Upload Binary
+        with open(shorts_path, "rb") as f:
+            upload_req = urllib.request.Request(
+                init_data["upload_url"],
+                data=f.read(),
+                headers={"Content-Type": "video/mp4", "Content-Range": f"bytes 0-{file_size-1}/{file_size}"},
+                method="PUT"
+            )
+            urllib.request.urlopen(upload_req)
+
+        print("   ✅ TikTok posted successfully!")
+        return True
 
     except Exception as e:
-        print(f"   ⚠️ TikTok exception: {e}")
+        print(f"   ⚠️ TikTok error: {e}")
         return False
 
 # ── Main ──────────────────────────────────────────────────────────────────────

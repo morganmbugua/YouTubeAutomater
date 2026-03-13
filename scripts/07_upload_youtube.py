@@ -108,6 +108,16 @@ def get_publish_time() -> str:
 
 # ── Upload video (resumable) ──────────────────────────────────────────────────
 
+def sanitize(text: str) -> str:
+    """Strip characters that can break YouTube's JSON API."""
+    import re
+    # Remove null bytes and control chars except newline/tab
+    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
+    # Remove surrogate pairs that break JSON encoding
+    text = text.encode('utf-8', errors='replace').decode('utf-8')
+    return text.strip()
+
+
 def upload_video(access_token: str, publish_time=None) -> str:
     import urllib.request
     video_path = Path(final_video)
@@ -115,17 +125,12 @@ def upload_video(access_token: str, publish_time=None) -> str:
         raise FileNotFoundError(f"Video file not found: {final_video}")
 
     file_size = video_path.stat().st_size
-    title     = script_data.get("title", topic_data["topic"])[:100]
-    desc      = script_data.get("description", f"Video about {topic_data['topic']}")[:5000]
-    tags      = script_data.get("tags", topic_data.get("seo_keywords", []))[:500]
-
-    # Sanitize — tags must be strings, title must be under 100 chars
-    tags = [str(t)[:30] for t in tags if t][:15]
-    title = title[:100]
-    desc  = desc[:4900]
+    title = sanitize(script_data.get("title", topic_data["topic"]))[:100]
+    desc  = sanitize(script_data.get("description", f"Video about {topic_data['topic']}"))[:4900]
+    tags  = [sanitize(str(t))[:30] for t in script_data.get("tags", topic_data.get("seo_keywords", [])) if t][:15]
 
     print(f"   Title: {title}")
-    print(f"   Tags: {len(tags)} tags")
+    print(f"   Desc length: {len(desc)} chars, Tags: {len(tags)}")
 
     metadata = {
         "snippet": {
@@ -141,7 +146,9 @@ def upload_video(access_token: str, publish_time=None) -> str:
     }
 
     # Step 1: Initiate resumable upload
-    meta_bytes = json.dumps(metadata).encode()
+    meta_bytes = json.dumps(metadata, ensure_ascii=True).encode("utf-8")
+    print(f"   Metadata payload: {len(meta_bytes)} bytes")
+
     init_req = urllib.request.Request(
         "https://www.googleapis.com/upload/youtube/v3/videos"
         "?uploadType=resumable&part=snippet,status",
@@ -159,7 +166,7 @@ def upload_video(access_token: str, publish_time=None) -> str:
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8", errors="replace")
         print(f"   ❌ YouTube init failed: HTTP {e.code}")
-        print(f"   Response: {error_body[:800]}")
+        print(f"   Full error: {error_body}")
         raise
 
     if not upload_url:

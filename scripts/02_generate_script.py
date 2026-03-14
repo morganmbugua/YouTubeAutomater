@@ -55,7 +55,7 @@ def generate_script(topic_data: dict) -> dict:
     audience   = topic_data.get("target_audience", "general audience")
     keywords   = topic_data.get("seo_keywords", [])
     hook       = topic_data.get("hook", "")
-    niche      = topic_data.get("niche", topic_data.get("content_type", "dark history"))
+    niche      = topic_data.get("niche", topic_data.get("content_type", "trending news"))
     why_viral  = topic_data.get("why_viral", "")
 
     # ── Call 1: Narration only (plain text, no JSON overhead) ─────────────────

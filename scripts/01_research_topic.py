@@ -2,7 +2,6 @@
 """
 Step 1: Research Trending Topics
 Uses Groq API (FREE — no billing required, 14,400 requests/day).
-Sign up at console.groq.com → API Keys → Create API Key.
 """
 
 import os, json, time, re, urllib.request, urllib.parse, urllib.error
@@ -17,7 +16,9 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 FORCE_TOPIC     = os.environ.get("FORCE_TOPIC", "").strip()
 STRATEGY_FILE   = Path("scripts/strategy.json")
 
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+# Local cache — written every run, survives even when git commit fails
+# This is the key to preventing repeats across runs
+LOCAL_CACHE = Path("output/topics_cache.json")
 
 # ── Groq helper ───────────────────────────────────────────────────────────────
 
@@ -30,7 +31,7 @@ def groq_call(prompt: str, max_tokens: int = 1024) -> str:
                 model="llama-3.3-70b-versatile",
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=max_tokens,
-                temperature=0.7
+                temperature=0.85
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
@@ -43,22 +44,37 @@ def groq_call(prompt: str, max_tokens: int = 1024) -> str:
                 raise
     raise RuntimeError("Groq API failed after 5 attempts")
 
-
 # ── Load strategy ─────────────────────────────────────────────────────────────
 
 def load_strategy() -> dict:
+    strategy = {}
     if STRATEGY_FILE.exists():
         try:
-            return json.loads(STRATEGY_FILE.read_text())
+            strategy = json.loads(STRATEGY_FILE.read_text())
         except Exception:
             pass
-    return {
-        "content_mix": ["educational", "how-to", "news analysis", "top 10", "explainer", "documentary"],
-        "recent_topics": [],
-        "avoid_topics": [],
-        "best_posting_hours": [9, 12, 15, 17, 20, 22],
-        "target_niches": ["technology", "science", "history", "business", "health & wellness"]
-    }
+
+    # Merge local cache — it's more up-to-date than git-committed strategy.json
+    if LOCAL_CACHE.exists():
+        try:
+            cache = json.loads(LOCAL_CACHE.read_text())
+            cached_recent = cache.get("recent_topics", [])
+            strat_recent  = strategy.get("recent_topics", [])
+            # Use whichever list is longer (more topics tracked = fewer repeats)
+            if len(cached_recent) > len(strat_recent):
+                strategy["recent_topics"] = cached_recent
+                print(f"   Using local cache: {len(cached_recent)} topics tracked")
+        except Exception:
+            pass
+
+    # Ensure correct defaults — never fall back to old generic niches
+    strategy.setdefault("content_mix", ["dark history", "true crime & conspiracies", "dark psychology",
+                                         "shocking science & nature", "rise and fall stories", "survival & disaster"])
+    strategy.setdefault("recent_topics", [])
+    strategy.setdefault("avoid_topics", [])
+    strategy.setdefault("best_posting_hours", [6, 9, 12, 15, 18, 21])
+    strategy.setdefault("target_niches", ["dark history", "true crime", "dark psychology", "mystery", "survival"])
+    return strategy
 
 # ── Fetch YouTube trending ────────────────────────────────────────────────────
 
@@ -81,11 +97,7 @@ def fetch_youtube_trending() -> list:
         print(f"   ⚠️ Trending fetch failed: {e}")
         return []
 
-# ── Pick topic ────────────────────────────────────────────────────────────────
-
-# ── Niche definition ──────────────────────────────────────────────────────────
-# These are the highest-performing faceless YouTube niches.
-# Focused niche = algorithm recommends to the right audience = faster growth.
+# ── Niche definitions ─────────────────────────────────────────────────────────
 
 NICHES = [
     {
@@ -126,14 +138,16 @@ NICHES = [
     },
 ]
 
+# ── Pick topic ────────────────────────────────────────────────────────────────
 
 def pick_topic(strategy: dict, trending: list) -> dict:
-    import random
+    import datetime
+
     slot_int = int(SLOT)
     avoid    = strategy.get("avoid_topics", [])
-    recent   = strategy.get("recent_topics", [])[-15:]
+    recent   = strategy.get("recent_topics", [])[-50:]
 
-    # Rotate through niches by slot so we don't repeat the same niche daily
+    # Rotate niche by slot number
     niche = NICHES[(slot_int - 1) % len(NICHES)]
 
     if FORCE_TOPIC:
@@ -141,56 +155,98 @@ def pick_topic(strategy: dict, trending: list) -> dict:
         niche_context = ""
     else:
         topic_instruction = f"Choose ONE specific, compelling topic in the '{niche['name']}' niche."
-        niche_context = f"""
-Niche description: {niche['description']}
-Good content angles for this niche: {', '.join(niche['content_types'])}
-Topics to avoid (already covered): {recent}
-Topics to avoid entirely: {avoid}
-Trending YouTube titles for inspiration (don't copy, use as pulse check): {trending[:8]}
+        date_seed = datetime.datetime.utcnow().strftime("%Y-%m-%d")
 
-REQUIREMENTS for a good topic:
-- Specific, not vague. "The Jonestown Massacre" not "a cult story"
-- Creates curiosity or shock. The viewer must NEED to know what happens.
-- Has a clear narrative arc — beginning, escalation, shocking conclusion
-- Real events preferred over hypotheticals
-- Avoid overly political or divisive current events"""
+        niche_context = f"""
+Niche: {niche['description']}
+Content angles to use: {', '.join(niche['content_types'])}
+Uniqueness seed (use to pick a fresh angle): {date_seed}-slot{slot_int}
+
+=== ALREADY COVERED — NEVER REPEAT ANY OF THESE ===
+{chr(10).join(f'- {t}' for t in recent) if recent else '(none yet — pick anything good)'}
+
+Also avoid entirely: {avoid if avoid else 'nothing specific'}
+Trending YouTube titles (pulse check only, do not copy): {trending[:8]}
+
+HARD REQUIREMENTS:
+- Must be 100% different from every topic in the already-covered list
+- Specific named event or person — not a category (e.g. "The 1986 Chernobyl Disaster" not "nuclear accidents")
+- Real documented event preferred over hypotheticals  
+- Strong story arc with a shocking or tragic resolution
+- Broad global appeal"""
 
     prompt = f"""{topic_instruction}
 {niche_context}
 
-You are picking topics for a faceless YouTube channel that gets millions of views.
-Think: what would make someone stop scrolling and click?
+Pick the most compelling specific story for a viral dark-niche YouTube channel.
 
-Respond ONLY with a JSON object. No explanation, no markdown, no code fences:
+Respond ONLY with raw JSON, no markdown:
 {{
-  "topic": "specific compelling topic title",
-  "hook": "one sentence that would make someone STOP scrolling — the most shocking or intriguing fact about this topic",
-  "search_query": "3-4 word image search query",
-  "image_queries": ["{niche['image_style']} 1", "{niche['image_style']} 2", "topic specific image 1", "topic specific image 2", "topic specific image 3"],
+  "topic": "specific topic name",
+  "hook": "most shocking single fact about this topic",
+  "search_query": "3-4 word image search",
+  "image_queries": ["{niche['image_style']}", "{niche['image_style']} dark", "relevant image 1", "relevant image 2", "relevant image 3"],
   "content_type": "{niche['name']}",
   "niche": "{niche['name']}",
-  "target_audience": "who watches this type of content",
-  "why_viral": "one sentence on why this topic will get clicks",
-  "seo_keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
+  "target_audience": "who watches this",
+  "why_viral": "why this gets clicks",
+  "seo_keywords": ["kw1", "kw2", "kw3", "kw4", "kw5"]
 }}"""
 
-    raw = groq_call(prompt, max_tokens=700)
-    if "```" in raw:
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-    raw = raw.strip()
-    raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw)
-    return json.loads(raw)
+    extra_avoid = ""
+    for attempt in range(4):
+        full_prompt = prompt + extra_avoid
+        raw = groq_call(full_prompt, max_tokens=700)
+        if "```" in raw:
+            raw = raw.split("```")[1]
+            if raw.startswith("json"):
+                raw = raw[4:]
+        raw = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', raw.strip())
 
+        try:
+            result = json.loads(raw)
+        except json.JSONDecodeError:
+            if attempt < 3:
+                continue
+            raise
 
-# ── Update strategy ───────────────────────────────────────────────────────────
+        chosen       = result.get("topic", "")
+        chosen_clean = chosen.lower().strip()
+
+        # Check if this topic is too similar to a recent one
+        is_repeat = any(
+            chosen_clean in r.lower() or r.lower() in chosen_clean
+            for r in recent
+        )
+
+        if not is_repeat:
+            return result
+
+        print(f"   ⚠️ Attempt {attempt+1}: '{chosen}' is a repeat — retrying…")
+        extra_avoid += f"\nDO NOT pick '{chosen}' — already covered. Choose a completely different topic."
+
+    print(f"   ⚠️ Could not avoid repeats after 4 attempts — proceeding")
+    return result
+
+# ── Save + update cache ───────────────────────────────────────────────────────
 
 def update_strategy(strategy: dict, topic_data: dict):
+    import datetime
     recent = strategy.get("recent_topics", [])
-    recent.append(topic_data["topic"])
-    strategy["recent_topics"] = recent[-30:]
+    topic  = topic_data["topic"]
+
+    if topic not in recent:
+        recent.append(topic)
+    strategy["recent_topics"] = recent[-50:]
     STRATEGY_FILE.write_text(json.dumps(strategy, indent=2))
+
+    # Write local cache — this survives even when git commit fails
+    LOCAL_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    LOCAL_CACHE.write_text(json.dumps({
+        "recent_topics": strategy["recent_topics"],
+        "last_updated":  datetime.datetime.utcnow().isoformat() + "Z"
+    }, indent=2))
+    print(f"   Topics cache updated: {len(strategy['recent_topics'])} topics tracked")
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 

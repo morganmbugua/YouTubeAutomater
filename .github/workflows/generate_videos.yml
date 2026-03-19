@@ -2,7 +2,7 @@ name: 🎬 YT Autopilot — Generate & Upload Videos
 
 on:
   schedule:
-    - cron: '0 */4 * * *'   # Every 4 hours
+    - cron: '0 */4 * * *'   # Every 4 hours = 6 videos/day
   workflow_dispatch:
     inputs:
       force_topic:
@@ -51,24 +51,23 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           PEXELS_API_KEY:        ${{ secrets.PEXELS_API_KEY }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
-          INSTAGRAM_ACCOUNT_ID:   ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
-          TIKTOK_CLIENT_KEY:      ${{ secrets.TIKTOK_CLIENT_KEY }}
-          TIKTOK_CLIENT_SECRET:   ${{ secrets.TIKTOK_CLIENT_SECRET }}
-          TIKTOK_REFRESH_TOKEN:   ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+          INSTAGRAM_ACCOUNT_ID:  ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+          TIKTOK_ACCESS_TOKEN:   ${{ secrets.TIKTOK_ACCESS_TOKEN }}
           FORCE_TOPIC:           ${{ github.event.inputs.force_topic }}
           NUM_VIDEOS:            ${{ github.event.inputs.num_videos || '1' }}
         run: python scripts/run_all_slots.py
 
       - name: 💾 Commit dashboard data + strategy
+        if: always()
         run: |
+          echo "--- Files in docs/data/ ---"
+          ls -la docs/data/ || echo "docs/data/ does not exist!"
           git config user.name  "YT Autopilot Bot"
           git config user.email "bot@yt-autopilot.local"
-          git stash || true
-          git pull --rebase origin main
-          git stash pop || true
-          git add dashboard/data/ scripts/strategy.json || true
+          git pull --rebase origin main || true
+          git add docs/data/ scripts/strategy.json output/topics_cache.json || true
           if git diff --staged --quiet; then
-            echo "Nothing to commit."
+            echo "Nothing new to commit."
           else
             git commit -m "🤖 Autopilot run $(date +'%Y-%m-%d %H:%M UTC')"
             for attempt in 1 2 3; do

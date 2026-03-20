@@ -62,20 +62,39 @@ jobs:
         run: |
           echo "--- Files in docs/data/ ---"
           ls -la docs/data/ || echo "docs/data/ does not exist!"
+
           git config user.name  "YT Autopilot Bot"
           git config user.email "bot@yt-autopilot.local"
-          git pull --rebase origin main || true
-          git add docs/data/ scripts/strategy.json output/topics_cache.json || true
+
+          # Tell git to always prefer our version on conflicts for data files
+          git config merge.ours.driver true
+          echo "docs/data/* merge=ours" >> .gitattributes
+          echo "output/topics_cache.json merge=ours" >> .gitattributes
+          echo "scripts/strategy.json merge=ours" >> .gitattributes
+
+          git add docs/data/ scripts/strategy.json output/topics_cache.json .gitattributes || true
+
           if git diff --staged --quiet; then
             echo "Nothing new to commit."
           else
             git commit -m "🤖 Autopilot run $(date +'%Y-%m-%d %H:%M UTC')"
-            for attempt in 1 2 3; do
-              git push && break || {
-                echo "Push attempt $attempt failed — rebasing…"
-                git pull --rebase origin main
-              }
-            done
           fi
+
+          # Push with retry — on conflict, force-take our data files then push
+          for attempt in 1 2 3; do
+            git push && { echo "Push succeeded."; break; } || {
+              echo "Push attempt $attempt failed — fetching and re-applying…"
+              git fetch origin main
+              git reset --soft HEAD~1 2>/dev/null || true
+              git pull --rebase -X ours origin main || {
+                # If rebase itself fails, resolve conflicts by taking ours
+                git checkout --ours docs/data/ output/topics_cache.json scripts/strategy.json 2>/dev/null || true
+                git add docs/data/ output/topics_cache.json scripts/strategy.json .gitattributes || true
+                git rebase --continue || git rebase --skip
+              }
+              git add docs/data/ scripts/strategy.json output/topics_cache.json .gitattributes || true
+              git diff --staged --quiet || git commit -m "🤖 Autopilot run $(date +'%Y-%m-%d %H:%M UTC')" || true
+            }
+          done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

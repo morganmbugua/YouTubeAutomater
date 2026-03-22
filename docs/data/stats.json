@@ -1,13 +1,13 @@
 {
-  "total_runs": 25,
+  "total_runs": 26,
   "successful_videos": 3,
-  "success_rate": 12.0,
+  "success_rate": 11.5,
   "instagram_posts": 0,
   "tiktok_posts": 0,
   "content_breakdown": {
     "": 6,
     "educational": 5,
-    "dark history": 14
+    "dark history": 15
   },
-  "last_updated": "2026-03-21T20:35:11.898257Z"
+  "last_updated": "2026-03-22T02:02:39.484660Z"
 }

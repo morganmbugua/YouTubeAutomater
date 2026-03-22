@@ -346,5 +346,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-22T16:39:55.055647Z",
+    "status": "unknown",
+    "topic": "The Batep\u00e1 Massacre",
+    "content_type": "dark history",
+    "title": "S\u00e3o Tom\u00e9's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

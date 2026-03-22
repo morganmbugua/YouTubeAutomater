@@ -334,5 +334,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-22T12:55:18.958452Z",
+    "status": "unknown",
+    "topic": "The SS Central America Disaster",
+    "content_type": "dark history",
+    "title": "America's Worst Sea Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -370,5 +370,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-23T02:05:46.231284Z",
+    "status": "unknown",
+    "topic": "The Dozier School for Boys",
+    "content_type": "dark history",
+    "title": "The School of Nightmares",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

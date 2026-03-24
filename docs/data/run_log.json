@@ -502,5 +502,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-24T20:56:46.624764Z",
+    "status": "unknown",
+    "topic": "The Kamloops Residential School",
+    "content_type": "dark history",
+    "title": "Canada's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

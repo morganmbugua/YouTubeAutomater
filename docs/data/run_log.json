@@ -634,5 +634,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-26T17:14:11.341056Z",
+    "status": "unknown",
+    "topic": "The Kongo-Wara Rebellion",
+    "content_type": "dark history",
+    "title": "Rebellion in the Congo",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

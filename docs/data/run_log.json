@@ -682,5 +682,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-27T08:59:26.405504Z",
+    "status": "unknown",
+    "topic": "The Terezin Concentration Camp",
+    "content_type": "dark history",
+    "title": "Terezin: The Concentration Camp",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

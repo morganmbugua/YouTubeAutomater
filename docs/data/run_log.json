@@ -1006,5 +1006,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-03-31T20:56:45.386041Z",
+    "status": "unknown",
+    "topic": "The Raba Massacre",
+    "content_type": "dark history",
+    "title": "The Raba Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

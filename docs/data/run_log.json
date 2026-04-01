@@ -1018,5 +1018,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-01T02:17:15.788145Z",
+    "status": "unknown",
+    "topic": "The Boudica Rebellion",
+    "content_type": "dark history",
+    "title": "Boudica's Bloody Revenge",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

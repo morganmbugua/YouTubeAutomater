@@ -1042,5 +1042,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-01T09:15:18.359795Z",
+    "status": "unknown",
+    "topic": "The Tlatelolco Massacre",
+    "content_type": "dark history",
+    "title": "Mexico's Darkest Day",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -1054,5 +1054,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-01T13:27:47.623277Z",
+    "status": "unknown",
+    "topic": "The Herero and Namaqua Genocide",
+    "content_type": "dark history",
+    "title": "Genocide in Africa",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

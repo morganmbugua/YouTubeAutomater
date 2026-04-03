@@ -1222,5 +1222,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-03T20:46:43.816110Z",
+    "status": "unknown",
+    "topic": "The Demjanjuk Trial",
+    "content_type": "dark history",
+    "title": "The Nazi Trial That Shocked",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

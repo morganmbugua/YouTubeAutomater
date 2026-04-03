@@ -1186,5 +1186,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-03T09:05:49.167428Z",
+    "status": "unknown",
+    "topic": "The Gelsenkirchen Prison Camp",
+    "content_type": "dark history",
+    "title": "Gelsenkirchen's Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

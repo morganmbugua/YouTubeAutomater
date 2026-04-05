@@ -1354,5 +1354,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-05T16:48:48.744925Z",
+    "status": "unknown",
+    "topic": "The 1978 Jonestown Massacre",
+    "content_type": "dark history",
+    "title": "The Deadly Cult",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

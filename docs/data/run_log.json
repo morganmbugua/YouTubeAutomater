@@ -1318,5 +1318,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-05T05:58:21.081369Z",
+    "status": "unknown",
+    "topic": "The Edelweiss Pirates",
+    "content_type": "dark history",
+    "title": "Teen Rebels vs Nazis",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "total_runs": 110,
+  "total_runs": 111,
   "successful_videos": 3,
   "success_rate": 2.7,
   "instagram_posts": 0,
@@ -7,7 +7,7 @@
   "content_breakdown": {
     "": 6,
     "educational": 5,
-    "dark history": 99
+    "dark history": 100
   },
-  "last_updated": "2026-04-05T02:13:35.148943Z"
+  "last_updated": "2026-04-05T05:58:21.082558Z"
 }

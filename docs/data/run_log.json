@@ -1486,5 +1486,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-07T13:26:07.352908Z",
+    "status": "unknown",
+    "topic": "The Halifax Explosion",
+    "content_type": "dark history",
+    "title": "Halifax Apocalypse",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -1570,5 +1570,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-08T17:10:33.213561Z",
+    "status": "unknown",
+    "topic": "The Dancing Plague of 1518",
+    "content_type": "dark history",
+    "title": "Dancing Madness",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

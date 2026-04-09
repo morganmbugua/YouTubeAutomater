@@ -1630,5 +1630,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-09T13:30:10.384583Z",
+    "status": "unknown",
+    "topic": "The Bath School Disaster",
+    "content_type": "dark history",
+    "title": "Bath School Disaster Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -1678,5 +1678,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-10T06:11:46.754769Z",
+    "status": "unknown",
+    "topic": "The Bega School Girls Tragedy",
+    "content_type": "dark history",
+    "title": "Tragedy in Bega",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

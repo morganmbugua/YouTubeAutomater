@@ -1810,5 +1810,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-12T02:21:24.581888Z",
+    "status": "unknown",
+    "topic": "The Zabern Affair",
+    "content_type": "dark history",
+    "title": "The Zabern Affair: Dark History",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

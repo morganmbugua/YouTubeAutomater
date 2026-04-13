@@ -1906,5 +1906,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-13T10:07:06.920703Z",
+    "status": "unknown",
+    "topic": "The Dyatlov Pass Incident",
+    "content_type": "dark history",
+    "title": "9 Hikers Never Returned",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

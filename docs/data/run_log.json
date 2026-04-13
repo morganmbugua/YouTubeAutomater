@@ -1882,5 +1882,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-13T02:22:52.817070Z",
+    "status": "unknown",
+    "topic": "The Senghenydd Colliery Disaster",
+    "content_type": "dark history",
+    "title": "Wales' Worst Mining Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

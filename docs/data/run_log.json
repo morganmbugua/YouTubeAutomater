@@ -1930,5 +1930,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-13T17:23:00.971602Z",
+    "status": "unknown",
+    "topic": "The Gwangju Uprising",
+    "content_type": "dark history",
+    "title": "Korea's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

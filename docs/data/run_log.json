@@ -1942,5 +1942,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-13T21:02:31.591011Z",
+    "status": "unknown",
+    "topic": "The sinking of the MV Wilhelm Gustloff",
+    "content_type": "dark history",
+    "title": "Sunk in Seconds",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

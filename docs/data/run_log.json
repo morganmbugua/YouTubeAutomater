@@ -1978,5 +1978,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-14T09:25:19.711097Z",
+    "status": "unknown",
+    "topic": "The MS Le Joola Disaster",
+    "content_type": "dark history",
+    "title": "Senegal's Worst Maritime Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

@@ -2086,5 +2086,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-15T21:00:24.494691Z",
+    "status": "unknown",
+    "topic": "The R\u00edo de Janeiro Massacre",
+    "content_type": "dark history",
+    "title": "Rio's Darkest Night",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

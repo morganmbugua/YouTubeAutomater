@@ -2038,5 +2038,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-15T06:15:32.496464Z",
+    "status": "unknown",
+    "topic": "The 1984 Bhopal Disaster's Neglected Cousin: The 1974 Flixborough Disaster",
+    "content_type": "dark history",
+    "title": "Flixborough: The Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

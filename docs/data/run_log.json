@@ -2074,5 +2074,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-15T17:14:16.123466Z",
+    "status": "unknown",
+    "topic": "The Sharpeville Massacre",
+    "content_type": "dark history",
+    "title": "Bloodshed in Sharpeville",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

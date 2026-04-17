@@ -2194,5 +2194,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-17T09:29:58.376483Z",
+    "status": "unknown",
+    "topic": "The Radium Glow Girls",
+    "content_type": "dark history",
+    "title": "Radium's Deadly Glow",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

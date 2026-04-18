@@ -2266,5 +2266,17 @@
     "youtube_url": "",
     "instagram": false,
     "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-18T08:58:28.638385Z",
+    "status": "unknown",
+    "topic": "The Soweto Uprising",
+    "content_type": "dark history",
+    "title": "Soweto Uprising: Bloodshed in the Streets",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
   }
 ]

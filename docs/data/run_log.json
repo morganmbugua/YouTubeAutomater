@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-12T04:21:22.788737Z",
-    "status": "failure",
-    "topic": "Unknown",
-    "content_type": "",
-    "title": "",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-12T05:12:12.697866Z",
     "status": "failure",
     "topic": "Unknown",
@@ -2394,6 +2382,18 @@
     "topic": "The 1937 Nanjing Massacre's Hidden Diary",
     "content_type": "dark history",
     "title": "Nanjing's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-20T06:27:17.675221Z",
+    "status": "unknown",
+    "topic": "The Baga Massacre",
+    "content_type": "dark history",
+    "title": "Nigeria's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

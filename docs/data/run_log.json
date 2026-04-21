@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-12T08:47:34.057814Z",
-    "status": "unknown",
-    "topic": "The Impact of Climate Change on Global Food Systems",
-    "content_type": "educational",
-    "title": "Climate Change & Food Systems: A Growing Concern",
-    "video_id": "_CY9QCwEbG4",
-    "youtube_url": "https://youtu.be/_CY9QCwEbG4",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-12T09:12:03.589806Z",
     "status": "unknown",
     "topic": "Cracking the Code to Effective Learning Strategies",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Ore Disaster of 1928",
     "content_type": "dark history",
     "title": "Radium's Deadly Glow",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-21T17:29:48.482386Z",
+    "status": "unknown",
+    "topic": "The Boudica Rebellion",
+    "content_type": "dark history",
+    "title": "Boudica's Bloody Revenge",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-12T07:00:25.111139Z",
-    "status": "unknown",
-    "topic": "Unknown",
-    "content_type": "",
-    "title": "",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-12T07:35:04.519458Z",
     "status": "unknown",
     "topic": "How to Grow a Sustainable Home Garden",
@@ -2394,6 +2382,18 @@
     "topic": "The Khibitka Massacre",
     "content_type": "dark history",
     "title": "Alaska's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-21T02:18:41.716463Z",
+    "status": "unknown",
+    "topic": "The Tlatelolco Massacre",
+    "content_type": "dark history",
+    "title": "Mexico's Darkest Night",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

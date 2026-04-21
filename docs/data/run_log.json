@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-12T07:35:04.519458Z",
-    "status": "unknown",
-    "topic": "How to Grow a Sustainable Home Garden",
-    "content_type": "educational",
-    "title": "Grow Your Own Paradise",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-12T07:51:32.397388Z",
     "status": "unknown",
     "topic": "The Science Behind Successful Cryptocurrency Investing",
@@ -2394,6 +2382,18 @@
     "topic": "The Tlatelolco Massacre",
     "content_type": "dark history",
     "title": "Mexico's Darkest Night",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-21T06:16:02.782634Z",
+    "status": "unknown",
+    "topic": "The Haymarket Affair",
+    "content_type": "dark history",
+    "title": "The Bomb That Changed History",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

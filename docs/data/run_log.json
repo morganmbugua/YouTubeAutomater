@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-20T05:29:22.998566Z",
-    "status": "unknown",
-    "topic": "The Dancing Plague of 1518",
-    "content_type": "dark history",
-    "title": "The Dance That Killed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-20T07:21:32.768390Z",
     "status": "unknown",
     "topic": "The Nanking Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Gnadenhutten Massacre",
     "content_type": "dark history",
     "title": "Bloodiest Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-22T09:32:34.966277Z",
+    "status": "unknown",
+    "topic": "The Doomdorf Incident",
+    "content_type": "dark history",
+    "title": "The Doomdorf Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

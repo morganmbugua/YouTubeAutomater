@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-20T20:44:19.586497Z",
-    "status": "unknown",
-    "topic": "The Katyn Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in the Forest",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-21T01:43:02.421215Z",
     "status": "unknown",
     "topic": "The Senghenydd Colliery Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Katyn Forest Massacre",
     "content_type": "dark history",
     "title": "Massacre in the Forest",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-23T06:21:01.635172Z",
+    "status": "unknown",
+    "topic": "The Terezin Concentration Camp",
+    "content_type": "dark history",
+    "title": "Terezin's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

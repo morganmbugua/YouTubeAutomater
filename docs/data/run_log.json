@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-21T05:19:59.345614Z",
-    "status": "unknown",
-    "topic": "The Sack of Antwerp",
-    "content_type": "dark history",
-    "title": "The Bloody Sack of Antwerp",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-21T08:44:03.139143Z",
     "status": "unknown",
     "topic": "The Gulag Archipelago",
@@ -2394,6 +2382,18 @@
     "topic": "The Nanking Massacre's Twin Atrocity: The Changjiao Massacre",
     "content_type": "dark history",
     "title": "Nanking's Hidden Twin",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-23T13:29:33.541936Z",
+    "status": "unknown",
+    "topic": "The Waco Siege",
+    "content_type": "dark history",
+    "title": "Waco Siege: 51 Days",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

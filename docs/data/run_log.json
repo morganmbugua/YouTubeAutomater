@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-22T02:02:39.484198Z",
-    "status": "unknown",
-    "topic": "The Sobibor Extermination Camp",
-    "content_type": "dark history",
-    "title": "Sobibor: The Camp of No Return",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-22T05:33:06.967069Z",
     "status": "unknown",
     "topic": "The Haymarket Affair",
@@ -2394,6 +2382,18 @@
     "topic": "The Sharpeville Massacre",
     "content_type": "dark history",
     "title": "Bloodshed in Sharpeville",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-24T09:41:40.284017Z",
+    "status": "unknown",
+    "topic": "The Bieslan School Siege",
+    "content_type": "dark history",
+    "title": "Russia's Darkest Day",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-22T12:55:18.958452Z",
-    "status": "unknown",
-    "topic": "The SS Central America Disaster",
-    "content_type": "dark history",
-    "title": "America's Worst Sea Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-22T16:39:55.055647Z",
     "status": "unknown",
     "topic": "The Batep\u00e1 Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Rumbula Massacre",
     "content_type": "dark history",
     "title": "Nazi Massacre Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-24T20:58:02.445855Z",
+    "status": "unknown",
+    "topic": "The Kamchatka Peninsula Incident",
+    "content_type": "dark history",
+    "title": "Soviet Secrets Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

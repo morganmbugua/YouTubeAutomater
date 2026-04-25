@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-23T02:05:46.231284Z",
-    "status": "unknown",
-    "topic": "The Dozier School for Boys",
-    "content_type": "dark history",
-    "title": "The School of Nightmares",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-23T05:44:48.922283Z",
     "status": "unknown",
     "topic": "The Leopoldville Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Zong Massacre",
     "content_type": "dark history",
     "title": "The Zong Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-25T08:57:34.596275Z",
+    "status": "unknown",
+    "topic": "The Dyatlov Pass Incident",
+    "content_type": "dark history",
+    "title": "9 Hikers Never Returned",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -655,3 +655,6 @@ scripts/strategy.json merge=ours
 docs/data/* merge=ours
 output/topics_cache.json merge=ours
 scripts/strategy.json merge=ours
+docs/data/* merge=ours
+output/topics_cache.json merge=ours
+scripts/strategy.json merge=ours

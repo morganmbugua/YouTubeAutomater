@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-23T09:07:39.159044Z",
-    "status": "unknown",
-    "topic": "The Herero and Namaqua Genocide",
-    "content_type": "dark history",
-    "title": "Genocide in Africa",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-23T13:15:26.733104Z",
     "status": "unknown",
     "topic": "The 1985 Bardo Thugs",
@@ -2394,6 +2382,18 @@
     "topic": "The Mukden Incident",
     "content_type": "dark history",
     "title": "Japan's Secret Invasion",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-25T16:49:47.950792Z",
+    "status": "unknown",
+    "topic": "The Nanking Massacre's Lesser-Known Counterpart: The Panjiayu Massacre",
+    "content_type": "dark history",
+    "title": "China's Forgotten Massacre",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

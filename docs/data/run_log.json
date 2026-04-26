@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-24T01:46:37.903178Z",
-    "status": "unknown",
-    "topic": "The Black War",
-    "content_type": "dark history",
-    "title": "Australia's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-24T05:38:48.673519Z",
     "status": "unknown",
     "topic": "The Thalidomide Tragedy",
@@ -2394,6 +2382,18 @@
     "topic": "The Noida Serial Murders",
     "content_type": "dark history",
     "title": "Noida's Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-26T09:09:29.783094Z",
+    "status": "unknown",
+    "topic": "The Leopoldville Disaster",
+    "content_type": "dark history",
+    "title": "Christmas Tragedy At Sea",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-25T02:01:49.168692Z",
-    "status": "unknown",
-    "topic": "The Zanzibar Revolution",
-    "content_type": "dark history",
-    "title": "Bloodshed in Zanzibar",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-25T05:41:33.008683Z",
     "status": "unknown",
     "topic": "The Falaise Pocket Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium City Disaster",
     "content_type": "dark history",
     "title": "Radium City: Toxic Nightmare",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-27T10:28:15.992202Z",
+    "status": "unknown",
+    "topic": "The Senghenydd Colliery Disaster",
+    "content_type": "dark history",
+    "title": "Wales' Worst Mining Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

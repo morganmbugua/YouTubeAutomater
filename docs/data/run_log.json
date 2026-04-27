@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-24T20:56:46.624764Z",
-    "status": "unknown",
-    "topic": "The Kamloops Residential School",
-    "content_type": "dark history",
-    "title": "Canada's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-25T02:01:49.168692Z",
     "status": "unknown",
     "topic": "The Zanzibar Revolution",
@@ -2394,6 +2382,18 @@
     "topic": "The Taipei 228 Incident",
     "content_type": "dark history",
     "title": "Taipei's Bloody Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-27T06:42:36.620328Z",
+    "status": "unknown",
+    "topic": "The Radium City Disaster",
+    "content_type": "dark history",
+    "title": "Radium City: Toxic Nightmare",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

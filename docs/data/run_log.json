@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-26T05:48:56.276757Z",
-    "status": "unknown",
-    "topic": "The Wounded Knee Massacre",
-    "content_type": "dark history",
-    "title": "The Darkest Day in Native American History",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-26T09:07:08.042078Z",
     "status": "unknown",
     "topic": "The No Gun Ri Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Halifax Explosion",
     "content_type": "dark history",
     "title": "Halifax Destroyed in Seconds",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-28T17:59:40.860035Z",
+    "status": "unknown",
+    "topic": "The Gwangju Uprising",
+    "content_type": "dark history",
+    "title": "Korea's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

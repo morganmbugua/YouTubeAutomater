@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-26T02:09:04.573093Z",
-    "status": "unknown",
-    "topic": "The Demidov Tsaritsyno Massacre",
-    "content_type": "dark history",
-    "title": "Russia's Darkest Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-26T05:48:56.276757Z",
     "status": "unknown",
     "topic": "The Wounded Knee Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Falaise Pocket Massacre",
     "content_type": "dark history",
     "title": "Bloodiest Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-28T10:27:02.840974Z",
+    "status": "unknown",
+    "topic": "The Halifax Explosion",
+    "content_type": "dark history",
+    "title": "Halifax Destroyed in Seconds",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

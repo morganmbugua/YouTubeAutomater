@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-27T08:59:26.405504Z",
-    "status": "unknown",
-    "topic": "The Terezin Concentration Camp",
-    "content_type": "dark history",
-    "title": "Terezin: The Concentration Camp",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-27T13:09:32.714129Z",
     "status": "unknown",
     "topic": "The Lima Hospital Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The S\u00e9tif and Guelma Massacre",
     "content_type": "dark history",
     "title": "Algeria's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-29T21:11:42.609268Z",
+    "status": "unknown",
+    "topic": "The Sack of Aleppo",
+    "content_type": "dark history",
+    "title": "Aleppo's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

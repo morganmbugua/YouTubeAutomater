@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-26T17:14:11.341056Z",
-    "status": "unknown",
-    "topic": "The Kongo-Wara Rebellion",
-    "content_type": "dark history",
-    "title": "Rebellion in the Congo",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-26T20:47:31.927545Z",
     "status": "unknown",
     "topic": "The Santika Club Fire",
@@ -2394,6 +2382,18 @@
     "topic": "The Santika Club Fire",
     "content_type": "dark history",
     "title": "New Year's Eve Inferno",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-29T06:37:39.414477Z",
+    "status": "unknown",
+    "topic": "The Soweto Uprising",
+    "content_type": "dark history",
+    "title": "Soweto Uprising: Bloodiest Day",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

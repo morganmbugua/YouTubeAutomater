@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-28T08:52:01.228849Z",
-    "status": "unknown",
-    "topic": "The Radium Mine Disaster",
-    "content_type": "dark history",
-    "title": "Radium Mine Disaster Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-28T13:03:35.093094Z",
     "status": "unknown",
     "topic": "The Bhopal Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Khabarovsk War Crime Trials",
     "content_type": "dark history",
     "title": "Japan's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-04-30T21:14:08.659786Z",
+    "status": "unknown",
+    "topic": "The Radium Girls' Scandal",
+    "content_type": "dark history",
+    "title": "Glowing Paint Killed Them",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

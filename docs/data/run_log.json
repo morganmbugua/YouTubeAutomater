@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-28T20:41:20.059626Z",
-    "status": "unknown",
-    "topic": "The Nanking Massacre",
-    "content_type": "dark history",
-    "title": "Nanking Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-29T02:11:56.757042Z",
     "status": "unknown",
     "topic": "The Radium City Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Ore Incident",
     "content_type": "dark history",
     "title": "Radium's Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-01T09:44:23.908789Z",
+    "status": "unknown",
+    "topic": "The Batak Massacre",
+    "content_type": "dark history",
+    "title": "Batak Massacre Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

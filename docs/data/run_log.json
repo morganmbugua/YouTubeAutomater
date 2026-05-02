@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-30T06:13:02.188182Z",
-    "status": "unknown",
-    "topic": "The Partition of India",
-    "content_type": "dark history",
-    "title": "India's Bloody Partition",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-30T09:24:57.341467Z",
     "status": "unknown",
     "topic": "The Sack of Magdeburg",
@@ -2394,6 +2382,18 @@
     "topic": "The Thalidomide Disaster",
     "content_type": "dark history",
     "title": "The Pill That Killed Thousands",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-02T16:59:15.143119Z",
+    "status": "unknown",
+    "topic": "The Andaman Islands Genocide",
+    "content_type": "dark history",
+    "title": "Island of Death",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

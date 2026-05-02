@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-30T02:14:29.373667Z",
-    "status": "unknown",
-    "topic": "The Colosseum's Dark Secret",
-    "content_type": "dark history",
-    "title": "Colosseum's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-30T06:13:02.188182Z",
     "status": "unknown",
     "topic": "The Partition of India",
@@ -2394,6 +2382,18 @@
     "topic": "The Haymarket Affair",
     "content_type": "dark history",
     "title": "Bomb Throws City Into Chaos",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-02T13:15:59.328223Z",
+    "status": "unknown",
+    "topic": "The Thalidomide Disaster",
+    "content_type": "dark history",
+    "title": "The Pill That Killed Thousands",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

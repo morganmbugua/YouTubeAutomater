@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-30T17:13:01.600080Z",
-    "status": "unknown",
-    "topic": "The Sobibor Extermination Camp Uprising",
-    "content_type": "dark history",
-    "title": "Sobibor: The Deadly Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-30T20:59:02.169598Z",
     "status": "unknown",
     "topic": "The Radium Mine Tragedy",
@@ -2394,6 +2382,18 @@
     "topic": "The SS Central America Disaster",
     "content_type": "dark history",
     "title": "Gold Rush Ship of Doom",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-03T06:41:03.737956Z",
+    "status": "unknown",
+    "topic": "The Bhopal Disaster",
+    "content_type": "dark history",
+    "title": "Toxic Nightmare: Bhopal",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

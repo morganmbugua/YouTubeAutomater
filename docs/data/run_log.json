@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-31T09:09:57.366220Z",
-    "status": "unknown",
-    "topic": "The Batak Massacre",
-    "content_type": "dark history",
-    "title": "Bulgaria's Darkest Hour",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-31T13:21:41.548888Z",
     "status": "unknown",
     "topic": "The Dollfuss Assassination",
@@ -2394,6 +2382,18 @@
     "topic": "The Ascension Island Incident",
     "content_type": "dark history",
     "title": "Island of Horrors",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-03T20:53:16.034214Z",
+    "status": "unknown",
+    "topic": "The Zabern Affair",
+    "content_type": "dark history",
+    "title": "The Zabern Affair: Dark Truth",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

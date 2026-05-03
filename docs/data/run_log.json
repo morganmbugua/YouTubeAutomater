@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-30T20:59:02.169598Z",
-    "status": "unknown",
-    "topic": "The Radium Mine Tragedy",
-    "content_type": "dark history",
-    "title": "The Radium Mine Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-03-31T02:09:28.201083Z",
     "status": "unknown",
     "topic": "The Andaman Islands Genocide",
@@ -2394,6 +2382,18 @@
     "topic": "The Bhopal Disaster",
     "content_type": "dark history",
     "title": "Toxic Nightmare: Bhopal",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-03T09:32:21.478062Z",
+    "status": "unknown",
+    "topic": "The Radium Girls' Contemporary: The Tragic Story of Claire Cassidy",
+    "content_type": "dark history",
+    "title": "Radium's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-03-31T20:56:45.386041Z",
-    "status": "unknown",
-    "topic": "The Raba Massacre",
-    "content_type": "dark history",
-    "title": "The Raba Massacre Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-01T02:17:15.788145Z",
     "status": "unknown",
     "topic": "The Boudica Rebellion",
@@ -2394,6 +2382,18 @@
     "topic": "The Dyatlov Pass Incident",
     "content_type": "dark history",
     "title": "9 Hikers Never Returned",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-04T10:26:08.966321Z",
+    "status": "unknown",
+    "topic": "The Demidenko Massacre",
+    "content_type": "dark history",
+    "title": "The Demidenko Massacre Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

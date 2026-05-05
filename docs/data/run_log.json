@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-01T17:06:08.525686Z",
-    "status": "unknown",
-    "topic": "The Thuggee Cult Massacres",
-    "content_type": "dark history",
-    "title": "India's Secret Thuggee Cult",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-01T20:59:44.360722Z",
     "status": "unknown",
     "topic": "The Ipili Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Leopoldville Disaster",
     "content_type": "dark history",
     "title": "Sunk on Christmas Eve",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-05T06:26:57.060811Z",
+    "status": "unknown",
+    "topic": "The Kamloops Residential School Mass Graves",
+    "content_type": "dark history",
+    "title": "Canada's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

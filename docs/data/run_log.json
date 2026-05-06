@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-03T06:02:17.251420Z",
-    "status": "unknown",
-    "topic": "The Rumbula Massacre",
-    "content_type": "dark history",
-    "title": "The Rumbula Massacre",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-03T09:05:49.167428Z",
     "status": "unknown",
     "topic": "The Gelsenkirchen Prison Camp",
@@ -2394,6 +2382,18 @@
     "topic": "The Nanking Massacre",
     "content_type": "dark history",
     "title": "Nanking Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-06T21:22:57.218983Z",
+    "status": "unknown",
+    "topic": "The Dancing Plague of 1518",
+    "content_type": "dark history",
+    "title": "The Dance That Killed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-02T17:08:45.574068Z",
-    "status": "unknown",
-    "topic": "The Dozier School For Boys",
-    "content_type": "dark history",
-    "title": "The Dozier School Horror",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-02T20:47:51.452774Z",
     "status": "unknown",
     "topic": "The Foehn Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Mine Disaster",
     "content_type": "dark history",
     "title": "Radium Mine Tragedy",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-06T10:29:49.650654Z",
+    "status": "unknown",
+    "topic": "The R\u00edo Tinto Massacre",
+    "content_type": "dark history",
+    "title": "Blood in the Mines",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

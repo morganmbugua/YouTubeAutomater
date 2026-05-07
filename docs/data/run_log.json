@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-03T09:05:49.167428Z",
-    "status": "unknown",
-    "topic": "The Gelsenkirchen Prison Camp",
-    "content_type": "dark history",
-    "title": "Gelsenkirchen's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-03T13:09:39.284928Z",
     "status": "unknown",
     "topic": "The MS St. Louis Affair",
@@ -2394,6 +2382,18 @@
     "topic": "The Dancing Plague of 1518",
     "content_type": "dark history",
     "title": "The Dance That Killed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-07T02:39:42.887694Z",
+    "status": "unknown",
+    "topic": "The Taiping Rebellion",
+    "content_type": "dark history",
+    "title": "China's Bloodiest Rebellion",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

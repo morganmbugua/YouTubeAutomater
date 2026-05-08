@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-04T12:58:16.166816Z",
-    "status": "unknown",
-    "topic": "The No Gun Ri Massacre",
-    "content_type": "dark history",
-    "title": "Korea's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-04T16:42:01.869938Z",
     "status": "unknown",
     "topic": "The Falanga Massacres",
@@ -2394,6 +2382,18 @@
     "topic": "The Guatemalan Syphilis Experiment",
     "content_type": "dark history",
     "title": "Guatemala's Deadly Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-08T06:09:17.585227Z",
+    "status": "unknown",
+    "topic": "The Wounded Knee Massacre",
+    "content_type": "dark history",
+    "title": "Blood on the Prairie",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

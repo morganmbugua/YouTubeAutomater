@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-06T02:14:58.813050Z",
-    "status": "unknown",
-    "topic": "The Black Hole of Calcutta",
-    "content_type": "dark history",
-    "title": "Calcutta's Deadly Dungeon",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-06T06:12:55.160636Z",
     "status": "unknown",
     "topic": "The Ascension Island Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The K219 submarine disaster",
     "content_type": "dark history",
     "title": "Submarine K219: Nuclear Nightmare",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-09T17:05:03.301106Z",
+    "status": "unknown",
+    "topic": "The Halabja Chemical Attack",
+    "content_type": "dark history",
+    "title": "Saddam's Toxic Revenge",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

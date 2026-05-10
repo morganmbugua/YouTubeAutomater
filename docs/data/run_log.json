@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-06T09:23:09.063256Z",
-    "status": "unknown",
-    "topic": "The Nanking Massacre",
-    "content_type": "dark history",
-    "title": "Nanking Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-06T13:15:40.316868Z",
     "status": "unknown",
     "topic": "The Bloody Sunday Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Sack of Magdeburg",
     "content_type": "dark history",
     "title": "Magdeburg's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-10T02:47:24.262112Z",
+    "status": "unknown",
+    "topic": "The Batak Massacre",
+    "content_type": "dark history",
+    "title": "Bulgaria's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

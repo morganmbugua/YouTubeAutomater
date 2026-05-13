@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-10T02:20:56.862133Z",
-    "status": "unknown",
-    "topic": "The Bieslan School Siege",
-    "content_type": "dark history",
-    "title": "Russia's Deadliest Hostage Crisis",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-10T06:11:46.754769Z",
     "status": "unknown",
     "topic": "The Bega School Girls Tragedy",
@@ -2394,6 +2382,18 @@
     "topic": "The Zabern Affair",
     "content_type": "dark history",
     "title": "The Zabern Affair: Dark History",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-13T18:15:00.737352Z",
+    "status": "unknown",
+    "topic": "The Dozier School for Boys Abuse",
+    "content_type": "dark history",
+    "title": "The School of Nightmares",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

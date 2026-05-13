@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-09T17:16:42.291247Z",
-    "status": "unknown",
-    "topic": "The Bhopal Disaster",
-    "content_type": "dark history",
-    "title": "Toxic Nightmare: Bhopal",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-09T21:01:54.483480Z",
     "status": "unknown",
     "topic": "The Batak Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Destruction of Pompeii",
     "content_type": "dark history",
     "title": "Pompeii's Deadly Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-13T10:38:44.302989Z",
+    "status": "unknown",
+    "topic": "The Colosseum's Gladiatorial Games",
+    "content_type": "dark history",
+    "title": "Blood & Sand: Colosseum's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

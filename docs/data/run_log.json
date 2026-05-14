@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-10T09:19:39.590249Z",
-    "status": "unknown",
-    "topic": "The Baga Massacre",
-    "content_type": "dark history",
-    "title": "Baga Massacre: Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-10T14:10:59.619825Z",
     "status": "unknown",
     "topic": "The Biscari Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Unit 731 Experiments",
     "content_type": "dark history",
     "title": "Japan's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-14T02:52:25.097649Z",
+    "status": "unknown",
+    "topic": "The Sengoku-era Ishida Mitsunari Incident",
+    "content_type": "dark history",
+    "title": "Betrayal of Sekigahara",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-11T02:07:33.420429Z",
-    "status": "unknown",
-    "topic": "The Thalidomide Tragedy",
-    "content_type": "dark history",
-    "title": "Thalidomide: The Deadly Pill",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-11T05:43:05.361529Z",
     "status": "unknown",
     "topic": "The Gnadenhutten Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Leopoldville Disaster",
     "content_type": "dark history",
     "title": "Sunk on Christmas Eve",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-14T18:03:57.524527Z",
+    "status": "unknown",
+    "topic": "The Biscari Massacre",
+    "content_type": "dark history",
+    "title": "The Biscari Massacre Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

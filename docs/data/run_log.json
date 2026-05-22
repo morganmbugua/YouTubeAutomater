@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-18T08:58:28.638385Z",
-    "status": "unknown",
-    "topic": "The Soweto Uprising",
-    "content_type": "dark history",
-    "title": "Soweto Uprising: Bloodshed in the Streets",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-18T13:08:33.618991Z",
     "status": "unknown",
     "topic": "The Sand Creek Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Soweto Uprising",
     "content_type": "dark history",
     "title": "Soweto Uprising: Bloodiest Day",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-22T03:05:00.335765Z",
+    "status": "unknown",
+    "topic": "The Colosseum's Darkest Secret",
+    "content_type": "dark history",
+    "title": "Colosseum's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

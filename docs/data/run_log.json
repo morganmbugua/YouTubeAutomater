@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-19T20:48:57.600192Z",
-    "status": "unknown",
-    "topic": "The Partition of India",
-    "content_type": "dark history",
-    "title": "India's Bloody Divide",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-20T02:24:11.295980Z",
     "status": "unknown",
     "topic": "The 1937 Nanjing Massacre's Hidden Diary",
@@ -2394,6 +2382,18 @@
     "topic": "The Santikos Bunker Massacre",
     "content_type": "dark history",
     "title": "Santikos Bunker Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-23T13:29:12.457513Z",
+    "status": "unknown",
+    "topic": "The Sengoku-era Tsushima Massacre",
+    "content_type": "dark history",
+    "title": "Japan's Bloodiest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

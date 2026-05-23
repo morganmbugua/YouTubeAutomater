@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-19T13:08:02.247668Z",
-    "status": "unknown",
-    "topic": "The Herrin Massacre",
-    "content_type": "dark history",
-    "title": "Bloodiest Labor Riot",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-19T16:49:15.348688Z",
     "status": "unknown",
     "topic": "The Ascension Island Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Unit 731 Experiments",
     "content_type": "dark history",
     "title": "Japan's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-23T06:49:51.088726Z",
+    "status": "unknown",
+    "topic": "The Bia\u0142ystok Ghetto Uprising",
+    "content_type": "dark history",
+    "title": "Bia\u0142ystok Ghetto Uprising",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

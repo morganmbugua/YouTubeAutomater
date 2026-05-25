@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-21T09:37:02.356994Z",
-    "status": "unknown",
-    "topic": "The Belsen Trial",
-    "content_type": "dark history",
-    "title": "Belsen Trial Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-21T13:34:08.248605Z",
     "status": "unknown",
     "topic": "The Radium Ore Disaster of 1928",
@@ -2394,6 +2382,18 @@
     "topic": "The \u017bydzi Kielce Pogrom",
     "content_type": "dark history",
     "title": "Pogrom That Shook Poland",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-25T03:07:09.558538Z",
+    "status": "unknown",
+    "topic": "The Sengoku-era Tensho Shigenaga Incident",
+    "content_type": "dark history",
+    "title": "Bloodiest Betrayal in Sengoku",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

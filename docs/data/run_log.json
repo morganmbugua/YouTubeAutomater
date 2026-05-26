@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-22T17:08:42.257270Z",
-    "status": "unknown",
-    "topic": "The Thalidomide Disaster",
-    "content_type": "dark history",
-    "title": "The Pill That Maimed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-22T21:05:02.027756Z",
     "status": "unknown",
     "topic": "The No Gun Ri Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Khatyn Massacre",
     "content_type": "dark history",
     "title": "The Khatyn Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-26T18:39:28.341267Z",
+    "status": "unknown",
+    "topic": "The Doomsdays of Devastation of the 1970 Damascus earthquake wasn't an earthquake but rather the explosion of a hidden ammo dump in Harasta",
+    "content_type": "dark history",
+    "title": "Damascus Destroyed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-22T21:05:02.027756Z",
-    "status": "unknown",
-    "topic": "The No Gun Ri Massacre",
-    "content_type": "dark history",
-    "title": "Koreans Killed by US Troops",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-23T02:21:09.822444Z",
     "status": "unknown",
     "topic": "The Katyn Forest Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Doomsdays of Devastation of the 1970 Damascus earthquake wasn't an earthquake but rather the explosion of a hidden ammo dump in Harasta",
     "content_type": "dark history",
     "title": "Damascus Destroyed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-26T21:57:21.061756Z",
+    "status": "unknown",
+    "topic": "The Leopoldville Disaster",
+    "content_type": "dark history",
+    "title": "Sunk on Christmas Eve",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

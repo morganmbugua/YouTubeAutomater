@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-23T06:21:01.635172Z",
-    "status": "unknown",
-    "topic": "The Terezin Concentration Camp",
-    "content_type": "dark history",
-    "title": "Terezin's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-23T09:42:57.432115Z",
     "status": "unknown",
     "topic": "The Nanking Massacre's Twin Atrocity: The Changjiao Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Sharpeville Massacre",
     "content_type": "dark history",
     "title": "Bloodshed in Sharpeville",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-27T08:13:58.466042Z",
+    "status": "unknown",
+    "topic": "The Falaise Pocket Massacre",
+    "content_type": "dark history",
+    "title": "Bloodiest Trap in History",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

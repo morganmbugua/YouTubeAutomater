@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-25T08:57:34.596275Z",
-    "status": "unknown",
-    "topic": "The Dyatlov Pass Incident",
-    "content_type": "dark history",
-    "title": "9 Hikers Never Returned",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-25T13:08:59.685586Z",
     "status": "unknown",
     "topic": "The Mukden Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Gibraltarian Genocide",
     "content_type": "dark history",
     "title": "Gibraltar's Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-29T15:06:21.450516Z",
+    "status": "unknown",
+    "topic": "The Kalgoorlie Riots",
+    "content_type": "dark history",
+    "title": "Aussie Race Riots",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

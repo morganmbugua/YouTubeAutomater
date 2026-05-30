@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-26T16:55:24.131045Z",
-    "status": "unknown",
-    "topic": "The Radium Mine Tragedy",
-    "content_type": "dark history",
-    "title": "The Radium Mine Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-26T20:50:02.686286Z",
     "status": "unknown",
     "topic": "The Sack of Antioch",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Girls",
     "content_type": "dark history",
     "title": "Radium Girls: Toxic Glow",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-30T21:03:27.292649Z",
+    "status": "unknown",
+    "topic": "The Cawnpore Massacres",
+    "content_type": "dark history",
+    "title": "Cawnpore Massacres Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

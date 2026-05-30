@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-26T09:09:29.783094Z",
-    "status": "unknown",
-    "topic": "The Leopoldville Disaster",
-    "content_type": "dark history",
-    "title": "Christmas Tragedy At Sea",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-26T13:11:29.212168Z",
     "status": "unknown",
     "topic": "The Biscari Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Taipei 228 Incident",
     "content_type": "dark history",
     "title": "Taipei's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-30T13:32:15.033758Z",
+    "status": "unknown",
+    "topic": "The Bhopal Disaster",
+    "content_type": "dark history",
+    "title": "Bhopal's Deadly Night",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

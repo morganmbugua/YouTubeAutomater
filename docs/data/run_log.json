@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-27T06:42:36.620328Z",
-    "status": "unknown",
-    "topic": "The Radium City Disaster",
-    "content_type": "dark history",
-    "title": "Radium City: Toxic Nightmare",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-27T10:28:15.992202Z",
     "status": "unknown",
     "topic": "The Senghenydd Colliery Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Bloody Sunday Massacre",
     "content_type": "dark history",
     "title": "Bloody Sunday: A Day of Infamy",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-05-31T10:28:15.005803Z",
+    "status": "unknown",
+    "topic": "The Herero and Namaqua Genocide",
+    "content_type": "dark history",
+    "title": "The Forgotten Genocide",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

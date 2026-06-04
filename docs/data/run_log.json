@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-04-30T02:43:02.382470Z",
-    "status": "unknown",
-    "topic": "The Tlatelolco Massacre",
-    "content_type": "dark history",
-    "title": "Mexico's Darkest Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-04-30T06:45:25.991954Z",
     "status": "unknown",
     "topic": "The Srebrenica Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Glico Morinaga Incident",
     "content_type": "dark history",
     "title": "Japan's Bizarre Candy Heist",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-04T03:44:52.841143Z",
+    "status": "unknown",
+    "topic": "The Sack of Antioch",
+    "content_type": "dark history",
+    "title": "Antioch's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

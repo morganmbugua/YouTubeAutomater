@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-01T06:50:14.375429Z",
-    "status": "unknown",
-    "topic": "The Radium Ore Incident",
-    "content_type": "dark history",
-    "title": "Radium's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-01T09:44:23.908789Z",
     "status": "unknown",
     "topic": "The Batak Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Rumbula Massacre",
     "content_type": "dark history",
     "title": "Rumbula Massacre Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-05T14:52:32.940968Z",
+    "status": "unknown",
+    "topic": "The Bengal Famine",
+    "content_type": "dark history",
+    "title": "Famine That Killed Millions",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

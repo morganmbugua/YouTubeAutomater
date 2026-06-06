@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-02T06:23:37.500491Z",
-    "status": "unknown",
-    "topic": "The Herrin Massacre",
-    "content_type": "dark history",
-    "title": "Bloodiest Labor Riot",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-02T09:19:17.148025Z",
     "status": "unknown",
     "topic": "The Haymarket Affair",
@@ -2394,6 +2382,18 @@
     "topic": "The Drohobych Massacre",
     "content_type": "dark history",
     "title": "Massacre in Drohobych",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-06T13:36:47.945456Z",
+    "status": "unknown",
+    "topic": "The \u0141\u00f3d\u017a Ghetto Uprising",
+    "content_type": "dark history",
+    "title": "\u0141\u00f3d\u017a Ghetto Uprising",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

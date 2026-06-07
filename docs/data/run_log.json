@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-03T09:32:21.478062Z",
-    "status": "unknown",
-    "topic": "The Radium Girls' Contemporary: The Tragic Story of Claire Cassidy",
-    "content_type": "dark history",
-    "title": "Radium's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-03T13:16:56.263309Z",
     "status": "unknown",
     "topic": "The Wong Nai Siong Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Ore Mine Disaster",
     "content_type": "dark history",
     "title": "The Mine That Glowed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-07T17:27:14.564171Z",
+    "status": "unknown",
+    "topic": "The Sengoku Daimyo Massacre",
+    "content_type": "dark history",
+    "title": "Bloodiest Betrayal Japan",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

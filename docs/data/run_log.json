@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-03T17:01:20.318026Z",
-    "status": "unknown",
-    "topic": "The Ascension Island Incident",
-    "content_type": "dark history",
-    "title": "Island of Horrors",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-03T20:53:16.034214Z",
     "status": "unknown",
     "topic": "The Zabern Affair",
@@ -2394,6 +2382,18 @@
     "topic": "The Halifax Explosion",
     "content_type": "dark history",
     "title": "Halifax Destroyed in Seconds",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-08T03:16:39.447610Z",
+    "status": "unknown",
+    "topic": "The Bataan Death March",
+    "content_type": "dark history",
+    "title": "The March of No Return",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

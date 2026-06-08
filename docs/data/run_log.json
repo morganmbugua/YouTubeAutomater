@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-04T10:26:08.966321Z",
-    "status": "unknown",
-    "topic": "The Demidenko Massacre",
-    "content_type": "dark history",
-    "title": "The Demidenko Massacre Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-04T13:50:03.929284Z",
     "status": "unknown",
     "topic": "The Colonia Dignidad",
@@ -2394,6 +2382,18 @@
     "topic": "The Dosso Massacre",
     "content_type": "dark history",
     "title": "Niger's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-08T21:59:09.059351Z",
+    "status": "unknown",
+    "topic": "The Dozier School for Boys",
+    "content_type": "dark history",
+    "title": "Florida's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-05T02:30:46.221409Z",
-    "status": "unknown",
-    "topic": "The Leopoldville Disaster",
-    "content_type": "dark history",
-    "title": "Sunk on Christmas Eve",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-05T06:26:57.060811Z",
     "status": "unknown",
     "topic": "The Kamloops Residential School Mass Graves",
@@ -2394,6 +2382,18 @@
     "topic": "The Balangiga Massacre",
     "content_type": "dark history",
     "title": "The Forgotten Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-09T14:54:06.711706Z",
+    "status": "unknown",
+    "topic": "The Nanking Massacre",
+    "content_type": "dark history",
+    "title": "Nanking: 6 Weeks of Terror",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-06T10:29:49.650654Z",
-    "status": "unknown",
-    "topic": "The R\u00edo Tinto Massacre",
-    "content_type": "dark history",
-    "title": "Blood in the Mines",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-06T14:09:58.818627Z",
     "status": "unknown",
     "topic": "The Bloody Sunday Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Narva Massacre",
     "content_type": "dark history",
     "title": "Narva Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-10T22:15:15.424529Z",
+    "status": "unknown",
+    "topic": "The Biscari Massacre",
+    "content_type": "dark history",
+    "title": "The Biscari Massacre Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

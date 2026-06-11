@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-06T21:22:57.218983Z",
-    "status": "unknown",
-    "topic": "The Dancing Plague of 1518",
-    "content_type": "dark history",
-    "title": "The Dance That Killed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-07T02:39:42.887694Z",
     "status": "unknown",
     "topic": "The Taiping Rebellion",
@@ -2394,6 +2382,18 @@
     "topic": "The Demidov Massacre",
     "content_type": "dark history",
     "title": "Russia's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-11T16:00:30.623024Z",
+    "status": "unknown",
+    "topic": "The Port Chicago Disaster",
+    "content_type": "dark history",
+    "title": "Deadly Naval Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

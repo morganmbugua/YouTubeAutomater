@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-08T06:09:17.585227Z",
-    "status": "unknown",
-    "topic": "The Wounded Knee Massacre",
-    "content_type": "dark history",
-    "title": "Blood on the Prairie",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-08T09:23:51.815066Z",
     "status": "unknown",
     "topic": "The Santika Club Fire",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium City Disaster",
     "content_type": "dark history",
     "title": "The Town That Glowed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-13T03:05:29.546544Z",
+    "status": "unknown",
+    "topic": "The Bieslan School Siege",
+    "content_type": "dark history",
+    "title": "Russia's Deadliest Hostage Crisis",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

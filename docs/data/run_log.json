@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-09T06:31:53.866451Z",
-    "status": "unknown",
-    "topic": "The Belsen Trial",
-    "content_type": "dark history",
-    "title": "Belsen Trial Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-09T09:26:18.584998Z",
     "status": "unknown",
     "topic": "The Sengoku Period's Honno-ji Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Sack of Antioch",
     "content_type": "dark history",
     "title": "Antioch's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-14T03:22:07.355839Z",
+    "status": "unknown",
+    "topic": "The Gipo Prison Massacre",
+    "content_type": "dark history",
+    "title": "Gipo Prison Massacre Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

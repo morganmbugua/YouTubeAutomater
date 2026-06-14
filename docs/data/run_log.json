@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-09T17:05:03.301106Z",
-    "status": "unknown",
-    "topic": "The Halabja Chemical Attack",
-    "content_type": "dark history",
-    "title": "Saddam's Toxic Revenge",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-09T21:03:54.033099Z",
     "status": "unknown",
     "topic": "The Sack of Magdeburg",
@@ -2394,6 +2382,18 @@
     "topic": "The Sonthofen Massacre",
     "content_type": "dark history",
     "title": "Nazi Atrocity Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-14T17:33:46.423897Z",
+    "status": "unknown",
+    "topic": "The Unit 731 Experiments",
+    "content_type": "dark history",
+    "title": "Japan's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

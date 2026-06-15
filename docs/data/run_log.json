@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-10T09:44:52.962444Z",
-    "status": "unknown",
-    "topic": "The Katyn Massacre",
-    "content_type": "dark history",
-    "title": "The Massacre That Changed History",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-10T13:19:26.706821Z",
     "status": "unknown",
     "topic": "The Sengoku Daimyo Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Kalavryta Massacre",
     "content_type": "dark history",
     "title": "Nazi Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-15T17:22:50.969682Z",
+    "status": "unknown",
+    "topic": "The Sengoku-era Tsukiyama Massacre",
+    "content_type": "dark history",
+    "title": "Sengoku's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

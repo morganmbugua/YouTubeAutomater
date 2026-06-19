@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-13T07:05:22.986353Z",
-    "status": "unknown",
-    "topic": "The Destruction of Pompeii",
-    "content_type": "dark history",
-    "title": "Pompeii's Deadly Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-13T10:38:44.302989Z",
     "status": "unknown",
     "topic": "The Colosseum's Gladiatorial Games",
@@ -2394,6 +2382,18 @@
     "topic": "The Dozier School for Boys",
     "content_type": "dark history",
     "title": "Florida's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-19T09:20:36.023760Z",
+    "status": "unknown",
+    "topic": "The Herrlisheim Massacre",
+    "content_type": "dark history",
+    "title": "Massacre in Herrlisheim",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-16T06:40:31.885640Z",
-    "status": "unknown",
-    "topic": "The Kamloops Residential School Massacre",
-    "content_type": "dark history",
-    "title": "Canada's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-16T09:41:43.706996Z",
     "status": "unknown",
     "topic": "The Radium Mine Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Alexander Hamilton Burr Duel",
     "content_type": "dark history",
     "title": "Duel to the Death",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-22T22:11:11.963873Z",
+    "status": "unknown",
+    "topic": "The Bengal Famine",
+    "content_type": "dark history",
+    "title": "Bengal's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

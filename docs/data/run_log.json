@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-16T09:41:43.706996Z",
-    "status": "unknown",
-    "topic": "The Radium Mine Disaster",
-    "content_type": "dark history",
-    "title": "The Toxic Mine",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-16T13:27:02.069428Z",
     "status": "unknown",
     "topic": "The Dolgov Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Bengal Famine",
     "content_type": "dark history",
     "title": "Bengal's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-23T02:54:45.421371Z",
+    "status": "unknown",
+    "topic": "The Delhi Durbars Massacre",
+    "content_type": "dark history",
+    "title": "Delhi Durbars Massacre",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

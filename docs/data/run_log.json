@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-18T03:00:30.064016Z",
-    "status": "unknown",
-    "topic": "The Sharpeville Massacre",
-    "content_type": "dark history",
-    "title": "Bloodshed in Sharpeville",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-18T08:15:57.248447Z",
     "status": "unknown",
     "topic": "The Halifax Explosion",
@@ -2394,6 +2382,18 @@
     "topic": "The Babi Yar Massacre",
     "content_type": "dark history",
     "title": "Babi Yar: The Forgotten Massacre",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-24T18:06:05.390240Z",
+    "status": "unknown",
+    "topic": "The Wounded Knee Massacre",
+    "content_type": "dark history",
+    "title": "Wounded Knee Massacre",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

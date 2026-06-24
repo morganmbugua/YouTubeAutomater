@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-17T17:05:38.091800Z",
-    "status": "unknown",
-    "topic": "The Ascension Island Massacre",
-    "content_type": "dark history",
-    "title": "Island of Blood",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-17T21:00:52.622653Z",
     "status": "unknown",
     "topic": "The Doom of the Varangians",
@@ -2394,6 +2382,18 @@
     "topic": "The Bieslan School Siege",
     "content_type": "dark history",
     "title": "Russia's Deadliest School Siege",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-24T11:13:45.741040Z",
+    "status": "unknown",
+    "topic": "The Bystander Effect: The Murder of Kitty Genovese",
+    "content_type": "dark history",
+    "title": "Kitty Genovese: 30 Witnesses",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

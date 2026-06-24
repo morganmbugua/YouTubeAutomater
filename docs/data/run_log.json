@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-17T21:00:52.622653Z",
-    "status": "unknown",
-    "topic": "The Doom of the Varangians",
-    "content_type": "dark history",
-    "title": "Viking Apocalypse",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-18T03:00:30.064016Z",
     "status": "unknown",
     "topic": "The Sharpeville Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Bystander Effect: The Murder of Kitty Genovese",
     "content_type": "dark history",
     "title": "Kitty Genovese: 30 Witnesses",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-24T14:32:26.671451Z",
+    "status": "unknown",
+    "topic": "The Babi Yar Massacre",
+    "content_type": "dark history",
+    "title": "Babi Yar: The Forgotten Massacre",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

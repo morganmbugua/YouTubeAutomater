@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-19T02:59:39.254580Z",
-    "status": "unknown",
-    "topic": "The Radium Girls' Fight for Justice",
-    "content_type": "dark history",
-    "title": "Radium Girls' Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-19T07:56:45.950316Z",
     "status": "unknown",
     "topic": "The Gibraltarian Genocide",
@@ -2394,6 +2382,18 @@
     "topic": "The Port Chicago Disaster",
     "content_type": "dark history",
     "title": "Deadliest Naval Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-25T18:26:53.568976Z",
+    "status": "unknown",
+    "topic": "The Senghenydd Colliery Disaster",
+    "content_type": "dark history",
+    "title": "Wales' Worst Mining Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-18T15:32:11.347086Z",
-    "status": "unknown",
-    "topic": "The Babi Yar Massacre",
-    "content_type": "dark history",
-    "title": "Babi Yar: Massacre Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-18T18:12:42.334571Z",
     "status": "unknown",
     "topic": "The Bloody Sunday Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Partition of India",
     "content_type": "dark history",
     "title": "India's Bloody Divide",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-25T07:54:54.015633Z",
+    "status": "unknown",
+    "topic": "The Radium Mine Disaster",
+    "content_type": "dark history",
+    "title": "Radium Mine Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

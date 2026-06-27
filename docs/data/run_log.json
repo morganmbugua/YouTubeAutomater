@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-20T11:09:30.081208Z",
-    "status": "unknown",
-    "topic": "The Black Hole of Calcutta",
-    "content_type": "dark history",
-    "title": "The Black Hole of Calcutta",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-20T15:09:57.152383Z",
     "status": "unknown",
     "topic": "The Radium Mine Tragedy of Jabalpur",
@@ -2394,6 +2382,18 @@
     "topic": "The Gander Air Crash",
     "content_type": "dark history",
     "title": "Disaster in Gander",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-27T02:57:27.217046Z",
+    "status": "unknown",
+    "topic": "The Radium Ore Incident",
+    "content_type": "dark history",
+    "title": "Radium's Deadly Glow",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-21T07:59:58.066147Z",
-    "status": "unknown",
-    "topic": "The Bhopal Disaster",
-    "content_type": "dark history",
-    "title": "Bhopal's Deadly Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-21T11:33:27.171306Z",
     "status": "unknown",
     "topic": "The Radium Mine Tragedy of Joachimsthal",
@@ -2394,6 +2382,18 @@
     "topic": "The Halifax Explosion",
     "content_type": "dark history",
     "title": "Halifax Destroyed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-27T21:14:14.396031Z",
+    "status": "unknown",
+    "topic": "The Gibraltarian Genocide",
+    "content_type": "dark history",
+    "title": "Gibraltar's Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

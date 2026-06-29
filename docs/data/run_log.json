@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-22T11:05:46.295632Z",
-    "status": "unknown",
-    "topic": "The Herero and Namaqua Genocide",
-    "content_type": "dark history",
-    "title": "Genocide in Africa",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-22T14:42:31.599184Z",
     "status": "unknown",
     "topic": "The Bengal Famine",
@@ -2394,6 +2382,18 @@
     "topic": "The Sack of Magdeburg",
     "content_type": "dark history",
     "title": "Magdeburg's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-06-29T03:09:23.472732Z",
+    "status": "unknown",
+    "topic": "The Drohobych Massacre",
+    "content_type": "dark history",
+    "title": "Massacre in Drohobych",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

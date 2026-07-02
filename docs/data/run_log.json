@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-25T21:15:57.800316Z",
-    "status": "unknown",
-    "topic": "The Wounded Knee Massacre",
-    "content_type": "dark history",
-    "title": "Wounded Knee Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-26T02:57:20.792214Z",
     "status": "unknown",
     "topic": "The Gnadenhutten Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Destruction of the Library of Ashurbanipal",
     "content_type": "dark history",
     "title": "Lost to the Sands",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-02T18:01:48.969545Z",
+    "status": "unknown",
+    "topic": "The Red Terror",
+    "content_type": "dark history",
+    "title": "Stalin's Bloodiest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

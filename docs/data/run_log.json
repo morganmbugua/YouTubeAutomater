@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-25T08:31:59.725385Z",
-    "status": "unknown",
-    "topic": "The Drohobych Massacre",
-    "content_type": "dark history",
-    "title": "Nazi Massacre Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-25T14:59:57.508299Z",
     "status": "unknown",
     "topic": "The Doolittle Raid",
@@ -2394,6 +2382,18 @@
     "topic": "The Thuggee Cult of India",
     "content_type": "dark history",
     "title": "India's Deadly Thuggee Cult",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-02T07:41:02.110720Z",
+    "status": "unknown",
+    "topic": "The Gwalior Massacre",
+    "content_type": "dark history",
+    "title": "Gwalior Massacre Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

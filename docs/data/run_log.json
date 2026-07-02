@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-25T17:48:01.716194Z",
-    "status": "unknown",
-    "topic": "The Rumbula Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in Rumbula",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-25T21:15:57.800316Z",
     "status": "unknown",
     "topic": "The Wounded Knee Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Zabern Affair",
     "content_type": "dark history",
     "title": "The Zabern Affair: Dark History",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-02T14:05:21.496121Z",
+    "status": "unknown",
+    "topic": "The Destruction of the Library of Ashurbanipal",
+    "content_type": "dark history",
+    "title": "Lost to the Sands",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-26T18:39:28.341267Z",
-    "status": "unknown",
-    "topic": "The Doomsdays of Devastation of the 1970 Damascus earthquake wasn't an earthquake but rather the explosion of a hidden ammo dump in Harasta",
-    "content_type": "dark history",
-    "title": "Damascus Destroyed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-26T21:57:21.061756Z",
     "status": "unknown",
     "topic": "The Leopoldville Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Dancing Plague of 1518",
     "content_type": "dark history",
     "title": "The Dance That Killed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-03T10:49:02.417979Z",
+    "status": "unknown",
+    "topic": "The Bhopal Disaster",
+    "content_type": "dark history",
+    "title": "Bhopal's Toxic Night",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

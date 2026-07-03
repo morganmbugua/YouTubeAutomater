@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-26T08:01:36.188723Z",
-    "status": "unknown",
-    "topic": "The Nanking Massacre",
-    "content_type": "dark history",
-    "title": "Nanking Massacre: 6 Weeks of Horror",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-26T15:13:18.169429Z",
     "status": "unknown",
     "topic": "The Khatyn Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Srebrenica Massacre",
     "content_type": "dark history",
     "title": "Srebrenica: 8,000 Dead",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-03T02:41:30.736369Z",
+    "status": "unknown",
+    "topic": "The Dosso Massacre",
+    "content_type": "dark history",
+    "title": "Niger's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-28T18:49:16.443098Z",
-    "status": "unknown",
-    "topic": "The 1986 Chernobyl Disaster's Lost City of Pripyat",
-    "content_type": "dark history",
-    "title": "Chernobyl's Dead City",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-28T22:09:11.320934Z",
     "status": "unknown",
     "topic": "The Kamianets-Podilskyi Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Partition of India",
     "content_type": "dark history",
     "title": "India's Bloody Divide",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-05T07:35:42.183276Z",
+    "status": "unknown",
+    "topic": "The Luxor Massacre",
+    "content_type": "dark history",
+    "title": "Egypt's Darkest Night",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

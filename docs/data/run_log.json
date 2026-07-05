@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-29T11:40:26.784551Z",
-    "status": "unknown",
-    "topic": "The Gibraltarian Genocide",
-    "content_type": "dark history",
-    "title": "Gibraltar's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-29T15:06:21.450516Z",
     "status": "unknown",
     "topic": "The Kalgoorlie Riots",
@@ -2394,6 +2382,18 @@
     "topic": "The Black Hole of Calcutta",
     "content_type": "dark history",
     "title": "The Black Hole of Calcutta",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-05T21:06:45.843037Z",
+    "status": "unknown",
+    "topic": "The Leopoldville Disaster",
+    "content_type": "dark history",
+    "title": "SS Leopoldville Sunk",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

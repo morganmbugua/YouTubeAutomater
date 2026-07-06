@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-30T02:58:32.598331Z",
-    "status": "unknown",
-    "topic": "The Nanjing Massacre's Chinese comfort women",
-    "content_type": "dark history",
-    "title": "China's Hidden Shame",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-30T06:58:56.996040Z",
     "status": "unknown",
     "topic": "The Ascension Island Riot",
@@ -2394,6 +2382,18 @@
     "topic": "The Boudican Revolt",
     "content_type": "dark history",
     "title": "Rome's Worst Nightmare",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-06T18:23:48.441577Z",
+    "status": "unknown",
+    "topic": "The Belsen Bergen Concentration Camp",
+    "content_type": "dark history",
+    "title": "Belsen Bergen: Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

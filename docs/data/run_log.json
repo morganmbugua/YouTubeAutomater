@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-30T13:32:15.033758Z",
-    "status": "unknown",
-    "topic": "The Bhopal Disaster",
-    "content_type": "dark history",
-    "title": "Bhopal's Deadly Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-30T17:12:31.495727Z",
     "status": "unknown",
     "topic": "The Radium Girls",
@@ -2394,6 +2382,18 @@
     "topic": "The Biscari Massacre",
     "content_type": "dark history",
     "title": "The Biscari Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-07T07:50:28.942251Z",
+    "status": "unknown",
+    "topic": "The Radium Mine Disaster",
+    "content_type": "dark history",
+    "title": "Radium Mine Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-31T03:09:10.075732Z",
-    "status": "unknown",
-    "topic": "The Colonia Dignidad",
-    "content_type": "dark history",
-    "title": "Chile's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-31T07:57:56.602429Z",
     "status": "unknown",
     "topic": "The Bloody Sunday Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium City Disaster",
     "content_type": "dark history",
     "title": "Radium City: Toxic Nightmare",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-07T18:10:49.175233Z",
+    "status": "unknown",
+    "topic": "The Bath School Disaster",
+    "content_type": "dark history",
+    "title": "America's Deadliest Attack",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

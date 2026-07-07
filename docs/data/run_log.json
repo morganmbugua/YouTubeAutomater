@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-05-30T21:03:27.292649Z",
-    "status": "unknown",
-    "topic": "The Cawnpore Massacres",
-    "content_type": "dark history",
-    "title": "Cawnpore Massacres Uncovered",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-05-31T03:09:10.075732Z",
     "status": "unknown",
     "topic": "The Colonia Dignidad",
@@ -2394,6 +2382,18 @@
     "topic": "The Halabja Chemical Attack",
     "content_type": "dark history",
     "title": "Iraq's Deadly Gas Attack",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-07T14:31:18.681911Z",
+    "status": "unknown",
+    "topic": "The Radium City Disaster",
+    "content_type": "dark history",
+    "title": "Radium City: Toxic Nightmare",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-01T03:43:10.254131Z",
-    "status": "unknown",
-    "topic": "The Zabern Affair",
-    "content_type": "dark history",
-    "title": "The Zabern Incident",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-01T09:40:07.477756Z",
     "status": "unknown",
     "topic": "The Partition of India",
@@ -2394,6 +2382,18 @@
     "topic": "The Kyshtym Disaster",
     "content_type": "dark history",
     "title": "Russia's Deadly Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-08T17:44:46.159646Z",
+    "status": "unknown",
+    "topic": "The Raba Massacre",
+    "content_type": "dark history",
+    "title": "The Raba Massacre Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-03T03:48:49.440643Z",
-    "status": "unknown",
-    "topic": "The Baga Massacre",
-    "content_type": "dark history",
-    "title": "Nigeria's Darkest Hour",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-03T09:06:10.661145Z",
     "status": "unknown",
     "topic": "The Babi Yar Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Atrocities of King Leopold",
     "content_type": "dark history",
     "title": "King Leopold's Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-10T02:40:24.971099Z",
+    "status": "unknown",
+    "topic": "The Sobibor Perpetrators",
+    "content_type": "dark history",
+    "title": "Sobibor's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

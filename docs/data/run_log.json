@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-05T14:52:32.940968Z",
-    "status": "unknown",
-    "topic": "The Bengal Famine",
-    "content_type": "dark history",
-    "title": "Famine That Killed Millions",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-05T18:06:18.905457Z",
     "status": "unknown",
     "topic": "The Gnadenhutten Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Soweto Uprising",
     "content_type": "dark history",
     "title": "Soweto's Bloody Uprising",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-11T20:59:27.916601Z",
+    "status": "unknown",
+    "topic": "The Dolinka Massacre",
+    "content_type": "dark history",
+    "title": "Massacre in the Valley",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

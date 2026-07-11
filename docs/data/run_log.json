@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-04T18:35:58.485438Z",
-    "status": "unknown",
-    "topic": "The Katyn Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in the Forest",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-04T21:44:31.684432Z",
     "status": "unknown",
     "topic": "The Rabaul Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Zabern Affair",
     "content_type": "dark history",
     "title": "The Zabern Affair: Dark History",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-11T06:26:09.555486Z",
+    "status": "unknown",
+    "topic": "The Ascension Island Massacre",
+    "content_type": "dark history",
+    "title": "Island of Blood",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

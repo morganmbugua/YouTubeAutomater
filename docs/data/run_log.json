@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-04T21:44:31.684432Z",
-    "status": "unknown",
-    "topic": "The Rabaul Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in Rabaul",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-05T03:06:17.195485Z",
     "status": "unknown",
     "topic": "The Unit 731 Experiments",
@@ -2394,6 +2382,18 @@
     "topic": "The Ascension Island Massacre",
     "content_type": "dark history",
     "title": "Island of Blood",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-11T09:34:06.763058Z",
+    "status": "unknown",
+    "topic": "The Cocoliztli Epidemic",
+    "content_type": "dark history",
+    "title": "Mexico's Deadly Plague",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

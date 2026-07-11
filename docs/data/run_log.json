@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-05T08:19:05.602453Z",
-    "status": "unknown",
-    "topic": "The Rumbula Massacre",
-    "content_type": "dark history",
-    "title": "Rumbula Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-05T14:52:32.940968Z",
     "status": "unknown",
     "topic": "The Bengal Famine",
@@ -2394,6 +2382,18 @@
     "topic": "The Gelsenkirchen Bombing",
     "content_type": "dark history",
     "title": "Gelsenkirchen's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-11T17:06:10.089110Z",
+    "status": "unknown",
+    "topic": "The Soweto Uprising",
+    "content_type": "dark history",
+    "title": "Soweto's Bloody Uprising",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

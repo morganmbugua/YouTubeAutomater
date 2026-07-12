@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-06T02:54:36.146404Z",
-    "status": "unknown",
-    "topic": "The Peasant's War of 1524-1525",
-    "content_type": "dark history",
-    "title": "Bloodiest Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-06T07:04:28.806736Z",
     "status": "unknown",
     "topic": "The Sobibor Extermination Camp Uprising",
@@ -2394,6 +2382,18 @@
     "topic": "The No Gun Ri Massacre",
     "content_type": "dark history",
     "title": "Korea's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-12T10:02:44.283082Z",
+    "status": "unknown",
+    "topic": "The Peasant's War of 1524-1525",
+    "content_type": "dark history",
+    "title": "Bloodiest Uprising",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

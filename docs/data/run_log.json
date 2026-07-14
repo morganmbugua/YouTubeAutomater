@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-08T03:16:39.447610Z",
-    "status": "unknown",
-    "topic": "The Bataan Death March",
-    "content_type": "dark history",
-    "title": "The March of No Return",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-08T09:04:38.311076Z",
     "status": "unknown",
     "topic": "The W\u0142adys\u0142aw Anders Extermination",
@@ -2394,6 +2382,18 @@
     "topic": "The SS Sultana Disaster",
     "content_type": "dark history",
     "title": "America's Worst Maritime Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-14T10:05:01.305244Z",
+    "status": "unknown",
+    "topic": "The Gnadenhutten Massacre",
+    "content_type": "dark history",
+    "title": "The Massacre That Shook America",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

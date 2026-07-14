@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-08T15:56:28.085112Z",
-    "status": "unknown",
-    "topic": "The Khatyn Massacre",
-    "content_type": "dark history",
-    "title": "The Khatyn Massacre: Forgotten Atrocity",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-08T18:41:53.382597Z",
     "status": "unknown",
     "topic": "The Dosso Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Partition of India",
     "content_type": "dark history",
     "title": "India's Bloody Divide",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-14T17:24:59.817675Z",
+    "status": "unknown",
+    "topic": "The Black Dragon River Incident",
+    "content_type": "dark history",
+    "title": "China's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

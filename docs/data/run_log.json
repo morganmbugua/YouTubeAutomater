@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-08T09:04:38.311076Z",
-    "status": "unknown",
-    "topic": "The W\u0142adys\u0142aw Anders Extermination",
-    "content_type": "dark history",
-    "title": "The W\u0142adys\u0142aw Anders Massacre",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-08T15:56:28.085112Z",
     "status": "unknown",
     "topic": "The Khatyn Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Gnadenhutten Massacre",
     "content_type": "dark history",
     "title": "The Massacre That Shook America",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-14T13:37:41.008033Z",
+    "status": "unknown",
+    "topic": "The Partition of India",
+    "content_type": "dark history",
+    "title": "India's Bloody Divide",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

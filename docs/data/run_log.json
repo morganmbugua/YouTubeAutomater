@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-09T14:54:06.711706Z",
-    "status": "unknown",
-    "topic": "The Nanking Massacre",
-    "content_type": "dark history",
-    "title": "Nanking: 6 Weeks of Terror",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-09T18:16:01.094215Z",
     "status": "unknown",
     "topic": "The 1984 Bhopal Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Biscari Massacre",
     "content_type": "dark history",
     "title": "The Biscari Massacre Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-15T17:25:30.028502Z",
+    "status": "unknown",
+    "topic": "The Belsen Trial",
+    "content_type": "dark history",
+    "title": "Belsen Trial Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

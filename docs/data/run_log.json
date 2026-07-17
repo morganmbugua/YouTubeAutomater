@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-12T03:13:01.086011Z",
-    "status": "unknown",
-    "topic": "The Bystander Effect and the Murder of Kitty Genovese",
-    "content_type": "dark history",
-    "title": "Kitty Genovese: 38 Witnesses",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-12T08:37:00.458448Z",
     "status": "unknown",
     "topic": "The Partition of India",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Mine Disaster",
     "content_type": "dark history",
     "title": "Radium Mine Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-17T20:59:28.009567Z",
+    "status": "unknown",
+    "topic": "The Radium City Disaster",
+    "content_type": "dark history",
+    "title": "Radium City: Toxic Nightmare",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

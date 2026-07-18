@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-12T18:19:22.792112Z",
-    "status": "unknown",
-    "topic": "The Radium Girls",
-    "content_type": "dark history",
-    "title": "Glowing Paint Killed Them",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-12T22:06:44.988111Z",
     "status": "unknown",
     "topic": "The Radium City Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Kursk submarine disaster",
     "content_type": "dark history",
     "title": "Russia's Deadliest Submarine Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-18T09:39:22.885765Z",
+    "status": "unknown",
+    "topic": "The Haymarket Riot",
+    "content_type": "dark history",
+    "title": "Blood in the Streets",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

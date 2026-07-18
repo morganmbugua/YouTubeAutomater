@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-12T22:06:44.988111Z",
-    "status": "unknown",
-    "topic": "The Radium City Disaster",
-    "content_type": "dark history",
-    "title": "The Town That Glowed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-13T03:05:29.546544Z",
     "status": "unknown",
     "topic": "The Bieslan School Siege",
@@ -2394,6 +2382,18 @@
     "topic": "The Haymarket Riot",
     "content_type": "dark history",
     "title": "Blood in the Streets",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-18T13:13:16.318365Z",
+    "status": "unknown",
+    "topic": "The Bengal Famine",
+    "content_type": "dark history",
+    "title": "The Famine That Killed 3 Million",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

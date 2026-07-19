@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-13T17:34:00.620631Z",
-    "status": "unknown",
-    "topic": "The Sack of Magdeburg",
-    "content_type": "dark history",
-    "title": "The City That Was Annihilated",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-13T21:26:21.250582Z",
     "status": "unknown",
     "topic": "The Sack of Antioch",
@@ -2394,6 +2382,18 @@
     "topic": "The Nanking Massacre",
     "content_type": "dark history",
     "title": "Nanking: 6 Weeks of Horror",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-19T10:06:19.292862Z",
+    "status": "unknown",
+    "topic": "The Port Chicago Disaster",
+    "content_type": "dark history",
+    "title": "Deadly Naval Base Explosion",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-15T17:22:50.969682Z",
-    "status": "unknown",
-    "topic": "The Sengoku-era Tsukiyama Massacre",
-    "content_type": "dark history",
-    "title": "Sengoku's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-15T22:31:05.053751Z",
     "status": "unknown",
     "topic": "The Leopoldville Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Santika Club Fire",
     "content_type": "dark history",
     "title": "Thailand's Deadliest Night",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-20T21:20:18.392455Z",
+    "status": "unknown",
+    "topic": "The Asahi Shimbun Incident",
+    "content_type": "dark history",
+    "title": "Japan's Dark Secret Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

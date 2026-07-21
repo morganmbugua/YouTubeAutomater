@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-15T22:31:05.053751Z",
-    "status": "unknown",
-    "topic": "The Leopoldville Disaster",
-    "content_type": "dark history",
-    "title": "Sunk on Christmas Eve",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-16T03:46:44.328713Z",
     "status": "unknown",
     "topic": "The Gelsenkirchen Prison Camp",
@@ -2394,6 +2382,18 @@
     "topic": "The Asahi Shimbun Incident",
     "content_type": "dark history",
     "title": "Japan's Dark Secret Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-21T02:23:32.197436Z",
+    "status": "unknown",
+    "topic": "The Zabern Affair",
+    "content_type": "dark history",
+    "title": "Zabern Affair: Dark Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

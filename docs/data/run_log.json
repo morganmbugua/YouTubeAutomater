@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-16T03:46:44.328713Z",
-    "status": "unknown",
-    "topic": "The Gelsenkirchen Prison Camp",
-    "content_type": "dark history",
-    "title": "Gelsenkirchen's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-16T09:40:19.072066Z",
     "status": "unknown",
     "topic": "The Sobibor Extermination Camp Uprising",
@@ -2394,6 +2382,18 @@
     "topic": "The Zabern Affair",
     "content_type": "dark history",
     "title": "Zabern Affair: Dark Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-21T06:40:03.176439Z",
+    "status": "unknown",
+    "topic": "The Radium Mine Tragedy",
+    "content_type": "dark history",
+    "title": "Radium's Deadly Glow",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

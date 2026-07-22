@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-18T08:59:24.881819Z",
-    "status": "unknown",
-    "topic": "The Halifax Explosion",
-    "content_type": "dark history",
-    "title": "Halifax Destroyed in Seconds",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-18T15:12:29.118418Z",
     "status": "unknown",
     "topic": "The Tay Bridge Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Sack of Magdeburg",
     "content_type": "dark history",
     "title": "Magdeburg's Darkest Hour",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-22T21:16:52.418448Z",
+    "status": "unknown",
+    "topic": "The Sack of Antioch",
+    "content_type": "dark history",
+    "title": "Bloodshed in Antioch",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

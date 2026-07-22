@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-17T09:14:20.169182Z",
-    "status": "unknown",
-    "topic": "The Rumbula Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in Rumbula",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-17T15:16:43.626138Z",
     "status": "unknown",
     "topic": "The Tlatelolco Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The sinking of the MV Wilhelm Gustloff",
     "content_type": "dark history",
     "title": "Deadliest Sea Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-22T02:19:01.059538Z",
+    "status": "unknown",
+    "topic": "The Peasant's Revolt of 1381",
+    "content_type": "dark history",
+    "title": "Bloodiest Uprising",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-17T22:11:39.321840Z",
-    "status": "unknown",
-    "topic": "The Peasant's War of 1524",
-    "content_type": "dark history",
-    "title": "Germany's Bloody Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-18T03:14:18.218083Z",
     "status": "unknown",
     "topic": "The Srebrenica Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Narva Massacre",
     "content_type": "dark history",
     "title": "Narva Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-22T13:44:20.086674Z",
+    "status": "unknown",
+    "topic": "The Khmer Rouge Genocide",
+    "content_type": "dark history",
+    "title": "Khmer Rouge: 1.7M Dead",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

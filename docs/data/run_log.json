@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-22T17:00:43.017165Z",
-    "status": "unknown",
-    "topic": "The Alexander Hamilton Burr Duel",
-    "content_type": "dark history",
-    "title": "Duel to the Death",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-22T22:11:11.963873Z",
     "status": "unknown",
     "topic": "The Bengal Famine",
@@ -2394,6 +2382,18 @@
     "topic": "The No Gun Ri Massacre",
     "content_type": "dark history",
     "title": "Korean War's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-26T13:24:46.458305Z",
+    "status": "unknown",
+    "topic": "The Radium Girls Scandal",
+    "content_type": "dark history",
+    "title": "The Glow That Killed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

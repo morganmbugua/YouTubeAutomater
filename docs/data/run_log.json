@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-24T07:51:24.513447Z",
-    "status": "unknown",
-    "topic": "The Bieslan School Siege",
-    "content_type": "dark history",
-    "title": "Russia's Deadliest School Siege",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-24T11:13:45.741040Z",
     "status": "unknown",
     "topic": "The Bystander Effect: The Murder of Kitty Genovese",
@@ -2394,6 +2382,18 @@
     "topic": "The Haymarket Affair",
     "content_type": "dark history",
     "title": "Bomb Throws Nation Into Chaos",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-28T02:14:55.985548Z",
+    "status": "unknown",
+    "topic": "The Port Chicago Disaster",
+    "content_type": "dark history",
+    "title": "Naval Base Explosion Kills 320",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

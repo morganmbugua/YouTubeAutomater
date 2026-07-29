@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-25T18:26:53.568976Z",
-    "status": "unknown",
-    "topic": "The Senghenydd Colliery Disaster",
-    "content_type": "dark history",
-    "title": "Wales' Worst Mining Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-25T21:42:34.619202Z",
     "status": "unknown",
     "topic": "The Leopoldville Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Falun Mine Disaster",
     "content_type": "dark history",
     "title": "Sweden's Worst Mining Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-29T14:11:38.270132Z",
+    "status": "unknown",
+    "topic": "The Siege of Leningrad",
+    "content_type": "dark history",
+    "title": "Leningrad's 900 Days",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-25T21:42:34.619202Z",
-    "status": "unknown",
-    "topic": "The Leopoldville Disaster",
-    "content_type": "dark history",
-    "title": "SS Leopoldville Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-26T03:03:30.142284Z",
     "status": "unknown",
     "topic": "The Andizhan Uprising",
@@ -2394,6 +2382,18 @@
     "topic": "The Siege of Leningrad",
     "content_type": "dark history",
     "title": "Leningrad's 900 Days",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-29T17:29:07.412442Z",
+    "status": "unknown",
+    "topic": "The Radium Ore Revolt",
+    "content_type": "dark history",
+    "title": "Glowing Bones",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

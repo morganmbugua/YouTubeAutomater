@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-27T21:14:14.396031Z",
-    "status": "unknown",
-    "topic": "The Gibraltarian Genocide",
-    "content_type": "dark history",
-    "title": "Gibraltar's Dark Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-28T03:10:05.439013Z",
     "status": "unknown",
     "topic": "The Sengoku Era's Ishida Mitsunari Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Senghenydd Colliery Disaster",
     "content_type": "dark history",
     "title": "Wales' Worst Mining Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-07-31T17:39:35.727536Z",
+    "status": "unknown",
+    "topic": "The Sacking of Magdeburg",
+    "content_type": "dark history",
+    "title": "Magdeburg's Darkest Day",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

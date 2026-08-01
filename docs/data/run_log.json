@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-29T03:09:23.472732Z",
-    "status": "unknown",
-    "topic": "The Drohobych Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in Drohobych",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-29T09:12:14.062049Z",
     "status": "unknown",
     "topic": "The Gnadenhutten Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The 1984 Bhopal Disaster",
     "content_type": "dark history",
     "title": "Bhopal: The Deadliest Disaster",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-01T20:56:21.610140Z",
+    "status": "unknown",
+    "topic": "The Halabja Chemical Attack",
+    "content_type": "dark history",
+    "title": "Iraq's Deadly Gas Attack",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

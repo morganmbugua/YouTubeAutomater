@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-28T21:15:47.970871Z",
-    "status": "unknown",
-    "topic": "The Sack of Magdeburg",
-    "content_type": "dark history",
-    "title": "Magdeburg's Darkest Hour",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-29T03:09:23.472732Z",
     "status": "unknown",
     "topic": "The Drohobych Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Sharpeville Massacre",
     "content_type": "dark history",
     "title": "Bloodshed in Sharpeville",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-01T17:11:03.513551Z",
+    "status": "unknown",
+    "topic": "The 1984 Bhopal Disaster",
+    "content_type": "dark history",
+    "title": "Bhopal: The Deadliest Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

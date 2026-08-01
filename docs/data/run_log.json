@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-28T13:43:35.330808Z",
-    "status": "unknown",
-    "topic": "The Dozier School for Boys",
-    "content_type": "dark history",
-    "title": "The School of Horrors",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-28T17:21:27.481893Z",
     "status": "unknown",
     "topic": "The Dolchsto\u00dflegende",
@@ -2394,6 +2382,18 @@
     "topic": "The Unit 731 Experiments",
     "content_type": "dark history",
     "title": "Japan's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-01T10:11:18.574007Z",
+    "status": "unknown",
+    "topic": "The Dyatlov Pass Incident",
+    "content_type": "dark history",
+    "title": "Nine Hikers Never Returned",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

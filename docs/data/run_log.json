@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-30T11:11:46.900030Z",
-    "status": "unknown",
-    "topic": "The Sharpeville Massacre",
-    "content_type": "dark history",
-    "title": "Bloodshed in Sharpeville",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-30T14:22:46.282012Z",
     "status": "unknown",
     "topic": "The Tlatelolco Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Katyn Massacre",
     "content_type": "dark history",
     "title": "The Katyn Massacre Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-03T02:10:51.618241Z",
+    "status": "unknown",
+    "topic": "The Phoolan Devi Massacres",
+    "content_type": "dark history",
+    "title": "India's Deadliest Revenge",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

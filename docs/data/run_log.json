@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-06-30T14:22:46.282012Z",
-    "status": "unknown",
-    "topic": "The Tlatelolco Massacre",
-    "content_type": "dark history",
-    "title": "Mexico's Darkest Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-06-30T18:07:46.314877Z",
     "status": "unknown",
     "topic": "The \u0141awk\u00f3w Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Phoolan Devi Massacres",
     "content_type": "dark history",
     "title": "India's Deadliest Revenge",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-03T07:11:20.487384Z",
+    "status": "unknown",
+    "topic": "The Khibit Genocide",
+    "content_type": "dark history",
+    "title": "The Khibit Genocide Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

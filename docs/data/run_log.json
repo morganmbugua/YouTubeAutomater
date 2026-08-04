@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-01T18:05:30.439740Z",
-    "status": "unknown",
-    "topic": "The Peasant's Revolt of 1381",
-    "content_type": "dark history",
-    "title": "Bloodiest Uprising in England",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-01T21:40:18.174337Z",
     "status": "unknown",
     "topic": "The No Gun Ri Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Bataan Death March",
     "content_type": "dark history",
     "title": "The March of No Return",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-04T07:06:28.533311Z",
+    "status": "unknown",
+    "topic": "The Taipei 228 Incident",
+    "content_type": "dark history",
+    "title": "Taipei's Darkest Day",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

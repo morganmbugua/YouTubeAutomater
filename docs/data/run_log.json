@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-02T03:00:33.929018Z",
-    "status": "unknown",
-    "topic": "The Thuggee Cult of India",
-    "content_type": "dark history",
-    "title": "India's Deadly Thuggee Cult",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-02T07:41:02.110720Z",
     "status": "unknown",
     "topic": "The Gwalior Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Radium Girls' Fight for Justice",
     "content_type": "dark history",
     "title": "Radium Girls' Deadly Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-04T14:09:35.789345Z",
+    "status": "unknown",
+    "topic": "The Radium City Disaster",
+    "content_type": "dark history",
+    "title": "Radium City Disaster",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

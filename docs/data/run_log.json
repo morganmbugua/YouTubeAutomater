@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-04T10:24:46.447706Z",
-    "status": "unknown",
-    "topic": "The Deportation of the Crimean Tatars",
-    "content_type": "dark history",
-    "title": "Stalin's Secret Genocide",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-04T13:22:13.260326Z",
     "status": "unknown",
     "topic": "The Edelweiss Pirates",
@@ -2394,6 +2382,18 @@
     "topic": "The Edelweiss Pirates",
     "content_type": "dark history",
     "title": "Teen Rebels vs Nazis",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-07T06:33:10.034617Z",
+    "status": "unknown",
+    "topic": "The Atrocities of Unit 100",
+    "content_type": "dark history",
+    "title": "Japan's Secret Bio Lab",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

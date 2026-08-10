@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-07T11:07:42.826723Z",
-    "status": "unknown",
-    "topic": "The Halabja Chemical Attack",
-    "content_type": "dark history",
-    "title": "Iraq's Deadly Gas Attack",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-07T14:31:18.681911Z",
     "status": "unknown",
     "topic": "The Radium City Disaster",
@@ -2394,6 +2382,18 @@
     "topic": "The Zabern Affair",
     "content_type": "dark history",
     "title": "The Zabern Affair: Dark History",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-10T01:32:19.237463Z",
+    "status": "unknown",
+    "topic": "The HMS Looe Disaster",
+    "content_type": "dark history",
+    "title": "Britain's Deadliest Shipwreck",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

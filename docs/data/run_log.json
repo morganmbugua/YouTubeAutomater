@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-09T07:55:54.726123Z",
-    "status": "unknown",
-    "topic": "The Tambov Rebellion",
-    "content_type": "dark history",
-    "title": "Russia's Bloodiest Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-09T11:04:20.307770Z",
     "status": "unknown",
     "topic": "The Santika Club Fire",
@@ -2394,6 +2382,18 @@
     "topic": "The Hartlepool Monkey Incident",
     "content_type": "dark history",
     "title": "The Hanging Monkey",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-11T20:54:07.633074Z",
+    "status": "unknown",
+    "topic": "The Katyn Massacre",
+    "content_type": "dark history",
+    "title": "Stalin's Darkest Secret",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

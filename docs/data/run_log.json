@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-09T11:04:20.307770Z",
-    "status": "unknown",
-    "topic": "The Santika Club Fire",
-    "content_type": "dark history",
-    "title": "Thailand's Deadliest Night",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-09T15:08:18.650531Z",
     "status": "unknown",
     "topic": "The Fo\u010da massacres",
@@ -2394,6 +2382,18 @@
     "topic": "The Katyn Massacre",
     "content_type": "dark history",
     "title": "Stalin's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-12T01:36:40.453447Z",
+    "status": "unknown",
+    "topic": "The Witch Trials of Tors\u00e5ker",
+    "content_type": "dark history",
+    "title": "Sweden's Darkest Hour",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

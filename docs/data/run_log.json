@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-10T11:08:08.257175Z",
-    "status": "unknown",
-    "topic": "The Falaise Pocket Massacre",
-    "content_type": "dark history",
-    "title": "Nazi Army Annihilated",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-10T14:28:52.284600Z",
     "status": "unknown",
     "topic": "The Nanjing Massacre's Forgotten Sister: The Changjiao Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Bloody Sunday Massacre",
     "content_type": "dark history",
     "title": "Bloody Sunday Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-13T01:38:13.596238Z",
+    "status": "unknown",
+    "topic": "The Tlatelolco Massacre",
+    "content_type": "dark history",
+    "title": "Blood in Mexico City",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

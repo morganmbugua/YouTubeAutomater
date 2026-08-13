@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-11T06:26:09.555486Z",
-    "status": "unknown",
-    "topic": "The Ascension Island Massacre",
-    "content_type": "dark history",
-    "title": "Island of Blood",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-11T09:34:06.763058Z",
     "status": "unknown",
     "topic": "The Cocoliztli Epidemic",
@@ -2394,6 +2382,18 @@
     "topic": "The Tbilisi Affair",
     "content_type": "dark history",
     "title": "The Tbilisi Affair Exposed",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-13T20:55:14.687846Z",
+    "status": "unknown",
+    "topic": "The Radium City Disaster",
+    "content_type": "dark history",
+    "title": "The Town That Glowed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-11T02:22:11.763705Z",
-    "status": "unknown",
-    "topic": "The Zabern Affair",
-    "content_type": "dark history",
-    "title": "The Zabern Affair: Dark History",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-11T06:26:09.555486Z",
     "status": "unknown",
     "topic": "The Ascension Island Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Colosseum's Forgotten Massacre",
     "content_type": "dark history",
     "title": "Rome's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-13T17:08:56.796345Z",
+    "status": "unknown",
+    "topic": "The Tbilisi Affair",
+    "content_type": "dark history",
+    "title": "The Tbilisi Affair Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

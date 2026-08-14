@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-11T20:59:27.916601Z",
-    "status": "unknown",
-    "topic": "The Dolinka Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in the Valley",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-12T02:22:25.727270Z",
     "status": "unknown",
     "topic": "The Doppler Brothers Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Sengoku Daimyo Uesugi Kenshin's Death",
     "content_type": "dark history",
     "title": "Kenshin's Mysterious Demise",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-14T13:08:32.306293Z",
+    "status": "unknown",
+    "topic": "The Tientsin Massacre",
+    "content_type": "dark history",
+    "title": "Bloodshed in Tientsin",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

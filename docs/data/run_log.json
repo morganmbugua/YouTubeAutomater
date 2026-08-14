@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-11T17:06:10.089110Z",
-    "status": "unknown",
-    "topic": "The Soweto Uprising",
-    "content_type": "dark history",
-    "title": "Soweto's Bloody Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-11T20:59:27.916601Z",
     "status": "unknown",
     "topic": "The Dolinka Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Nanking Massacre",
     "content_type": "dark history",
     "title": "Nanking Massacre Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-14T09:19:57.696690Z",
+    "status": "unknown",
+    "topic": "The Sengoku Daimyo Uesugi Kenshin's Death",
+    "content_type": "dark history",
+    "title": "Kenshin's Mysterious Demise",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

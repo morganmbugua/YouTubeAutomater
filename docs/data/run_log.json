@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-13T07:06:07.046969Z",
-    "status": "unknown",
-    "topic": "The Sengoku Daimyo Incident",
-    "content_type": "dark history",
-    "title": "Sengoku Daimyo Massacre",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-13T11:12:23.530237Z",
     "status": "unknown",
     "topic": "The Taipei 228 Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Babi Yar Massacre",
     "content_type": "dark history",
     "title": "Babi Yar: Uncovered",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-15T20:35:07.080469Z",
+    "status": "unknown",
+    "topic": "The 1980 Bologna Massacre",
+    "content_type": "dark history",
+    "title": "Bologna's Darkest Day",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

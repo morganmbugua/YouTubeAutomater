@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-13T02:29:36.554826Z",
-    "status": "unknown",
-    "topic": "The 1985 Bhopal Disaster's Hidden Twin: The Seveso Dioxide Disaster",
-    "content_type": "dark history",
-    "title": "Toxic Twins: Bhopal's Hidden Sister",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-13T07:06:07.046969Z",
     "status": "unknown",
     "topic": "The Sengoku Daimyo Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Bataan Death March",
     "content_type": "dark history",
     "title": "The March of No Return",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-15T16:35:04.012538Z",
+    "status": "unknown",
+    "topic": "The Babi Yar Massacre",
+    "content_type": "dark history",
+    "title": "Babi Yar: Uncovered",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

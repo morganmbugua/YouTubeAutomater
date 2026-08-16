@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-14T06:23:40.991125Z",
-    "status": "unknown",
-    "topic": "The SS Sultana Disaster",
-    "content_type": "dark history",
-    "title": "America's Worst Maritime Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-14T10:05:01.305244Z",
     "status": "unknown",
     "topic": "The Gnadenhutten Massacre",
@@ -2394,6 +2382,18 @@
     "topic": "The Black War",
     "content_type": "dark history",
     "title": "Australia's Darkest Secret",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-16T20:33:54.157772Z",
+    "status": "unknown",
+    "topic": "The Wounded Knee Massacre",
+    "content_type": "dark history",
+    "title": "Wounded Knee Massacre Exposed",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

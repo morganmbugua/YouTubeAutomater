@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-14T13:37:41.008033Z",
-    "status": "unknown",
-    "topic": "The Partition of India",
-    "content_type": "dark history",
-    "title": "India's Bloody Divide",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-14T17:24:59.817675Z",
     "status": "unknown",
     "topic": "The Black Dragon River Incident",
@@ -2394,6 +2382,18 @@
     "topic": "The Deportation of the Crimean Tatars",
     "content_type": "dark history",
     "title": "The Forgotten Genocide",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-17T04:52:47.157346Z",
+    "status": "unknown",
+    "topic": "The Partition of India",
+    "content_type": "dark history",
+    "title": "India's Bloody Divide",
     "video_id": "",
     "youtube_url": "",
     "instagram": false,

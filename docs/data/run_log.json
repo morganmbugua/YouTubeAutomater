@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-15T02:09:48.768282Z",
-    "status": "unknown",
-    "topic": "The Unit 731 Experiments",
-    "content_type": "dark history",
-    "title": "Japan's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-15T06:27:40.373166Z",
     "status": "unknown",
     "topic": "The Waco Siege",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-17T12:30:31.016091Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-17T16:19:38.257612Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

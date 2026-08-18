@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-15T13:41:50.371556Z",
-    "status": "unknown",
-    "topic": "The Biscari Massacre",
-    "content_type": "dark history",
-    "title": "The Biscari Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-15T17:25:30.028502Z",
     "status": "unknown",
     "topic": "The Belsen Trial",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-18T04:28:51.465129Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-18T08:27:41.806586Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

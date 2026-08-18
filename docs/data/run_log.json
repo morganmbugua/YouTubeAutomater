@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-16T02:14:06.325918Z",
-    "status": "unknown",
-    "topic": "The Boudican Revolt",
-    "content_type": "dark history",
-    "title": "Rome's Worst Nightmare",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-16T06:31:53.002376Z",
     "status": "unknown",
     "topic": "The Bataan Death March",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-18T16:28:55.532115Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-18T20:15:40.506748Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

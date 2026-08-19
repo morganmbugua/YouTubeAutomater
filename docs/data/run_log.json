@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-16T21:09:56.210168Z",
-    "status": "unknown",
-    "topic": "The Katyn Massacre",
-    "content_type": "dark history",
-    "title": "Massacre in the Forest",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-17T02:18:41.909201Z",
     "status": "unknown",
     "topic": "The Bloody Benders",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-19T16:27:20.443480Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-19T20:19:20.660765Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

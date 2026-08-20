@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-17T06:28:56.280279Z",
-    "status": "unknown",
-    "topic": "The Radium Girls",
-    "content_type": "dark history",
-    "title": "Radium's Deadly Glow",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-17T10:07:24.225783Z",
     "status": "unknown",
     "topic": "The Sengoku-era Honno-ji Incident",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-20T00:52:18.586461Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-20T04:30:09.495694Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

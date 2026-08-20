@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-17T02:18:41.909201Z",
-    "status": "unknown",
-    "topic": "The Bloody Benders",
-    "content_type": "dark history",
-    "title": "The Bloody Benders Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-17T06:28:56.280279Z",
     "status": "unknown",
     "topic": "The Radium Girls",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-19T20:19:20.660765Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-20T00:52:18.586461Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

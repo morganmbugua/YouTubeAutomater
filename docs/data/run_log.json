@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-24T10:27:33.408196Z",
-    "status": "unknown",
-    "topic": "The Halifax Explosion",
-    "content_type": "dark history",
-    "title": "Halifax Destroyed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-24T13:38:14.675427Z",
     "status": "unknown",
     "topic": "The Golfe du Lion Disaster",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-27T18:43:12.575315Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-28T03:58:06.257927Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

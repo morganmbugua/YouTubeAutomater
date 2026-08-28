@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-24T13:38:14.675427Z",
-    "status": "unknown",
-    "topic": "The Golfe du Lion Disaster",
-    "content_type": "dark history",
-    "title": "France's Worst Maritime Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-24T17:41:54.052446Z",
     "status": "unknown",
     "topic": "The 1978 Jonestown Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-28T03:58:06.257927Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-28T15:57:36.090618Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

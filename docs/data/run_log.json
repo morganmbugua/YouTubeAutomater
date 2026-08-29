@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-25T06:33:12.226189Z",
-    "status": "unknown",
-    "topic": "The Sook Ching Massacre",
-    "content_type": "dark history",
-    "title": "Singapore's Darkest Hour",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-25T09:56:03.290734Z",
     "status": "unknown",
     "topic": "The Katyn Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-29T16:02:56.266697Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-29T22:10:39.343310Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

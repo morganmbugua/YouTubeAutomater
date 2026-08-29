@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-24T17:41:54.052446Z",
-    "status": "unknown",
-    "topic": "The 1978 Jonestown Massacre",
-    "content_type": "dark history",
-    "title": "Jonestown: The Deadly Cult",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-24T21:10:36.347731Z",
     "status": "unknown",
     "topic": "The Bataan Death March",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-28T15:57:36.090618Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-29T00:23:18.888384Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

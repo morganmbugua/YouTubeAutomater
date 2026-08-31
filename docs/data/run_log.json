@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-26T17:08:12.835027Z",
-    "status": "unknown",
-    "topic": "The Radium Girls' Fight for Justice",
-    "content_type": "dark history",
-    "title": "Glowing Lies",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-26T21:08:27.536669Z",
     "status": "unknown",
     "topic": "The Radium City Disaster",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-08-31T18:36:06.602642Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-08-31T23:33:24.827803Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

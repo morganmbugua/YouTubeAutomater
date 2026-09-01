@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-27T07:12:37.575609Z",
-    "status": "unknown",
-    "topic": "The Colonia Dignidad",
-    "content_type": "dark history",
-    "title": "Colonia Dignidad Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-27T11:32:07.661788Z",
     "status": "unknown",
     "topic": "The Bieslan School Siege",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-01T09:04:41.800496Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-01T15:55:14.102623Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-28T17:34:39.579733Z",
-    "status": "unknown",
-    "topic": "The Black Hole of Calcutta",
-    "content_type": "dark history",
-    "title": "The Black Hole Horror",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-28T21:20:28.701784Z",
     "status": "unknown",
     "topic": "The Herero and Namaqua Genocide",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-03T02:30:20.841948Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-03T08:27:41.200034Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

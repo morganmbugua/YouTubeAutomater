@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-29T10:45:17.927671Z",
-    "status": "unknown",
-    "topic": "The Falun Mine Disaster",
-    "content_type": "dark history",
-    "title": "Sweden's Worst Mining Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-29T14:11:38.270132Z",
     "status": "unknown",
     "topic": "The Siege of Leningrad",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-03T22:07:42.623743Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-04T02:26:05.077284Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-29T14:11:38.270132Z",
-    "status": "unknown",
-    "topic": "The Siege of Leningrad",
-    "content_type": "dark history",
-    "title": "Leningrad's 900 Days",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-29T17:29:07.412442Z",
     "status": "unknown",
     "topic": "The Radium Ore Revolt",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-04T02:26:05.077284Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-04T08:23:18.744013Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

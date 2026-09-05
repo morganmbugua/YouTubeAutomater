@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-30T14:01:18.314305Z",
-    "status": "unknown",
-    "topic": "The Dancing Plague of 1518",
-    "content_type": "dark history",
-    "title": "The Dance That Killed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-30T17:37:11.077180Z",
     "status": "unknown",
     "topic": "The MS St. Louis Affair",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-05T07:58:53.271144Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-05T11:43:21.306983Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

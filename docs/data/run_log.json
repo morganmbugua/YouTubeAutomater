@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-07-31T02:26:02.015558Z",
-    "status": "unknown",
-    "topic": "The sinking of the MV Goya",
-    "content_type": "dark history",
-    "title": "Hitler's Worst Maritime Disaster",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-07-31T06:56:53.522483Z",
     "status": "unknown",
     "topic": "The Radium Dial Company Scandal",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-05T17:51:20.684548Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-05T21:50:30.825585Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

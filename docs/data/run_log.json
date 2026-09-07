@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-01T10:11:18.574007Z",
-    "status": "unknown",
-    "topic": "The Dyatlov Pass Incident",
-    "content_type": "dark history",
-    "title": "Nine Hikers Never Returned",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-01T13:05:50.720657Z",
     "status": "unknown",
     "topic": "The Sharpeville Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-07T08:49:23.452068Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-07T17:01:43.507102Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

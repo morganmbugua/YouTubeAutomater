@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-01T13:05:50.720657Z",
-    "status": "unknown",
-    "topic": "The Sharpeville Massacre",
-    "content_type": "dark history",
-    "title": "Bloodshed in Sharpeville",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-01T17:11:03.513551Z",
     "status": "unknown",
     "topic": "The 1984 Bhopal Disaster",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-07T17:01:43.507102Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-07T22:26:44.119555Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

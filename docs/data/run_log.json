@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-02T02:24:03.221593Z",
-    "status": "unknown",
-    "topic": "The Wounded Knee Massacre",
-    "content_type": "dark history",
-    "title": "Wounded Knee Massacre",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-02T06:42:48.443891Z",
     "status": "unknown",
     "topic": "The Ascension Island Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-08T08:30:10.629202Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-08T15:48:49.879250Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

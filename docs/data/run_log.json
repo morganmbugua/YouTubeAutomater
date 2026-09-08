@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-02T06:42:48.443891Z",
-    "status": "unknown",
-    "topic": "The Ascension Island Massacre",
-    "content_type": "dark history",
-    "title": "Island of Blood",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-02T10:02:57.532892Z",
     "status": "unknown",
     "topic": "The Halifax Explosion",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-08T15:48:49.879250Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-08T19:11:58.919843Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

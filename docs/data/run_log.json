@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-02T13:23:28.284037Z",
-    "status": "unknown",
-    "topic": "The Peasant's War of 1524-1525",
-    "content_type": "dark history",
-    "title": "Bloodiest Uprising",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-02T17:09:38.083020Z",
     "status": "unknown",
     "topic": "The Soweto Uprising",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-08T22:16:15.853607Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-09T02:34:03.741019Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

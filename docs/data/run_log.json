@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-05T02:12:35.347483Z",
-    "status": "unknown",
-    "topic": "The Raba Massacre",
-    "content_type": "dark history",
-    "title": "The Raba Massacre Exposed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-05T06:36:36.079722Z",
     "status": "unknown",
     "topic": "The Boudica Rebellion",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-11T22:09:06.084726Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-12T02:38:00.079228Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

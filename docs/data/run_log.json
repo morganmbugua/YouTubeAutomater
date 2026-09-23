@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-13T20:55:14.687846Z",
-    "status": "unknown",
-    "topic": "The Radium City Disaster",
-    "content_type": "dark history",
-    "title": "The Town That Glowed",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-14T01:39:47.711212Z",
     "status": "unknown",
     "topic": "The Bhopal Disaster",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-23T02:50:11.196750Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-23T08:59:52.202713Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

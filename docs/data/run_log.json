@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-14T09:19:57.696690Z",
-    "status": "unknown",
-    "topic": "The Sengoku Daimyo Uesugi Kenshin's Death",
-    "content_type": "dark history",
-    "title": "Kenshin's Mysterious Demise",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-14T13:08:32.306293Z",
     "status": "unknown",
     "topic": "The Tientsin Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-23T19:23:45.304160Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-23T22:37:14.958666Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-14T17:01:14.039028Z",
-    "status": "unknown",
-    "topic": "The Sutherland Massacre",
-    "content_type": "dark history",
-    "title": "Sutherland's Darkest Hour",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-14T20:42:10.924642Z",
     "status": "unknown",
     "topic": "The SS Central America Disaster",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-24T02:40:27.292176Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-24T08:55:29.238300Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

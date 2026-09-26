@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-16T04:46:14.153582Z",
-    "status": "unknown",
-    "topic": "The Unit 731 Experiments",
-    "content_type": "dark history",
-    "title": "Japan's Darkest Secret",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-16T08:37:54.313806Z",
     "status": "unknown",
     "topic": "The Edelweiss Pirates",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-26T08:59:23.289311Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-26T15:32:09.039097Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

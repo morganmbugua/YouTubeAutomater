@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-08-17T04:52:47.157346Z",
-    "status": "unknown",
-    "topic": "The Partition of India",
-    "content_type": "dark history",
-    "title": "India's Bloody Divide",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-08-17T08:56:07.351445Z",
     "status": "unknown",
     "topic": "The Banffshire Massacre",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-09-27T16:11:56.996923Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-09-27T22:45:03.583766Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",

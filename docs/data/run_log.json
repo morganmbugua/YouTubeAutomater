@@ -1,18 +1,6 @@
 [
   {
     "slot": 1,
-    "timestamp": "2026-09-03T19:01:23.808408Z",
-    "status": "unknown",
-    "topic": "Unknown",
-    "content_type": "",
-    "title": "",
-    "video_id": "",
-    "youtube_url": "",
-    "instagram": false,
-    "tiktok": false
-  },
-  {
-    "slot": 1,
     "timestamp": "2026-09-03T22:07:42.623743Z",
     "status": "unknown",
     "topic": "Unknown",
@@ -2390,6 +2378,18 @@
   {
     "slot": 1,
     "timestamp": "2026-10-20T02:58:40.916678Z",
+    "status": "unknown",
+    "topic": "Unknown",
+    "content_type": "",
+    "title": "",
+    "video_id": "",
+    "youtube_url": "",
+    "instagram": false,
+    "tiktok": false
+  },
+  {
+    "slot": 1,
+    "timestamp": "2026-10-20T09:03:05.885343Z",
     "status": "unknown",
     "topic": "Unknown",
     "content_type": "",
